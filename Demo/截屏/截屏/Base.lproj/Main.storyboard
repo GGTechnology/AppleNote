@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="EeR-6q-MZb">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="one_girl" translatesAutoresizingMaskIntoConstraints="NO" id="nTk-Dv-na2">
+                                <rect key="frame" x="87" y="132" width="240" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="gyj-S4-wD5"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="four_girl" translatesAutoresizingMaskIntoConstraints="NO" id="Yla-Dn-6DK">
+                                <rect key="frame" x="87" y="324" width="240" height="84"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="three_girl" translatesAutoresizingMaskIntoConstraints="NO" id="rdf-8q-7IS">
+                                <rect key="frame" x="87" y="464" width="240" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="cB6-5k-uF4"/>
+                                </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="two_girl" translatesAutoresizingMaskIntoConstraints="NO" id="Dmd-xG-k8i">
+                                <rect key="frame" x="87" y="670" width="240" height="128"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Yla-Dn-6DK" firstAttribute="top" secondItem="nTk-Dv-na2" secondAttribute="bottom" constant="64" id="651-Ut-mV3"/>
+                            <constraint firstItem="Dmd-xG-k8i" firstAttribute="centerX" secondItem="nTk-Dv-na2" secondAttribute="centerX" id="BNe-B3-QHe"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Dmd-xG-k8i" secondAttribute="bottom" constant="64" id="F5a-Na-VVE"/>
+                            <constraint firstItem="Dmd-xG-k8i" firstAttribute="top" secondItem="rdf-8q-7IS" secondAttribute="bottom" constant="78" id="IJM-oK-299"/>
+                            <constraint firstItem="Yla-Dn-6DK" firstAttribute="centerX" secondItem="nTk-Dv-na2" secondAttribute="centerX" id="Ogh-ag-2Gk"/>
+                            <constraint firstItem="nTk-Dv-na2" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="UeU-Pl-oNa"/>
+                            <constraint firstItem="nTk-Dv-na2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="87" id="Vsi-OC-CmL"/>
+                            <constraint firstItem="rdf-8q-7IS" firstAttribute="leading" secondItem="nTk-Dv-na2" secondAttribute="leading" id="b8B-le-Dtu"/>
+                            <constraint firstItem="rdf-8q-7IS" firstAttribute="centerX" secondItem="nTk-Dv-na2" secondAttribute="centerX" id="c8U-5s-il9"/>
+                            <constraint firstItem="Yla-Dn-6DK" firstAttribute="leading" secondItem="nTk-Dv-na2" secondAttribute="leading" id="dba-4m-1M3"/>
+                            <constraint firstAttribute="bottom" secondItem="rdf-8q-7IS" secondAttribute="bottom" constant="304" id="flY-d2-8uA"/>
+                            <constraint firstItem="nTk-Dv-na2" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="44" id="i3z-S9-5gY"/>
+                            <constraint firstItem="Dmd-xG-k8i" firstAttribute="leading" secondItem="nTk-Dv-na2" secondAttribute="leading" id="nhD-y9-BFh"/>
+                            <constraint firstItem="rdf-8q-7IS" firstAttribute="top" secondItem="Yla-Dn-6DK" secondAttribute="bottom" constant="56" id="xbN-LQ-HiI"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="k7B-RO-Kt4">
+                        <barButtonItem key="leftBarButtonItem" title="截取指定View" id="vwo-0N-I6g">
+                            <connections>
+                                <action selector="capture_view:" destination="BYZ-38-t0r" id="xMC-WL-JNQ"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="截屏" id="6cS-Ih-YcH">
+                            <connections>
+                                <action selector="capture_four_action:" destination="BYZ-38-t0r" id="guj-e3-1JA"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="imageView" destination="nTk-Dv-na2" id="KeL-FB-2GP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="947.82608695652186" y="18.75"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="lDF-x4-UG3">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="EeR-6q-MZb" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="oAn-Ok-6X8">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="BpD-PJ-rUA"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uOK-wt-msR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="134.78260869565219" y="-655.58035714285711"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="four_girl" width="1024" height="683"/>
+        <image name="one_girl" width="1000" height="500"/>
+        <image name="three_girl" width="1024" height="624"/>
+        <image name="two_girl" width="640" height="438"/>
+    </resources>
+</document>
