@@ -1,0 +1,3 @@
+target '试用WMPlayer' do
+    pod 'WMPlayer'
+end
