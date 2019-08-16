@@ -33,8 +33,17 @@
     
     if ([self.mainView isKindOfClass:[UIView class]]) {
         [self.view addSubview:self.mainView];
+        
+        //设置模态格式：自定义模态格式
         self.modalPresentationStyle = UIModalPresentationOverFullScreen;
+//        self.modalPresentationStyle = UIModalPresentationCustom;
+        
+        //设置转场动画
         self.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+//        self.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+//        self.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+//        self.modalTransitionStyle = UIModalTransitionStylePartialCurl;
+        
         [self.nowVC presentViewController:self animated:YES completion:nil];
         
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5*NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
