@@ -40,6 +40,8 @@
 		018F9B7A3B7DB6712635CA80 /* Pods-AppleNote.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppleNote.release.xcconfig"; path = "Pods/Target Support Files/Pods-AppleNote/Pods-AppleNote.release.xcconfig"; sourceTree = "<group>"; };
 		23B0391523068410002174E6 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 		23B0391723068927002174E6 /* ANTabBarControll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ANTabBarControll.swift; sourceTree = "<group>"; };
+		23B0398C2306C63B002174E6 /* PCH.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PCH.h; sourceTree = "<group>"; };
+		23B0398D2306C64F002174E6 /* APHeaderFile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APHeaderFile.h; sourceTree = "<group>"; };
 		482F2B05428C840A26CA1911 /* libPods-AppleNote.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AppleNote.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7837FBDF83BA540E66B2C2E /* Pods-AppleNote.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppleNote.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AppleNote/Pods-AppleNote.debug.xcconfig"; sourceTree = "<group>"; };
 		C4054F7C22DF2C2E0065CFB2 /* AppleNote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppleNote.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -83,6 +85,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		23B0398A2306C4C9002174E6 /* SYSTEM */ = {
+			isa = PBXGroup;
+			children = (
+				23B0398C2306C63B002174E6 /* PCH.h */,
+				23B0398D2306C64F002174E6 /* APHeaderFile.h */,
+			);
+			path = SYSTEM;
+			sourceTree = "<group>";
+		};
 		C4054F7322DF2C2E0065CFB2 = {
 			isa = PBXGroup;
 			children = (
@@ -109,6 +120,7 @@
 		C4054F7E22DF2C2E0065CFB2 /* AppleNote */ = {
 			isa = PBXGroup;
 			children = (
+				23B0398A2306C4C9002174E6 /* SYSTEM */,
 				C4054F7F22DF2C2E0065CFB2 /* AppDelegate.swift */,
 				C4054F8122DF2C2E0065CFB2 /* ViewController.swift */,
 				C4054F8322DF2C2E0065CFB2 /* Main.storyboard */,
@@ -492,7 +504,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = ER6GDQC543;
+				DEVELOPMENT_TEAM = MC32WL4XZA;
 				INFOPLIST_FILE = AppleNote/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -500,6 +512,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.mingcol.AppleNote;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/AppleNote/SYSTEM/APHeaderFile.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -511,7 +524,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = ER6GDQC543;
+				DEVELOPMENT_TEAM = MC32WL4XZA;
 				INFOPLIST_FILE = AppleNote/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -519,6 +532,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.mingcol.AppleNote;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/AppleNote/SYSTEM/APHeaderFile.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
