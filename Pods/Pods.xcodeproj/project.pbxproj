@@ -3,94 +3,134 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		10FB39D107A569FAA4A1F44ED187C2CF /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 588351C9B9D299105F2962934541DD9F /* FMDatabaseAdditions.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		2AB199715E4AFC805E8C6C6E34912611 /* FMDB-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 90379D811E423A49E202F0151BA5F392 /* FMDB-dummy.m */; };
-		33F2281A6DC35E9BFFB49F5EA361666F /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = E31048EEDCCB14696B780385B48C4CCD /* FMDatabasePool.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		3CB45209A43482A00B8BCCFEAC11EA7C /* YTKKeyValueStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 15420DA0096BC6D418AFE8C6DD37D0DA /* YTKKeyValueStore.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		58BB7511BF03831AB27EBEB0EDF00627 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = D8DF6E1D015D2335872A4711D3F4EC12 /* FMDatabaseQueue.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		5DB0C68E693EDB2A901672D92A95F061 /* Pods-AppleNote-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2E3BB8691E22D795390C8C0D5B3804 /* Pods-AppleNote-dummy.m */; };
-		61B5818C78152A654E85FCB2B848F7D2 /* YTKKeyValueStore.h in Headers */ = {isa = PBXBuildFile; fileRef = 593C4FD438F0204864838F864C668D2E /* YTKKeyValueStore.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		6B64AE43A08C2A738EC4E8947C898405 /* FMDatabase.h in Headers */ = {isa = PBXBuildFile; fileRef = D43A26B094D3B4FDC94240CC1134E344 /* FMDatabase.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		8E319CDBE03E12D315B280F378D90AAE /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = E4079760B94E441E3579B92E2420B834 /* FMResultSet.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		A7E84E3E02AA15605C36892AEFE6F300 /* FMResultSet.h in Headers */ = {isa = PBXBuildFile; fileRef = 86721F7AE7F725E130E1852EEB9853D1 /* FMResultSet.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		BC9B764C70B0B76CBAC3FC8A757E02DC /* FMDatabaseAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = EEEC55A978029365C8EC7C598CDC47FA /* FMDatabaseAdditions.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		C32363AF2C2D8CAE297D23043076A95D /* FMDB.h in Headers */ = {isa = PBXBuildFile; fileRef = DD653D2A3C4A1631EBE85A95E9E9AAFF /* FMDB.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		CC6B06A059392A28719E6CD40FA4D988 /* YTKKeyValueStore-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D72CAD9B6C7D001D436B6232A953A0E1 /* YTKKeyValueStore-dummy.m */; };
-		DA6F503BEBC3631865C9B1D0EF40878A /* FMDatabasePool.h in Headers */ = {isa = PBXBuildFile; fileRef = CCBB6262912CD3E3BEF795E4425830EB /* FMDatabasePool.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		E3A8EA7C937BFDAA2B53C5F2188B67D8 /* FMDatabaseQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = 9BF3EF5798A3024A3CE9A177CD73507D /* FMDatabaseQueue.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		F3ED09C94A17BE53C682DE3B1022D85D /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 56B356C887026C73FDCBBBD983B7135E /* FMDatabase.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		003B3201D9CF32E6DAAF9BA370605F5A /* TDHomeViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 6A8312E902C3F25974364E22B6182BAC /* TDHomeViewController.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		10FB39D107A569FAA4A1F44ED187C2CF /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 51B4C521225890D933119A0F83C333F4 /* FMDatabaseAdditions.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		1C84A41D3EED6194AE48175AF1AE9256 /* YTKKeyValueStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 255EFDE95376187062CDB1BA23625C86 /* YTKKeyValueStore.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		2AB199715E4AFC805E8C6C6E34912611 /* FMDB-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F7D73532A7AF8A6981202E60DF39D148 /* FMDB-dummy.m */; };
+		322814C657E9EF322A6213F425B78809 /* Pods-AppleNote-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2E3BB8691E22D795390C8C0D5B3804 /* Pods-AppleNote-dummy.m */; };
+		33F2281A6DC35E9BFFB49F5EA361666F /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = CA83C4A50CE6C63DD37AC0B73819CE30 /* FMDatabasePool.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		3B22050967A9C2B67DE8B4A058AA107F /* TDTouchID.h in Headers */ = {isa = PBXBuildFile; fileRef = 9FB89C6CA1C3153A3C19B1CF6BBBB153 /* TDTouchID.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		58BB7511BF03831AB27EBEB0EDF00627 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 016E9035843EC74F7B9C48382541CB16 /* FMDatabaseQueue.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		6B64AE43A08C2A738EC4E8947C898405 /* FMDatabase.h in Headers */ = {isa = PBXBuildFile; fileRef = 9CE8CAE17C3A0E3BB43E7D598D163827 /* FMDatabase.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		81A4388CA61C7B4C7C33CAE5C6A4E755 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C375340DE5F4879079730297898E5854 /* AppDelegate.m */; };
+		874E4885E02A95D9A20F3B5127EF54C7 /* TDMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B048FD3D737B1B643AF486D10B83AFE /* TDMainViewController.m */; };
+		8E319CDBE03E12D315B280F378D90AAE /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = F206A878967A8938EA32FD9E245EB5B9 /* FMResultSet.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		A5ECDCB04126A69AB750C69DEF9472A8 /* TDHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24F851906A09F980EB6B162F7FAD0772 /* TDHomeViewController.m */; };
+		A7E84E3E02AA15605C36892AEFE6F300 /* FMResultSet.h in Headers */ = {isa = PBXBuildFile; fileRef = 59DC8D7400536B328A35395AA950352B /* FMResultSet.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		AAF56547001F992DC34CF4317184DE05 /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 793DDE56C4AAB29D168C44806C4776B0 /* LocalAuthentication.framework */; };
+		AFA4782A818F732F87C433FA052F8CFF /* TDTouchID-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E3ECD424C59A864081EC5E9B5ABE447D /* TDTouchID-dummy.m */; };
+		B864EC68258ACD9E9C1E185928562915 /* TDTouchID.m in Sources */ = {isa = PBXBuildFile; fileRef = 42C3D77FAFA6DBB53CFA43C8D4B73514 /* TDTouchID.m */; };
+		BC9B764C70B0B76CBAC3FC8A757E02DC /* FMDatabaseAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = D4A368A149DFF87EE790C0245F6C9206 /* FMDatabaseAdditions.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		C32363AF2C2D8CAE297D23043076A95D /* FMDB.h in Headers */ = {isa = PBXBuildFile; fileRef = 7E23B6AD0CB1EBCB8147FD0BD647F90F /* FMDB.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		CE7C82DD10841FADC5D7EEE534FB4DD5 /* YTKKeyValueStore-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F1DFB64CEBBF2A19B021DC5A3C1437E0 /* YTKKeyValueStore-dummy.m */; };
+		CEF2A9F2FCF3512FBC978DA71F2B20EC /* YTKKeyValueStore.h in Headers */ = {isa = PBXBuildFile; fileRef = 54939B8257453A0CCC446D375ACA9E98 /* YTKKeyValueStore.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		CF56BC470BFCF9E37F2E3371B20FE512 /* TDMainViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = ECA816705C71E2AC126CED0381C758CB /* TDMainViewController.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		DA6F503BEBC3631865C9B1D0EF40878A /* FMDatabasePool.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C37DE4FEE681FAD57174C494691FE6C /* FMDatabasePool.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		DF3D825B34DB382EFBE321E5BCF1B63B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AC61259DE56731786D82C6FFDB7D6DB /* main.m */; };
+		E3A8EA7C937BFDAA2B53C5F2188B67D8 /* FMDatabaseQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = 7D6558026EC14DDA52AE88D731546EF4 /* FMDatabaseQueue.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		F3ED09C94A17BE53C682DE3B1022D85D /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = FD7367108BB299D593D2AF836704B993 /* FMDatabase.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		F55BAF0167FB5D1E575DFB3C2F1A533D /* AppDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 0681076DB57B2275F9517D802846BCC4 /* AppDelegate.h */; settings = {ATTRIBUTES = (Project, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		652396C636AA87CEF024CEEA0318BBF3 /* PBXContainerItemProxy */ = {
+		12F521508041FEF0E0479C116E9199ED /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 563CFC01733EEFF7BC491B560ED1DBFA;
 			remoteInfo = FMDB;
 		};
-		735E855E795962345AEAC98B908276D1 /* PBXContainerItemProxy */ = {
+		181ADD3F671A4E08B1B822E53DD61B9F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = D2DEC307ADF82504493E6D3056231AAD;
+			remoteGlobalIDString = 563CFC01733EEFF7BC491B560ED1DBFA;
+			remoteInfo = FMDB;
+		};
+		28512EDD64073323EEEDCC542E6C94DC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E070F98230B1266C3C7D0CE229BBD6F5;
+			remoteInfo = TDTouchID;
+		};
+		507AA1825D217BF927093E17DBF47292 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4E2076C248750B19389610421673B4B6;
 			remoteInfo = YTKKeyValueStore;
-		};
-		B394C737E065E448E9CB5EFD778E77C2 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 563CFC01733EEFF7BC491B560ED1DBFA;
-			remoteInfo = FMDB;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		095C90E07134954A06F63B28DD8900FD /* YTKKeyValueStore-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "YTKKeyValueStore-prefix.pch"; sourceTree = "<group>"; };
-		15420DA0096BC6D418AFE8C6DD37D0DA /* YTKKeyValueStore.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = YTKKeyValueStore.m; path = YTKKeyValueStore/YTKKeyValueStore.m; sourceTree = "<group>"; };
-		18FFB546ED80F126AF94BE50F0CAC8A9 /* libYTKKeyValueStore.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libYTKKeyValueStore.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		016E9035843EC74F7B9C48382541CB16 /* FMDatabaseQueue.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FMDatabaseQueue.m; path = src/fmdb/FMDatabaseQueue.m; sourceTree = "<group>"; };
+		0681076DB57B2275F9517D802846BCC4 /* AppDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = TDTouchID/TDTouchID/AppDelegate.h; sourceTree = "<group>"; };
+		0EECAB9CB4B0F241CA3DFFDE67536694 /* libTDTouchID.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libTDTouchID.a; path = libTDTouchID.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		24F851906A09F980EB6B162F7FAD0772 /* TDHomeViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TDHomeViewController.m; path = TDTouchID/TDTouchID/TDHomeViewController.m; sourceTree = "<group>"; };
 		253EADB624B2568627A575B0C0E5798B /* Pods-AppleNote-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-AppleNote-acknowledgements.markdown"; sourceTree = "<group>"; };
+		255EFDE95376187062CDB1BA23625C86 /* YTKKeyValueStore.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = YTKKeyValueStore.m; path = YTKKeyValueStore/YTKKeyValueStore.m; sourceTree = "<group>"; };
+		2C37DE4FEE681FAD57174C494691FE6C /* FMDatabasePool.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FMDatabasePool.h; path = src/fmdb/FMDatabasePool.h; sourceTree = "<group>"; };
+		3475F5D0B48A4FD824D8C47B37C756B4 /* libYTKKeyValueStore.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libYTKKeyValueStore.a; path = libYTKKeyValueStore.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CA331B94305CC34F2D3F0FB41DBB8E2 /* Pods-AppleNote-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-AppleNote-resources.sh"; sourceTree = "<group>"; };
-		56B356C887026C73FDCBBBD983B7135E /* FMDatabase.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FMDatabase.m; path = src/fmdb/FMDatabase.m; sourceTree = "<group>"; };
-		588351C9B9D299105F2962934541DD9F /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FMDatabaseAdditions.m; path = src/fmdb/FMDatabaseAdditions.m; sourceTree = "<group>"; };
-		593C4FD438F0204864838F864C668D2E /* YTKKeyValueStore.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YTKKeyValueStore.h; path = YTKKeyValueStore/YTKKeyValueStore.h; sourceTree = "<group>"; };
-		69C29293298A7C76FE447AB214D0AFF1 /* YTKKeyValueStore.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = YTKKeyValueStore.xcconfig; sourceTree = "<group>"; };
+		42C3D77FAFA6DBB53CFA43C8D4B73514 /* TDTouchID.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TDTouchID.m; path = TDTouchID/TDTouchID/TDTouchID/TDTouchID.m; sourceTree = "<group>"; };
+		4AC61259DE56731786D82C6FFDB7D6DB /* main.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = main.m; path = TDTouchID/TDTouchID/main.m; sourceTree = "<group>"; };
+		50E1264C5732DABB177BC1FC599DB608 /* YTKKeyValueStore-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "YTKKeyValueStore-prefix.pch"; sourceTree = "<group>"; };
+		51B4C521225890D933119A0F83C333F4 /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FMDatabaseAdditions.m; path = src/fmdb/FMDatabaseAdditions.m; sourceTree = "<group>"; };
+		54939B8257453A0CCC446D375ACA9E98 /* YTKKeyValueStore.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YTKKeyValueStore.h; path = YTKKeyValueStore/YTKKeyValueStore.h; sourceTree = "<group>"; };
+		59DC8D7400536B328A35395AA950352B /* FMResultSet.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FMResultSet.h; path = src/fmdb/FMResultSet.h; sourceTree = "<group>"; };
+		6A8312E902C3F25974364E22B6182BAC /* TDHomeViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TDHomeViewController.h; path = TDTouchID/TDTouchID/TDHomeViewController.h; sourceTree = "<group>"; };
 		6B6D4D1FCDBE641C4FC774FEAB6170A0 /* Pods-AppleNote-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-AppleNote-acknowledgements.plist"; sourceTree = "<group>"; };
-		72A8C79C4F08F986B4C1FC3370858DC4 /* libFMDB.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libFMDB.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		86721F7AE7F725E130E1852EEB9853D1 /* FMResultSet.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FMResultSet.h; path = src/fmdb/FMResultSet.h; sourceTree = "<group>"; };
-		90379D811E423A49E202F0151BA5F392 /* FMDB-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "FMDB-dummy.m"; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		9BF3EF5798A3024A3CE9A177CD73507D /* FMDatabaseQueue.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FMDatabaseQueue.h; path = src/fmdb/FMDatabaseQueue.h; sourceTree = "<group>"; };
-		BD6CEA0EE52693C5CCCCD7B471CBFEE5 /* FMDB.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = FMDB.xcconfig; sourceTree = "<group>"; };
+		793DDE56C4AAB29D168C44806C4776B0 /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/LocalAuthentication.framework; sourceTree = DEVELOPER_DIR; };
+		7C32CC43CFD55D5961FAEB5C5EDE033A /* TDTouchID.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = TDTouchID.xcconfig; sourceTree = "<group>"; };
+		7D6558026EC14DDA52AE88D731546EF4 /* FMDatabaseQueue.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FMDatabaseQueue.h; path = src/fmdb/FMDatabaseQueue.h; sourceTree = "<group>"; };
+		7E23B6AD0CB1EBCB8147FD0BD647F90F /* FMDB.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FMDB.h; path = src/fmdb/FMDB.h; sourceTree = "<group>"; };
+		8B048FD3D737B1B643AF486D10B83AFE /* TDMainViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TDMainViewController.m; path = TDTouchID/TDTouchID/TDMainViewController.m; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9CE8CAE17C3A0E3BB43E7D598D163827 /* FMDatabase.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FMDatabase.h; path = src/fmdb/FMDatabase.h; sourceTree = "<group>"; };
+		9FB89C6CA1C3153A3C19B1CF6BBBB153 /* TDTouchID.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TDTouchID.h; path = TDTouchID/TDTouchID/TDTouchID/TDTouchID.h; sourceTree = "<group>"; };
+		B7C800BD60BFE5E29C57736D6A5F3CBE /* FMDB.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = FMDB.xcconfig; sourceTree = "<group>"; };
 		BFB71B7DD42FDFBD9F6CC3B0DF937342 /* Pods-AppleNote.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AppleNote.debug.xcconfig"; sourceTree = "<group>"; };
-		CCBB6262912CD3E3BEF795E4425830EB /* FMDatabasePool.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FMDatabasePool.h; path = src/fmdb/FMDatabasePool.h; sourceTree = "<group>"; };
-		D43A26B094D3B4FDC94240CC1134E344 /* FMDatabase.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FMDatabase.h; path = src/fmdb/FMDatabase.h; sourceTree = "<group>"; };
-		D72CAD9B6C7D001D436B6232A953A0E1 /* YTKKeyValueStore-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "YTKKeyValueStore-dummy.m"; sourceTree = "<group>"; };
-		D8DF6E1D015D2335872A4711D3F4EC12 /* FMDatabaseQueue.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FMDatabaseQueue.m; path = src/fmdb/FMDatabaseQueue.m; sourceTree = "<group>"; };
-		DACD5C3D4F866481E4ACEF06929F89ED /* libPods-AppleNote.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AppleNote.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		DD653D2A3C4A1631EBE85A95E9E9AAFF /* FMDB.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FMDB.h; path = src/fmdb/FMDB.h; sourceTree = "<group>"; };
+		C375340DE5F4879079730297898E5854 /* AppDelegate.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = TDTouchID/TDTouchID/AppDelegate.m; sourceTree = "<group>"; };
+		CA83C4A50CE6C63DD37AC0B73819CE30 /* FMDatabasePool.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FMDatabasePool.m; path = src/fmdb/FMDatabasePool.m; sourceTree = "<group>"; };
+		D1C3BC67E64D60ECFE8921976EC5A5DB /* FMDB-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FMDB-prefix.pch"; sourceTree = "<group>"; };
+		D4A368A149DFF87EE790C0245F6C9206 /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FMDatabaseAdditions.h; path = src/fmdb/FMDatabaseAdditions.h; sourceTree = "<group>"; };
+		DE3467B4A296AF1F7041D9956F034488 /* libPods-AppleNote.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-AppleNote.a"; path = "libPods-AppleNote.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF9F0BF559FE42B2E06B6E29BC8B9C6D /* Pods-AppleNote.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AppleNote.release.xcconfig"; sourceTree = "<group>"; };
-		E31048EEDCCB14696B780385B48C4CCD /* FMDatabasePool.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FMDatabasePool.m; path = src/fmdb/FMDatabasePool.m; sourceTree = "<group>"; };
-		E4079760B94E441E3579B92E2420B834 /* FMResultSet.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FMResultSet.m; path = src/fmdb/FMResultSet.m; sourceTree = "<group>"; };
-		E540BEA25489821DF125DB6D4FC22C1F /* FMDB-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FMDB-prefix.pch"; sourceTree = "<group>"; };
-		EEEC55A978029365C8EC7C598CDC47FA /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FMDatabaseAdditions.h; path = src/fmdb/FMDatabaseAdditions.h; sourceTree = "<group>"; };
+		E2BE533C0FD60E211EF5E080F7E38D0D /* libFMDB.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libFMDB.a; path = libFMDB.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		E3ECD424C59A864081EC5E9B5ABE447D /* TDTouchID-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "TDTouchID-dummy.m"; sourceTree = "<group>"; };
+		ECA816705C71E2AC126CED0381C758CB /* TDMainViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TDMainViewController.h; path = TDTouchID/TDTouchID/TDMainViewController.h; sourceTree = "<group>"; };
+		F1DFB64CEBBF2A19B021DC5A3C1437E0 /* YTKKeyValueStore-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "YTKKeyValueStore-dummy.m"; sourceTree = "<group>"; };
+		F206A878967A8938EA32FD9E245EB5B9 /* FMResultSet.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FMResultSet.m; path = src/fmdb/FMResultSet.m; sourceTree = "<group>"; };
+		F7D73532A7AF8A6981202E60DF39D148 /* FMDB-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "FMDB-dummy.m"; sourceTree = "<group>"; };
+		F998679690F5B9A9A3DEFE39A6B8DCA2 /* YTKKeyValueStore.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = YTKKeyValueStore.xcconfig; sourceTree = "<group>"; };
+		FBC736139F809DC107FE5E4E914574EC /* TDTouchID-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "TDTouchID-prefix.pch"; sourceTree = "<group>"; };
 		FC74947081574EC5634639A4E1807B3F /* Pods-AppleNote-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-AppleNote-frameworks.sh"; sourceTree = "<group>"; };
 		FD2E3BB8691E22D795390C8C0D5B3804 /* Pods-AppleNote-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-AppleNote-dummy.m"; sourceTree = "<group>"; };
+		FD7367108BB299D593D2AF836704B993 /* FMDatabase.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FMDatabase.m; path = src/fmdb/FMDatabase.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		2BC8D1CBE0EC1FC8DFE8FCCDD234BEFE /* Frameworks */ = {
+		2CAD2F1C4642D18AC05DCA58A6132C5C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AAF56547001F992DC34CF4317184DE05 /* LocalAuthentication.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		43ED764C14D5469DFE514D2A4B131AA9 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		3B6DCF890F7AFFE2D6E044542B4FD4CD /* Frameworks */ = {
+		AA827FC646FF50F0B99D22F1FA59BA4E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -107,21 +147,94 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0F8D2E47FE03D3B91B51069F7C273AF4 /* Frameworks */ = {
+		036982F568D870439743A4BADD38E9DD /* Pods */ = {
 			isa = PBXGroup;
 			children = (
+				1C41BF25129BB38054782E67EECED5F0 /* FMDB */,
+				9043D1074057EC7AB26E03368CE16AD5 /* TDTouchID */,
+				2CD9A4BD12EFADFEBB1168AA0B717DDA /* YTKKeyValueStore */,
 			);
-			name = Frameworks;
+			name = Pods;
 			sourceTree = "<group>";
 		};
-		532454460B684C80B8A2E40A5D025F5C /* Products */ = {
+		04E489D7B5F276DDA44663CD05C760FB /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				72A8C79C4F08F986B4C1FC3370858DC4 /* libFMDB.a */,
-				DACD5C3D4F866481E4ACEF06929F89ED /* libPods-AppleNote.a */,
-				18FFB546ED80F126AF94BE50F0CAC8A9 /* libYTKKeyValueStore.a */,
+				7C32CC43CFD55D5961FAEB5C5EDE033A /* TDTouchID.xcconfig */,
+				E3ECD424C59A864081EC5E9B5ABE447D /* TDTouchID-dummy.m */,
+				FBC736139F809DC107FE5E4E914574EC /* TDTouchID-prefix.pch */,
 			);
-			name = Products;
+			name = "Support Files";
+			path = "../Target Support Files/TDTouchID";
+			sourceTree = "<group>";
+		};
+		12FE7033F7D0947016EF44F24947CDA4 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				F998679690F5B9A9A3DEFE39A6B8DCA2 /* YTKKeyValueStore.xcconfig */,
+				F1DFB64CEBBF2A19B021DC5A3C1437E0 /* YTKKeyValueStore-dummy.m */,
+				50E1264C5732DABB177BC1FC599DB608 /* YTKKeyValueStore-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/YTKKeyValueStore";
+			sourceTree = "<group>";
+		};
+		1C41BF25129BB38054782E67EECED5F0 /* FMDB */ = {
+			isa = PBXGroup;
+			children = (
+				36C7EF0360AF9793D805701042D07F08 /* standard */,
+				1D22B88660F0D0000C62D64A00696016 /* Support Files */,
+			);
+			name = FMDB;
+			path = FMDB;
+			sourceTree = "<group>";
+		};
+		1D22B88660F0D0000C62D64A00696016 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				B7C800BD60BFE5E29C57736D6A5F3CBE /* FMDB.xcconfig */,
+				F7D73532A7AF8A6981202E60DF39D148 /* FMDB-dummy.m */,
+				D1C3BC67E64D60ECFE8921976EC5A5DB /* FMDB-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/FMDB";
+			sourceTree = "<group>";
+		};
+		2CD9A4BD12EFADFEBB1168AA0B717DDA /* YTKKeyValueStore */ = {
+			isa = PBXGroup;
+			children = (
+				54939B8257453A0CCC446D375ACA9E98 /* YTKKeyValueStore.h */,
+				255EFDE95376187062CDB1BA23625C86 /* YTKKeyValueStore.m */,
+				12FE7033F7D0947016EF44F24947CDA4 /* Support Files */,
+			);
+			name = YTKKeyValueStore;
+			path = YTKKeyValueStore;
+			sourceTree = "<group>";
+		};
+		36C7EF0360AF9793D805701042D07F08 /* standard */ = {
+			isa = PBXGroup;
+			children = (
+				9CE8CAE17C3A0E3BB43E7D598D163827 /* FMDatabase.h */,
+				FD7367108BB299D593D2AF836704B993 /* FMDatabase.m */,
+				D4A368A149DFF87EE790C0245F6C9206 /* FMDatabaseAdditions.h */,
+				51B4C521225890D933119A0F83C333F4 /* FMDatabaseAdditions.m */,
+				2C37DE4FEE681FAD57174C494691FE6C /* FMDatabasePool.h */,
+				CA83C4A50CE6C63DD37AC0B73819CE30 /* FMDatabasePool.m */,
+				7D6558026EC14DDA52AE88D731546EF4 /* FMDatabaseQueue.h */,
+				016E9035843EC74F7B9C48382541CB16 /* FMDatabaseQueue.m */,
+				7E23B6AD0CB1EBCB8147FD0BD647F90F /* FMDB.h */,
+				59DC8D7400536B328A35395AA950352B /* FMResultSet.h */,
+				F206A878967A8938EA32FD9E245EB5B9 /* FMResultSet.m */,
+			);
+			name = standard;
+			sourceTree = "<group>";
+		};
+		5432B18B1BF43734646BD2788010D3CA /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				793DDE56C4AAB29D168C44806C4776B0 /* LocalAuthentication.framework */,
+			);
+			name = iOS;
 			sourceTree = "<group>";
 		};
 		7703B2228AB4E3C39B65BB51F1B29DA7 /* Targets Support Files */ = {
@@ -136,52 +249,48 @@
 			isa = PBXGroup;
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
-				0F8D2E47FE03D3B91B51069F7C273AF4 /* Frameworks */,
-				CB1D7355D7DD22875C1F2880188585CC /* Pods */,
-				532454460B684C80B8A2E40A5D025F5C /* Products */,
+				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
+				036982F568D870439743A4BADD38E9DD /* Pods */,
+				98E5D5A86BD78F212777310DE557F51B /* Products */,
 				7703B2228AB4E3C39B65BB51F1B29DA7 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		A822A45C1AAE521198403C7479466E37 /* Support Files */ = {
+		9043D1074057EC7AB26E03368CE16AD5 /* TDTouchID */ = {
 			isa = PBXGroup;
 			children = (
-				BD6CEA0EE52693C5CCCCD7B471CBFEE5 /* FMDB.xcconfig */,
-				90379D811E423A49E202F0151BA5F392 /* FMDB-dummy.m */,
-				E540BEA25489821DF125DB6D4FC22C1F /* FMDB-prefix.pch */,
+				0681076DB57B2275F9517D802846BCC4 /* AppDelegate.h */,
+				C375340DE5F4879079730297898E5854 /* AppDelegate.m */,
+				4AC61259DE56731786D82C6FFDB7D6DB /* main.m */,
+				6A8312E902C3F25974364E22B6182BAC /* TDHomeViewController.h */,
+				24F851906A09F980EB6B162F7FAD0772 /* TDHomeViewController.m */,
+				ECA816705C71E2AC126CED0381C758CB /* TDMainViewController.h */,
+				8B048FD3D737B1B643AF486D10B83AFE /* TDMainViewController.m */,
+				9FB89C6CA1C3153A3C19B1CF6BBBB153 /* TDTouchID.h */,
+				42C3D77FAFA6DBB53CFA43C8D4B73514 /* TDTouchID.m */,
+				04E489D7B5F276DDA44663CD05C760FB /* Support Files */,
 			);
-			name = "Support Files";
-			path = "../Target Support Files/FMDB";
+			name = TDTouchID;
+			path = TDTouchID;
 			sourceTree = "<group>";
 		};
-		AD9F377C8EC3D70B1A6225A8F6BDD34B /* Support Files */ = {
+		98E5D5A86BD78F212777310DE557F51B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				69C29293298A7C76FE447AB214D0AFF1 /* YTKKeyValueStore.xcconfig */,
-				D72CAD9B6C7D001D436B6232A953A0E1 /* YTKKeyValueStore-dummy.m */,
-				095C90E07134954A06F63B28DD8900FD /* YTKKeyValueStore-prefix.pch */,
+				E2BE533C0FD60E211EF5E080F7E38D0D /* libFMDB.a */,
+				DE3467B4A296AF1F7041D9956F034488 /* libPods-AppleNote.a */,
+				0EECAB9CB4B0F241CA3DFFDE67536694 /* libTDTouchID.a */,
+				3475F5D0B48A4FD824D8C47B37C756B4 /* libYTKKeyValueStore.a */,
 			);
-			name = "Support Files";
-			path = "../Target Support Files/YTKKeyValueStore";
+			name = Products;
 			sourceTree = "<group>";
 		};
-		C5C929F150419D1D3F21EA777BE253AC /* YTKKeyValueStore */ = {
+		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				593C4FD438F0204864838F864C668D2E /* YTKKeyValueStore.h */,
-				15420DA0096BC6D418AFE8C6DD37D0DA /* YTKKeyValueStore.m */,
-				AD9F377C8EC3D70B1A6225A8F6BDD34B /* Support Files */,
+				5432B18B1BF43734646BD2788010D3CA /* iOS */,
 			);
-			path = YTKKeyValueStore;
-			sourceTree = "<group>";
-		};
-		CB1D7355D7DD22875C1F2880188585CC /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				E86F314D709D7B6C4A4A68AD5D7F42F9 /* FMDB */,
-				C5C929F150419D1D3F21EA777BE253AC /* YTKKeyValueStore */,
-			);
-			name = Pods;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		DB15FB1C0BFF12E1B1C945D142CC0F5B /* Pods-AppleNote */ = {
@@ -199,41 +308,32 @@
 			path = "Target Support Files/Pods-AppleNote";
 			sourceTree = "<group>";
 		};
-		E6E67B2B8047CAE0C854D366994F41C5 /* standard */ = {
-			isa = PBXGroup;
-			children = (
-				D43A26B094D3B4FDC94240CC1134E344 /* FMDatabase.h */,
-				56B356C887026C73FDCBBBD983B7135E /* FMDatabase.m */,
-				EEEC55A978029365C8EC7C598CDC47FA /* FMDatabaseAdditions.h */,
-				588351C9B9D299105F2962934541DD9F /* FMDatabaseAdditions.m */,
-				CCBB6262912CD3E3BEF795E4425830EB /* FMDatabasePool.h */,
-				E31048EEDCCB14696B780385B48C4CCD /* FMDatabasePool.m */,
-				9BF3EF5798A3024A3CE9A177CD73507D /* FMDatabaseQueue.h */,
-				D8DF6E1D015D2335872A4711D3F4EC12 /* FMDatabaseQueue.m */,
-				DD653D2A3C4A1631EBE85A95E9E9AAFF /* FMDB.h */,
-				86721F7AE7F725E130E1852EEB9853D1 /* FMResultSet.h */,
-				E4079760B94E441E3579B92E2420B834 /* FMResultSet.m */,
-			);
-			name = standard;
-			sourceTree = "<group>";
-		};
-		E86F314D709D7B6C4A4A68AD5D7F42F9 /* FMDB */ = {
-			isa = PBXGroup;
-			children = (
-				E6E67B2B8047CAE0C854D366994F41C5 /* standard */,
-				A822A45C1AAE521198403C7479466E37 /* Support Files */,
-			);
-			path = FMDB;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		4A0331DB023A54DC7B8769AE608FFDC8 /* Headers */ = {
+		41EE252A9E8AB5F362EDA6C84CF91075 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				61B5818C78152A654E85FCB2B848F7D2 /* YTKKeyValueStore.h in Headers */,
+				CEF2A9F2FCF3512FBC978DA71F2B20EC /* YTKKeyValueStore.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		46070D55641D124AED5EF30F7BCF07C5 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		48A906FFB70350CEDF152EEC2536C06F /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F55BAF0167FB5D1E575DFB3C2F1A533D /* AppDelegate.h in Headers */,
+				003B3201D9CF32E6DAAF9BA370605F5A /* TDHomeViewController.h in Headers */,
+				CF56BC470BFCF9E37F2E3371B20FE512 /* TDMainViewController.h in Headers */,
+				3B22050967A9C2B67DE8B4A058AA107F /* TDTouchID.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,16 +350,27 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B9A1627D71FFB7A50479E3D71C89B2FD /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		4E2076C248750B19389610421673B4B6 /* YTKKeyValueStore */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 676A88A141A162E0C0CA34BD30E51FB5 /* Build configuration list for PBXNativeTarget "YTKKeyValueStore" */;
+			buildPhases = (
+				41EE252A9E8AB5F362EDA6C84CF91075 /* Headers */,
+				80C2334AE033601F396CEC238CC5FFD1 /* Sources */,
+				43ED764C14D5469DFE514D2A4B131AA9 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2E0BED31340FA7B1150643C105315AD1 /* PBXTargetDependency */,
+			);
+			name = YTKKeyValueStore;
+			productName = YTKKeyValueStore;
+			productReference = 3475F5D0B48A4FD824D8C47B37C756B4 /* libYTKKeyValueStore.a */;
+			productType = "com.apple.product-type.library.static";
+		};
 		563CFC01733EEFF7BC491B560ED1DBFA /* FMDB */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3428FA9D8846C35F2A42E9A088626AD1 /* Build configuration list for PBXNativeTarget "FMDB" */;
@@ -274,44 +385,44 @@
 			);
 			name = FMDB;
 			productName = FMDB;
-			productReference = 72A8C79C4F08F986B4C1FC3370858DC4 /* libFMDB.a */;
+			productReference = E2BE533C0FD60E211EF5E080F7E38D0D /* libFMDB.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		D2DEC307ADF82504493E6D3056231AAD /* YTKKeyValueStore */ = {
+		A9798FD9D1504B27401FA359105F340D /* Pods-AppleNote */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 003C7277B7B7F574779350D38A12D87C /* Build configuration list for PBXNativeTarget "YTKKeyValueStore" */;
+			buildConfigurationList = FD71A8074915A6B2E6E09F3FC729D210 /* Build configuration list for PBXNativeTarget "Pods-AppleNote" */;
 			buildPhases = (
-				4A0331DB023A54DC7B8769AE608FFDC8 /* Headers */,
-				9CEF45D2F4BB67D06BEF24D9006BEC4F /* Sources */,
-				2BC8D1CBE0EC1FC8DFE8FCCDD234BEFE /* Frameworks */,
+				46070D55641D124AED5EF30F7BCF07C5 /* Headers */,
+				208550D4C474521AF53BAA3AF66D6650 /* Sources */,
+				AA827FC646FF50F0B99D22F1FA59BA4E /* Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				9B321C3B70456BE0057A1BFA59AB7862 /* PBXTargetDependency */,
-			);
-			name = YTKKeyValueStore;
-			productName = YTKKeyValueStore;
-			productReference = 18FFB546ED80F126AF94BE50F0CAC8A9 /* libYTKKeyValueStore.a */;
-			productType = "com.apple.product-type.library.static";
-		};
-		DC223F6B460C3B71AA6544FDACC389E2 /* Pods-AppleNote */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = BEEEF37AC710557DC8B54DCD5E052CCB /* Build configuration list for PBXNativeTarget "Pods-AppleNote" */;
-			buildPhases = (
-				B9A1627D71FFB7A50479E3D71C89B2FD /* Headers */,
-				D8E57992D93D708997BBFEAD56C2B1DF /* Sources */,
-				3B6DCF890F7AFFE2D6E044542B4FD4CD /* Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				4CCCBEF37E2B1395E55D405C04AB7233 /* PBXTargetDependency */,
-				C55CE835AEF8EB3C30968299500B47A4 /* PBXTargetDependency */,
+				D7161B25014FDFF5AABBBF956AAC4F82 /* PBXTargetDependency */,
+				DB819A39897545ED649238CD3AF33456 /* PBXTargetDependency */,
+				1FD8EE855B31A1071A918D5366A29EA0 /* PBXTargetDependency */,
 			);
 			name = "Pods-AppleNote";
 			productName = "Pods-AppleNote";
-			productReference = DACD5C3D4F866481E4ACEF06929F89ED /* libPods-AppleNote.a */;
+			productReference = DE3467B4A296AF1F7041D9956F034488 /* libPods-AppleNote.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		E070F98230B1266C3C7D0CE229BBD6F5 /* TDTouchID */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5648E79F2CD0D8850E9E8EDE047EB92A /* Build configuration list for PBXNativeTarget "TDTouchID" */;
+			buildPhases = (
+				48A906FFB70350CEDF152EEC2536C06F /* Headers */,
+				B52F5B580C13C449C5AD103E3F3E2799 /* Sources */,
+				2CAD2F1C4642D18AC05DCA58A6132C5C /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TDTouchID;
+			productName = TDTouchID;
+			productReference = 0EECAB9CB4B0F241CA3DFFDE67536694 /* libTDTouchID.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
@@ -321,35 +432,56 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0930;
-				LastUpgradeCheck = 1030;
+				LastUpgradeCheck = 0930;
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = en;
+			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
-				Base,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = 532454460B684C80B8A2E40A5D025F5C /* Products */;
+			productRefGroup = 98E5D5A86BD78F212777310DE557F51B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				563CFC01733EEFF7BC491B560ED1DBFA /* FMDB */,
-				DC223F6B460C3B71AA6544FDACC389E2 /* Pods-AppleNote */,
-				D2DEC307ADF82504493E6D3056231AAD /* YTKKeyValueStore */,
+				A9798FD9D1504B27401FA359105F340D /* Pods-AppleNote */,
+				E070F98230B1266C3C7D0CE229BBD6F5 /* TDTouchID */,
+				4E2076C248750B19389610421673B4B6 /* YTKKeyValueStore */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		9CEF45D2F4BB67D06BEF24D9006BEC4F /* Sources */ = {
+		208550D4C474521AF53BAA3AF66D6650 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CC6B06A059392A28719E6CD40FA4D988 /* YTKKeyValueStore-dummy.m in Sources */,
-				3CB45209A43482A00B8BCCFEAC11EA7C /* YTKKeyValueStore.m in Sources */,
+				322814C657E9EF322A6213F425B78809 /* Pods-AppleNote-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		80C2334AE033601F396CEC238CC5FFD1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE7C82DD10841FADC5D7EEE534FB4DD5 /* YTKKeyValueStore-dummy.m in Sources */,
+				1C84A41D3EED6194AE48175AF1AE9256 /* YTKKeyValueStore.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B52F5B580C13C449C5AD103E3F3E2799 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				81A4388CA61C7B4C7C33CAE5C6A4E755 /* AppDelegate.m in Sources */,
+				DF3D825B34DB382EFBE321E5BCF1B63B /* main.m in Sources */,
+				A5ECDCB04126A69AB750C69DEF9472A8 /* TDHomeViewController.m in Sources */,
+				874E4885E02A95D9A20F3B5127EF54C7 /* TDMainViewController.m in Sources */,
+				AFA4782A818F732F87C433FA052F8CFF /* TDTouchID-dummy.m in Sources */,
+				B864EC68258ACD9E9C1E185928562915 /* TDTouchID.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -366,56 +498,56 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D8E57992D93D708997BBFEAD56C2B1DF /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				5DB0C68E693EDB2A901672D92A95F061 /* Pods-AppleNote-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		4CCCBEF37E2B1395E55D405C04AB7233 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = FMDB;
-			target = 563CFC01733EEFF7BC491B560ED1DBFA /* FMDB */;
-			targetProxy = 652396C636AA87CEF024CEEA0318BBF3 /* PBXContainerItemProxy */;
-		};
-		9B321C3B70456BE0057A1BFA59AB7862 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = FMDB;
-			target = 563CFC01733EEFF7BC491B560ED1DBFA /* FMDB */;
-			targetProxy = B394C737E065E448E9CB5EFD778E77C2 /* PBXContainerItemProxy */;
-		};
-		C55CE835AEF8EB3C30968299500B47A4 /* PBXTargetDependency */ = {
+		1FD8EE855B31A1071A918D5366A29EA0 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = YTKKeyValueStore;
-			target = D2DEC307ADF82504493E6D3056231AAD /* YTKKeyValueStore */;
-			targetProxy = 735E855E795962345AEAC98B908276D1 /* PBXContainerItemProxy */;
+			target = 4E2076C248750B19389610421673B4B6 /* YTKKeyValueStore */;
+			targetProxy = 507AA1825D217BF927093E17DBF47292 /* PBXContainerItemProxy */;
+		};
+		2E0BED31340FA7B1150643C105315AD1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = FMDB;
+			target = 563CFC01733EEFF7BC491B560ED1DBFA /* FMDB */;
+			targetProxy = 12F521508041FEF0E0479C116E9199ED /* PBXContainerItemProxy */;
+		};
+		D7161B25014FDFF5AABBBF956AAC4F82 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = FMDB;
+			target = 563CFC01733EEFF7BC491B560ED1DBFA /* FMDB */;
+			targetProxy = 181ADD3F671A4E08B1B822E53DD61B9F /* PBXContainerItemProxy */;
+		};
+		DB819A39897545ED649238CD3AF33456 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = TDTouchID;
+			target = E070F98230B1266C3C7D0CE229BBD6F5 /* TDTouchID */;
+			targetProxy = 28512EDD64073323EEEDCC542E6C94DC /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		11D4F256926684799AB1B629583EAA1D /* Release */ = {
+		65B06F755FAC972877DF11774E496AA3 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DF9F0BF559FE42B2E06B6E29BC8B9C6D /* Pods-AppleNote.release.xcconfig */;
+			baseConfigurationReference = 7C32CC43CFD55D5961FAEB5C5EDE033A /* TDTouchID.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
-				MACH_O_TYPE = staticlib;
+				GCC_PREFIX_HEADER = "Target Support Files/TDTouchID/TDTouchID-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_MODULE_NAME = TDTouchID;
+				PRODUCT_NAME = TDTouchID;
+				PUBLIC_HEADERS_FOLDER_PATH = "";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -425,7 +557,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -483,7 +614,7 @@
 		};
 		97FCC5472E8CACB6535A89B0C30C9730 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BD6CEA0EE52693C5CCCCD7B471CBFEE5 /* FMDB.xcconfig */;
+			baseConfigurationReference = B7C800BD60BFE5E29C57736D6A5F3CBE /* FMDB.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -491,7 +622,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				GCC_PREFIX_HEADER = "Target Support Files/FMDB/FMDB-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRIVATE_HEADERS_FOLDER_PATH = "";
@@ -506,9 +637,9 @@
 			};
 			name = Debug;
 		};
-		BAC60AF7CAF38C6A77BDF6FE235B76BA /* Debug */ = {
+		A4B0DB8053D008BAEBA5062097131BAC /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 69C29293298A7C76FE447AB214D0AFF1 /* YTKKeyValueStore.xcconfig */;
+			baseConfigurationReference = F998679690F5B9A9A3DEFE39A6B8DCA2 /* YTKKeyValueStore.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -516,7 +647,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				GCC_PREFIX_HEADER = "Target Support Files/YTKKeyValueStore/YTKKeyValueStore-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRIVATE_HEADERS_FOLDER_PATH = "";
@@ -531,7 +662,80 @@
 			};
 			name = Debug;
 		};
-		C579725D76B39BDE930D88A045E427D8 /* Debug */ = {
+		BCE886F654FAAF82ED3F1355F4FF256D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7C32CC43CFD55D5961FAEB5C5EDE033A /* TDTouchID.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				GCC_PREFIX_HEADER = "Target Support Files/TDTouchID/TDTouchID-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_MODULE_NAME = TDTouchID;
+				PRODUCT_NAME = TDTouchID;
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E4ED005AEBEEA78058800ABDBEA64A92 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DF9F0BF559FE42B2E06B6E29BC8B9C6D /* Pods-AppleNote.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EA162E9268D8B3096FAA278508AF05F4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F998679690F5B9A9A3DEFE39A6B8DCA2 /* YTKKeyValueStore.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				GCC_PREFIX_HEADER = "Target Support Files/YTKKeyValueStore/YTKKeyValueStore-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_MODULE_NAME = YTKKeyValueStore;
+				PRODUCT_NAME = YTKKeyValueStore;
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		ED7315C44BDD81898C7A8AC716F1B076 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = BFB71B7DD42FDFBD9F6CC3B0DF937342 /* Pods-AppleNote.debug.xcconfig */;
 			buildSettings = {
@@ -553,35 +757,9 @@
 			};
 			name = Debug;
 		};
-		CB4905DE04925071BB34A6964956EF84 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 69C29293298A7C76FE447AB214D0AFF1 /* YTKKeyValueStore.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				GCC_PREFIX_HEADER = "Target Support Files/YTKKeyValueStore/YTKKeyValueStore-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRIVATE_HEADERS_FOLDER_PATH = "";
-				PRODUCT_MODULE_NAME = YTKKeyValueStore;
-				PRODUCT_NAME = YTKKeyValueStore;
-				PUBLIC_HEADERS_FOLDER_PATH = "";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
 		EF50914F1BE809103DF197CD2F2BAADB /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BD6CEA0EE52693C5CCCCD7B471CBFEE5 /* FMDB.xcconfig */;
+			baseConfigurationReference = B7C800BD60BFE5E29C57736D6A5F3CBE /* FMDB.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -589,7 +767,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				GCC_PREFIX_HEADER = "Target Support Files/FMDB/FMDB-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRIVATE_HEADERS_FOLDER_PATH = "";
@@ -609,7 +787,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -673,15 +850,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		003C7277B7B7F574779350D38A12D87C /* Build configuration list for PBXNativeTarget "YTKKeyValueStore" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				BAC60AF7CAF38C6A77BDF6FE235B76BA /* Debug */,
-				CB4905DE04925071BB34A6964956EF84 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -700,11 +868,29 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		BEEEF37AC710557DC8B54DCD5E052CCB /* Build configuration list for PBXNativeTarget "Pods-AppleNote" */ = {
+		5648E79F2CD0D8850E9E8EDE047EB92A /* Build configuration list for PBXNativeTarget "TDTouchID" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C579725D76B39BDE930D88A045E427D8 /* Debug */,
-				11D4F256926684799AB1B629583EAA1D /* Release */,
+				BCE886F654FAAF82ED3F1355F4FF256D /* Debug */,
+				65B06F755FAC972877DF11774E496AA3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		676A88A141A162E0C0CA34BD30E51FB5 /* Build configuration list for PBXNativeTarget "YTKKeyValueStore" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A4B0DB8053D008BAEBA5062097131BAC /* Debug */,
+				EA162E9268D8B3096FAA278508AF05F4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FD71A8074915A6B2E6E09F3FC729D210 /* Build configuration list for PBXNativeTarget "Pods-AppleNote" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ED7315C44BDD81898C7A8AC716F1B076 /* Debug */,
+				E4ED005AEBEEA78058800ABDBEA64A92 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

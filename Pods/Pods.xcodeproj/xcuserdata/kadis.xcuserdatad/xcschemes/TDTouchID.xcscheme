@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "4E2076C248750B19389610421673B4B6"
-               BlueprintName = "YTKKeyValueStore"
+               BlueprintIdentifier = "E070F98230B1266C3C7D0CE229BBD6F5"
+               BlueprintName = "TDTouchID"
                ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "libYTKKeyValueStore.a">
+               BuildableName = "libTDTouchID.a">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
