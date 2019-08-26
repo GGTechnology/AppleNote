@@ -57,6 +57,14 @@
                                     <action selector="fail:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dCc-a9-A1I"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cHb-1d-dXe">
+                                <rect key="frame" x="20" y="179" width="143" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="VIP可兑换余额"/>
+                                <connections>
+                                    <action selector="vipExchange:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Woy-rB-teT"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>

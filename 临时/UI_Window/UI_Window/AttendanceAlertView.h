@@ -76,5 +76,18 @@ typedef void (^ClickBlock)(id anyID);
                         leftHandle:(ClickBlock )leftBlock
                        rightHandle:(ClickBlock )rightBlock;
 
+/*
+ * 开通 VIP 会员
+ *
+ * @param  text   内容
+ * @param  title  按钮标题
+ * @param  Block  点击回调
+ *
+ */
+- (void)showAlertWithVIPContentText:(NSString*)text
+                        buttonTitle:(NSString *)title
+                             Handle:(ClickBlock )Block;
+
+
 @end
 

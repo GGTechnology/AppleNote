@@ -24,24 +24,84 @@
 @interface AttendanceAlertView () {
     dispatch_source_t timer; // 定时器
 }
-@property (nonatomic, copy)   ClickBlock leftButtonClickHandle;  // 取消按钮回调
-@property (nonatomic, copy)   ClickBlock rightButtonClickHandle; // 取消按钮回调
+@property (nonatomic, copy)   ClickBlock leftButtonClickHandle;  // 左边按钮回调
+@property (nonatomic, copy)   ClickBlock rightButtonClickHandle; // 右边按钮回调
 
 @property (nonatomic, strong) UIViewController *nowVC;           // 当前VC
-@property (nonatomic, strong) UIView *mainView;                  // 背景试图
+@property (nonatomic, strong) UIView *mainView;                  // 背景视图
 
 @property (nonatomic, strong) UIView *bottomWhiteView;
 
 @end
 
 @implementation AttendanceAlertView
-
-/// 初始化
+/** 初始化 */
 + (instancetype)shareInstance {
     return [[self alloc]init];
 }
+/** 获取当前VC */
++ (UIViewController *)getCurrentVC {
+    UIViewController *rootViewController = [UIApplication sharedApplication].keyWindow.rootViewController;
+    UIViewController *currentVC = [self getCurrentVCFrom:rootViewController];
+    return currentVC;
+}
++ (UIViewController *)getCurrentVCFrom:(UIViewController *)rootVC {
+    UIViewController *currentVC;
+    if ([rootVC presentedViewController]) {
+        // 视图是被presented出来的
+        rootVC = [rootVC presentedViewController];
+    }
+    if ([rootVC isKindOfClass:[UITabBarController class]]) {
+        // 根视图为UITabBarController
+        currentVC = [self getCurrentVCFrom:[(UITabBarController *)rootVC selectedViewController]];
+    } else if ([rootVC isKindOfClass:[UINavigationController class]]){
+        // 根视图为UINavigationController
+        currentVC = [self getCurrentVCFrom:[(UINavigationController *)rootVC visibleViewController]];
+    } else {
+        // 根视图为非导航类
+        currentVC = rootVC;
+    }
+    return currentVC;
+}
+/** 添加阴影背景 */
+- (void)addShadowBackground {
+    UIView *shadowView = [[UIView alloc] initWithFrame:self.view.bounds];
+    shadowView.backgroundColor = [UIColor blackColor];
+    [self.view addSubview:shadowView];
+    shadowView.alpha = 0.4f;
+}
+/** 背景 */
+- (UIView *)mainView {
+    if (!_mainView) {
+        _mainView = [[UIView alloc] initWithFrame:self.view.bounds];
+    }
+    return _mainView;
+}
+/** 消失的处理 */
+- (void)closeView {
+    if (timer) {
+        dispatch_source_cancel(timer);
+    }
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+/** 取消按钮点击事件 */
+- (void)cancelAction:(UIButton*)btn {
+    if (self.leftButtonClickHandle) {
+        self.leftButtonClickHandle(self);
+    }
+    [self closeView];
+}
+/** 确定按钮点击事件 */
+- (void)okAction:(UIButton*)btn {
+    if (self.rightButtonClickHandle) {
+        self.rightButtonClickHandle(self);
+    }
+    [self closeView];
+}
 
-/// 补签成功弹窗
+
+
+#pragma -- mark 补签成功弹窗
 - (void)showAlertWithSuccellCount:(id)text {
     self.nowVC = [AttendanceAlertView getCurrentVC];
     [self addShadowBackground];
@@ -52,7 +112,7 @@
         self.modalPresentationStyle = UIModalPresentationOverFullScreen;
         self.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
         [self.nowVC presentViewController:self animated:YES completion:nil];
-
+        
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5*NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [self closeView];
         });
@@ -84,24 +144,7 @@
     [whiteView addSubview:countLabel];
 }
 
-- (void)showAlertWithFailHeadTitle:(NSString*)title
-                         textTitle:(NSString *)text
-                        leftHandle:(ClickBlock )leftBlock
-                       rightHandle:(ClickBlock )rightBlock  {
-    self.nowVC = [AttendanceAlertView getCurrentVC];
-    [self addShadowBackground];
-    [self setFailViewTitle:title textContent:text];
-    self.leftButtonClickHandle = leftBlock;
-    self.rightButtonClickHandle = rightBlock;
-    
-    if ([self.mainView isKindOfClass:[UIView class]]) {
-        [self.view addSubview:self.mainView];
-        self.modalPresentationStyle = UIModalPresentationOverFullScreen;
-        self.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-        [self.nowVC presentViewController:self animated:YES completion:nil];
-    }
-}
-/// 补签失败弹窗
+#pragma -- mark 补签失败弹窗
 - (void)setFailViewTitle:(NSString *)title textContent:(NSString *)text {
     UIView *whiteView = [[UIView alloc] initWithFrame:CGRectMake(attendanceAlertViewWidth(38), sHeight/2-attendanceAlertViewWidth(115), sWidth-attendanceAlertViewWidth(78), attendanceAlertViewWidth(230))];
     [whiteView.layer setMasksToBounds:YES];
@@ -145,8 +188,25 @@
     [rightBtn addTarget:self action:@selector(okAction:) forControlEvents:UIControlEventTouchUpInside];
     [whiteView addSubview:rightBtn];
 }
+- (void)showAlertWithFailHeadTitle:(NSString*)title
+                         textTitle:(NSString *)text
+                        leftHandle:(ClickBlock )leftBlock
+                       rightHandle:(ClickBlock )rightBlock  {
+    self.nowVC = [AttendanceAlertView getCurrentVC];
+    [self addShadowBackground];
+    [self setFailViewTitle:title textContent:text];
+    self.leftButtonClickHandle = leftBlock;
+    self.rightButtonClickHandle = rightBlock;
+    
+    if ([self.mainView isKindOfClass:[UIView class]]) {
+        [self.view addSubview:self.mainView];
+        self.modalPresentationStyle = UIModalPresentationOverFullScreen;
+        self.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+        [self.nowVC presentViewController:self animated:YES completion:nil];
+    }
+}
 
-/// 邀请好友补签弹窗
+#pragma -- mark 邀请好友补签弹窗
 - (void)showAlertWithHeadTitle:(NSString *)title
                 supplementDate:(NSString *)date
                      textTitle:(NSString *)text
@@ -260,7 +320,7 @@
     }];
 }
 
-/// 美币兑换弹窗
+#pragma -- mark 美币兑换弹窗
 - (void)showAlertWithMeiCoinHeadTitle:(NSString *)title
                             textTitle:(NSString *)text
                            leftHandle:(ClickBlock )leftBlock
@@ -322,70 +382,60 @@
     [whiteView addSubview:rightBtn];
 }
 
-/// 获取当前VC
-+ (UIViewController *)getCurrentVC {
-    UIViewController *rootViewController = [UIApplication sharedApplication].keyWindow.rootViewController;
-    UIViewController *currentVC = [self getCurrentVCFrom:rootViewController];
-    return currentVC;
-}
-+ (UIViewController *)getCurrentVCFrom:(UIViewController *)rootVC {
-    UIViewController *currentVC;
-    if ([rootVC presentedViewController]) {
-        // 视图是被presented出来的
-        rootVC = [rootVC presentedViewController];
-    }
-    if ([rootVC isKindOfClass:[UITabBarController class]]) {
-        // 根视图为UITabBarController
-        currentVC = [self getCurrentVCFrom:[(UITabBarController *)rootVC selectedViewController]];
-    } else if ([rootVC isKindOfClass:[UINavigationController class]]){
-        // 根视图为UINavigationController
-        currentVC = [self getCurrentVCFrom:[(UINavigationController *)rootVC visibleViewController]];
-    } else {
-        // 根视图为非导航类
-        currentVC = rootVC;
-    }
-    return currentVC;
-}
-
-/// 取消按钮点击事件
-- (void)cancelAction:(UIButton*)btn {
-    if (self.leftButtonClickHandle) {
-        self.leftButtonClickHandle(self);
-    }
-    [self closeView];
-}
-
-/// 确定按钮点击事件
-- (void)okAction:(UIButton*)btn {
-    if (self.rightButtonClickHandle) {
-        self.rightButtonClickHandle(self);
-    }
-    [self closeView];
-}
-
-/// 消失的处理
-- (void)closeView {
-    if (timer) {
-        dispatch_source_cancel(timer);
-    }
+#pragma -- mark 开通 VIP 会员
+- (void)showAlertWithVIPContentText:(NSString*)text
+                        buttonTitle:(NSString *)title
+                             Handle:(ClickBlock )Block {
+    self.nowVC = [AttendanceAlertView getCurrentVC];
+    [self addShadowBackground];
+    [self setVIPContentText:text buttonTitle:title];
+    self.rightButtonClickHandle = Block;
     
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
-
-/// 添加阴影背景
-- (void)addShadowBackground {
-    UIView *shadowView = [[UIView alloc] initWithFrame:self.view.bounds];
-    shadowView.backgroundColor = [UIColor blackColor];
-    [self.view addSubview:shadowView];
-    shadowView.alpha = 0.4f;
-}
-
-/// 背景
-- (UIView *)mainView {
-    if (!_mainView) {
-        _mainView = [[UIView alloc] initWithFrame:self.view.bounds];
+    if ([self.mainView isKindOfClass:[UIView class]]) {
+        [self.view addSubview:self.mainView];
+        self.modalPresentationStyle = UIModalPresentationOverFullScreen;
+        self.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+        [self.nowVC presentViewController:self animated:YES completion:nil];
     }
-    return _mainView;
 }
+- (void)setVIPContentText:(NSString *)text buttonTitle:(NSString *)title {
+    UIView *whiteView = [[UIView alloc] init];
+    [whiteView.layer setMasksToBounds:YES];
+    [whiteView.layer setCornerRadius:attendanceAlertViewWidth(10)];
+    whiteView.backgroundColor = [UIColor whiteColor];
+    [self.mainView addSubview:whiteView];
+    
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(attendanceAlertViewWidth(25), attendanceAlertViewWidth(28), attendanceAlertViewWidth(226), 0)];
+    label.numberOfLines = 0;
+    label.text = text;
+    label.font = [UIFont systemFontOfSize:attendanceAlertViewWidth(17)];
+    label.textColor = [UIColor blackColor];
+    [whiteView addSubview:label];
+    NSMutableAttributedString * attributedString = [[NSMutableAttributedString alloc] initWithString:text];
+    NSMutableParagraphStyle * paragraphStyle1 = [[NSMutableParagraphStyle alloc] init];
+    [paragraphStyle1 setLineSpacing:attendanceAlertViewWidth(11)];
+    [attributedString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle1 range:NSMakeRange(0, [text length])];
+    [attributedString addAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:attendanceAlertViewWidth(17)],NSParagraphStyleAttributeName:paragraphStyle1} range:NSMakeRange(0, [text length])];
+    [label setAttributedText:attributedString];
+    [label sizeToFit];
+    CGFloat labelHeight = label.frame.size.height;
+    NSLog(@"f = %f", labelHeight);
+    
+    UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(attendanceAlertViewWidth(25), attendanceAlertViewWidth(52)+labelHeight,  attendanceAlertViewWidth(226), attendanceAlertViewWidth(37))];
+    [btn.titleLabel setFont:[UIFont systemFontOfSize:attendanceAlertViewWidth(17)]];
+    [btn setTitle:title forState:UIControlStateNormal];
+    [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [btn addTarget:self action:@selector(okAction:) forControlEvents:UIControlEventTouchUpInside];
+    [btn.layer setMasksToBounds:YES];
+    [btn.layer setCornerRadius:attendanceAlertViewWidth(18.5)];
+    btn.backgroundColor = HEX_COLOR(0xFF5258);
+    [whiteView addSubview:btn];
+    
+    CGFloat whiteHeight = btn.frame.origin.y + attendanceAlertViewWidth(54);
+    whiteView.frame = CGRectMake((kDevice_Width-attendanceAlertViewWidth(276))/2, sHeight/2-whiteHeight/2*1.5, attendanceAlertViewWidth(276), whiteHeight);
+}
+
+
+
 
 @end
