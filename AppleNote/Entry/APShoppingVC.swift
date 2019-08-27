@@ -9,5 +9,7 @@
 import UIKit
 
 class APShoppingVC: APBaseVC {
-
+    override func viewDidLoad() {
+        self.view.backgroundColor = .green
+    }
 }

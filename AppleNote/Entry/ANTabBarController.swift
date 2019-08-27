@@ -39,47 +39,46 @@ class ANTabBarController: UITabBarController {
         setting.tabBarItem.title = "设置"
         
         self.viewControllers = [main, setting]
+    
         
         // 默认选中的是游戏主界面视图
         self.selectedIndex = 0
         
-        let a:String! = name(a: "name")
-        print("🍎 = ", a!);
+//        let a:String! = name(a: "name")
+//        print("🍎 = ", a!);
         
         
-        let context = LAContext()
-        var error: NSError?
-        if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
-            if error != nil {
-                type = 1
-                print("type = ", type!)
-            }
-            if #available(iOS 11.0, *) {
-                print("#available(iOS 11.0, *)")
-            }
-            if context.biometryType == .faceID {
-                type = 2
-                print("type = ", type!)
-            } else {
-                type = 3
-                print("type = ", type!)
-            }
-        } else {
-            type = 1
-            print("type = ", type!)
-            testInput()
-        }
+//        let context = LAContext()
+//        var error: NSError?
+//        if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
+//            if error != nil {
+//                type = 1
+//                print("type = ", type!)
+//            }
+//            if #available(iOS 11.0, *) {
+//                print("#available(iOS 11.0, *)")
+//            }
+//            if context.biometryType == .faceID {
+//                type = 2
+//                print("type = ", type!)
+//            } else {
+//                type = 3
+//                print("type = ", type!)
+//            }
+//        } else {
+//            type = 1
+//            print("type = ", type!)
+//            testInput()
+//        }
     }
-    
-    func testInput() {
-        let alertView = UIAlertView(title: "", message: "请输入密码", delegate: nil, cancelButtonTitle: "确定", otherButtonTitles: "取消")
-        alertView.alertViewStyle = .secureTextInput
-        alertView.show()
-
-    }
-    func name(a:String!) -> String {
-        return "test"
-    }
-    
-    
+//
+//    func testInput() {
+//        let alertView = UIAlertView(title: "", message: "请输入密码", delegate: nil, cancelButtonTitle: "确定", otherButtonTitles: "取消")
+//        alertView.alertViewStyle = .secureTextInput
+//        alertView.show()
+//
+//    }
+//    func name(a:String!) -> String {
+//        return "test"
+//    }
 }
