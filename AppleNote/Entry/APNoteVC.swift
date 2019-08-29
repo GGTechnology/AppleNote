@@ -39,15 +39,16 @@ extension APNoteVC:UITableViewDataSource,UITableViewDelegate {
         return 10
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
-        cell.textLabel?.text = String(indexPath.row)
-        return cell;
+        let cell2 = APNoteCell()
+        let a = String(indexPath.row)
+        cell2.setFoundation(string: a)
+        return cell2;
     }
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 0.1
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        print(indexPath.row)
+        print("🍎", indexPath.row)
     }
 }
