@@ -9,7 +9,4 @@
 #ifndef APHeaderFile_h
 #define APHeaderFile_h
 
-#import <YTKKeyValueStore.h>
-#import <TDTouchID.h>
-
 #endif /* APHeaderFile_h */
