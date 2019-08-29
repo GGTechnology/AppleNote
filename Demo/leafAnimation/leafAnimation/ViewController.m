@@ -20,8 +20,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    [self.view.layer addSublayer:self.leafEmitter];  // 第一种效果
-    [self leaf];
+//    [self.view.layer addSublayer:self.leafEmitter];  // 第一种效果
+//    [self leaf];    // 第二种效果
+    [self fire];    // 第三种效果
 }
 
 - (void)leaf {
@@ -100,6 +101,40 @@
         leafEmitter.emitterCells = array;
     }
     return _leafEmitter;
+}
+
+- (void)fire {
+    CAEmitterLayer *fireEmitter = [CAEmitterLayer layer];
+    [self.view.layer addSublayer:fireEmitter];
+    
+    fireEmitter.emitterPosition = CGPointMake(self.view.bounds.size.width/2, self.view.bounds.size.height-60);
+    fireEmitter.emitterSize = CGSizeMake(self.view.bounds.size.width, 0);
+    
+    fireEmitter.emitterShape = kCAEmitterLayerLine;
+    fireEmitter.emitterMode = kCAEmitterLayerOutline;
+    fireEmitter.renderMode = kCAEmitterLayerAdditive;//混合渲染效果
+    
+    NSString *imageName = @"火焰";
+    
+    CAEmitterCell *fireCell = [CAEmitterCell emitterCell];
+    fireCell.birthRate = 15;
+    fireCell.lifetime = 6;
+    
+    fireCell.velocity = 10;
+    fireCell.velocityRange = 10;
+    
+    fireCell.emissionRange = 0;
+    
+    fireCell.contents = (id)[[UIImage imageNamed:imageName] CGImage];
+    
+    fireCell.scale = 0.5;
+    fireCell.scaleRange = 0.2;
+    
+    fireCell.alphaSpeed = -0.2;//透明度改变速度
+    
+    fireEmitter.emitterCells = @[fireCell];
+    
+    [self.view.layer addSublayer:fireEmitter];
 }
 
 @end
