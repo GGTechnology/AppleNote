@@ -17,6 +17,7 @@
 		2363BA6B230CF24600D81AA4 /* APModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2363BA6A230CF24600D81AA4 /* APModel.swift */; };
 		23B0391623068410002174E6 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 23B0391523068410002174E6 /* Podfile */; };
 		23B0391823068927002174E6 /* ANTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B0391723068927002174E6 /* ANTabBarController.swift */; };
+		23D3CD6523177A9D009C9941 /* APNoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D3CD6423177A9D009C9941 /* APNoteCell.swift */; };
 		C4054F8022DF2C2E0065CFB2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4054F7F22DF2C2E0065CFB2 /* AppDelegate.swift */; };
 		C4054F8222DF2C2E0065CFB2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4054F8122DF2C2E0065CFB2 /* ViewController.swift */; };
 		C4054F8722DF2C300065CFB2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4054F8622DF2C300065CFB2 /* Assets.xcassets */; };
@@ -55,6 +56,7 @@
 		23B0391723068927002174E6 /* ANTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ANTabBarController.swift; sourceTree = "<group>"; };
 		23B0398C2306C63B002174E6 /* PCH.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PCH.h; sourceTree = "<group>"; };
 		23B0398D2306C64F002174E6 /* APHeaderFile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APHeaderFile.h; sourceTree = "<group>"; };
+		23D3CD6423177A9D009C9941 /* APNoteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APNoteCell.swift; sourceTree = "<group>"; };
 		482F2B05428C840A26CA1911 /* libPods-AppleNote.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AppleNote.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7837FBDF83BA540E66B2C2E /* Pods-AppleNote.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppleNote.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AppleNote/Pods-AppleNote.debug.xcconfig"; sourceTree = "<group>"; };
 		C4054F7C22DF2C2E0065CFB2 /* AppleNote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppleNote.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -133,6 +135,7 @@
 			children = (
 				2363BA28230BC5B200D81AA4 /* APBaseTableView.swift */,
 				2363BA2A230BC5F000D81AA4 /* APNoteTableView.swift */,
+				23D3CD6423177A9D009C9941 /* APNoteCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -384,6 +387,7 @@
 			files = (
 				C4054F8222DF2C2E0065CFB2 /* ViewController.swift in Sources */,
 				2363BA25230BC1C200D81AA4 /* APShoppingVC.swift in Sources */,
+				23D3CD6523177A9D009C9941 /* APNoteCell.swift in Sources */,
 				C4054F8022DF2C2E0065CFB2 /* AppDelegate.swift in Sources */,
 				2363BA1C230B9EC200D81AA4 /* ANNavigationController.swift in Sources */,
 				2363BA6B230CF24600D81AA4 /* APModel.swift in Sources */,
@@ -562,7 +566,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = MC32WL4XZA;
 				INFOPLIST_FILE = AppleNote/Main/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -583,7 +587,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = MC32WL4XZA;
 				INFOPLIST_FILE = AppleNote/Main/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
