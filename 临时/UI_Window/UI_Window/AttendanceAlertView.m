@@ -435,7 +435,22 @@
     whiteView.frame = CGRectMake((kDevice_Width-attendanceAlertViewWidth(276))/2, sHeight/2-whiteHeight/2*1.5, attendanceAlertViewWidth(276), whiteHeight);
 }
 
-
+#pragma -- mark 点击灰色区域
+- (void)showGrayArea {
+    self.nowVC = [AttendanceAlertView getCurrentVC];
+    UIButton *shadowBtn = [[UIButton alloc] initWithFrame:self.view.bounds];
+    shadowBtn.backgroundColor = [UIColor blackColor];
+    [shadowBtn addTarget:self action:@selector(closeView) forControlEvents:UIControlEventTouchUpInside];
+    [self.mainView addSubview:shadowBtn];
+    shadowBtn.alpha = 0.3f;
+    
+    if ([self.mainView isKindOfClass:[UIView class]]) {
+        [self.view addSubview:self.mainView];
+        self.modalPresentationStyle = UIModalPresentationOverFullScreen;
+        self.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+        [self.nowVC presentViewController:self animated:YES completion:nil];
+    }
+}
 
 
 @end

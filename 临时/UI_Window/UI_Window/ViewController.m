@@ -52,8 +52,11 @@
 - (IBAction)vipExchange:(id)sender {
     NSLog(@"VIP可兑换余额");
     [[AttendanceAlertView shareInstance] showAlertWithVIPContentText:@"亲～您暂时还不是VIP会员不能直接用美币兑换余额，如要兑换，请开通VIP会员" buttonTitle:@"开通VIP会员" Handle:^(id anyID) {
-        
+        NSLog(@"开通会员");
     }];
+}
+- (IBAction)grayArea {
+    [[AttendanceAlertView shareInstance] showGrayArea];
 }
 
 @end

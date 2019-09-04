@@ -89,5 +89,10 @@ typedef void (^ClickBlock)(id anyID);
                              Handle:(ClickBlock )Block;
 
 
+/*
+ * 点击灰色区域
+ */
+- (void)showGrayArea;
+
 @end
 
