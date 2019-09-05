@@ -14,7 +14,7 @@
 
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet UIView *red;
-
+@property (nonatomic, strong) UIView *green;
 @end
 
 @implementation ViewController
@@ -28,7 +28,31 @@
         make.centerX.equalTo(@0);
         make.size.mas_equalTo(CGSizeMake(100, 100));
     }];
+    
+    _green = [[UIView alloc] init];
+    _green.backgroundColor = [UIColor greenColor];
+    [self.view addSubview:_green];
+    [_green mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(self.view.mas_bottom).with.offset(0);
+        make.centerX.equalTo(@0);
+        make.size.mas_equalTo(CGSizeMake(100, 100));
+    }];
+
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self greenAnimation];
+    });
 }
+- (void)greenAnimation {
+    [UIView animateWithDuration:3.0 animations:^{
+        [self->_green mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.bottom.equalTo(self.view.mas_bottom).with.offset(0);
+            make.centerX.equalTo(@0);
+            make.size.mas_equalTo(CGSizeMake(100, 100));
+        }];
+        [self.view.superview layoutIfNeeded];
+    }];
+}
+
 - (IBAction)left {
     [_red mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(@300);
@@ -109,14 +133,15 @@
     }];
 }
 - (IBAction)reset {
-    [_red mas_updateConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(@300);
-        make.centerX.equalTo(@0);
-        make.size.mas_equalTo(CGSizeMake(100, 100));
-    }];
-    [UIView animateWithDuration:1.0 animations:^{
-        [self->_red.superview layoutIfNeeded];
-    }];
+//    [_red mas_remakeConstraints:^(MASConstraintMaker *make) {
+//        make.top.equalTo(@300);
+//        make.centerX.equalTo(@0);
+//        make.size.mas_equalTo(CGSizeMake(100, 100));
+//    }];
+//    [UIView animateWithDuration:1.0 animations:^{
+//        [self->_red.superview layoutIfNeeded];
+//    }];
+    [self greenAnimation];
 }
 
 @end
