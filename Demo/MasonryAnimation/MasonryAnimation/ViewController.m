@@ -133,15 +133,14 @@
     }];
 }
 - (IBAction)reset {
-//    [_red mas_remakeConstraints:^(MASConstraintMaker *make) {
-//        make.top.equalTo(@300);
-//        make.centerX.equalTo(@0);
-//        make.size.mas_equalTo(CGSizeMake(100, 100));
-//    }];
-//    [UIView animateWithDuration:1.0 animations:^{
-//        [self->_red.superview layoutIfNeeded];
-//    }];
-    [self greenAnimation];
+    [_red mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(@300);
+        make.centerX.equalTo(@0);
+        make.size.mas_equalTo(CGSizeMake(100, 100));
+    }];
+    [UIView animateWithDuration:1.0 animations:^{
+        [self->_red.superview layoutIfNeeded];
+    }];
 }
 
 @end
