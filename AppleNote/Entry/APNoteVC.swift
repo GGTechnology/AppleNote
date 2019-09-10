@@ -41,7 +41,7 @@ extension APNoteVC:UITableViewDataSource,UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell2 = APNoteCell()
         let a = String(indexPath.row)
-//        cell2.setFoundation(string: a)
+        cell2.setFoundation(string: a)
         return cell2;
     }
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
