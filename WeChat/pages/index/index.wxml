@@ -1,0 +1,49 @@
+<!--index.wxml-->
+<!-- <view class="container">
+  <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view>
+  <view class="usermotto">
+    <text class="user-motto">{{motto}}</text>
+  </view>
+</view> -->
+
+
+<!--一个简单的文本标签 -->
+<text>hello world</text>
+
+<!-- view 中包含了 text 标签 -->
+<view>
+  <!-- <image class="userinfo-avatar" src="./image/a.png" ></image> -->
+
+  <!--pages/wxml/index.wxml-->
+<text>\n当前时间：{{time}}</text>
+</view>
+<view>
+  <image class="userinfo-avatar" src="https://avatars3.githubusercontent.com/u/19720236?s=460&v=4" ></image>
+</view>
+<view><text data-test="{{test}}"> hello world</text></view>
+{
+  var2: undefined,
+  var3: null,
+  var4: "var4"
+}
+<view>{{var1}}</view>
+<view>{{var2}}</view>
+<view>{{var3}}</view>
+<view>{{var4}}</view>
+<view><text>{{ a === 10? "变量 a 等于10": "变量 a 不等于10"}}</text></view>
+<view></view>
+<view></view>
+<view></view>
+<view></view>
+<view></view>
+<view></view>
+<view></view>
+<view></view>
+<view></view>
+<view></view>
