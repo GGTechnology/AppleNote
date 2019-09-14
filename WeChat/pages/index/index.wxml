@@ -12,38 +12,90 @@
   </view>
 </view> -->
 
-
 <!--一个简单的文本标签 -->
 <text>hello world</text>
 
-<!-- view 中包含了 text 标签 -->
-<view>
-  <!-- <image class="userinfo-avatar" src="./image/a.png" ></image> -->
+<view style="background:yellow">
+  <text>
+    当前时间：\n{{time}}
+  </text>
+</view>
 
-  <!--pages/wxml/index.wxml-->
-<text>\n当前时间：{{time}}</text>
-</view>
 <view>
-  <image class="userinfo-avatar" src="https://avatars3.githubusercontent.com/u/19720236?s=460&v=4" ></image>
+  <image class="userinfo-avatar" src="https://avatars3.githubusercontent.com/u/19720236?s=460&v=4" >
+  </image>
 </view>
-<view><text data-test="{{test}}"> hello world</text></view>
-{
-  var2: undefined,
-  var3: null,
-  var4: "var4"
-}
-<view>{{var1}}</view>
-<view>{{var2}}</view>
-<view>{{var3}}</view>
-<view>{{var4}}</view>
-<view><text>{{ a === 10? "变量 a 等于10": "变量 a 不等于10"}}</text></view>
-<view></view>
-<view></view>
-<view></view>
-<view></view>
-<view></view>
-<view></view>
-<view></view>
-<view></view>
-<view></view>
-<view></view>
+
+<!-- 三元运算符 -->
+<view style="background:cyan">
+  <text>
+    {{ a === 10? "变量 a 等于10": "变量 a 不等于10"}}
+  </text>
+</view>
+
+<view class='main'><text>------ 分界线------</text></view>
+<!-- 条件逻辑 -->
+<view wx:if="{{condition}}" style="background:brown"> condition == True </view>
+<view wx:if="{{length > 5}}"  style="background:green" > length大于5 </view>
+<view wx:elif="{{length > 2}}" style="background:orange"> length>5 && length>2 </view>
+<view wx:else> else </view>
+
+<block wx:if="{{true}}">
+  <view style="background:red"> (wx:if="{{true}}) == true </view>
+</block>
+
+<view class='main'><text>------ 分界线------</text></view>
+<!-- 列表渲染 -->
+<view wx:for="{{listArray}}" style="background:green">
+  {{index}}: {{item.message}}
+</view>
+
+<view wx:for="{{listArray}}" wx:for-index="idx" wx:for-item="itemName"  style="background:yellow">
+  {{idx}}: {{itemName.message}}
+</view>
+
+<block wx:for="{{[7, 8, 9]}}">
+  <view style="background:orange"> {{index}}: </view>
+  <view style="background:pink"> {{item}} </view>
+</block>
+
+<view class='main' style="color:red"><text>------ 列表渲染分界线------</text></view>
+<view style="background:yellow"><switch wx:for="{{objectArray}}" wx:key="unique" > {{item.id}} </switch></view>
+<button bindtap="switch" style="background:orange"> Switch </button>
+<button bindtap="addToFront" style="background:cyan"> Add to the front </button>
+
+<view style="background:green"></view>
+<switch wx:for="{{numberArray}}" wx:key="*this" > {{item}} </switch>
+<button bindtap="addNumberToFront" style="background:pink"> Add Number to the front </button>
+
+<view class='main'><text>------ 分界线------</text></view>
+<!-- 模板 -->
+<template name="msgItem">
+  <view style="background:green">
+    <text> {{index}}: {{msg}} </text>
+    <text> \n Time: {{time}} </text>
+  </view>
+</template>
+<template is="msgItem" data="{{...item}}"/>
+
+<view class='main' style="color:orange"><text>------ 模版分界线------</text></view>
+<view style="background:yellow">
+  <template name="view1">
+    <view> 
+      view1 
+    </view>
+  </template>
+
+  <template name="view2">
+    <view> 
+      view2
+    </view>
+  </template>
+
+  <block wx:for="{{[1, 2, 3, 4, 5]}}">
+    <template is="{{item % 2 == 0 ? 'view1' : 'view2'}}"/>
+  </block>
+</view>
+
+<view class='main' style="color:blue"><text>------ 分界线------</text></view>
+<!-- 引用 -->

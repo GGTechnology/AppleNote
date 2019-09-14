@@ -1,0 +1,3 @@
+<template name="header">
+  <text>{{header}}</text>
+</template>

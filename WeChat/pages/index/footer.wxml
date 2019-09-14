@@ -1,0 +1,3 @@
+<template name="footer">
+  <text>{{footer}}</text>
+</template>
