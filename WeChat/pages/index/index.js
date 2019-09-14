@@ -2,6 +2,10 @@
 //获取应用实例
 const app = getApp()
 // var num = 0
+
+var multiplyBy2 = require('./moduleA')
+var a = multiplyBy2(4)  // 4 * 3 = 12
+
 Page({
   data: {
 
@@ -31,11 +35,15 @@ Page({
     numberArray: [1, 2, 3, 4],
 
     item: {
-      index: 0,
+      index: multiplyBy2(16), // 16 * 3 = 48
       msg: 'this is a template',
       time: '2016-06-18'
-    }
+    },
+
+
+
   },
+
 
   // 列表渲染
   switch: function(e) {
