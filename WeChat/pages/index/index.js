@@ -4,11 +4,9 @@ const app = getApp()
 // var num = 0
 Page({
   data: {
+
+    // 数据绑定
     time: (new Date()).toString(),
-    motto: 'Hello World',
-    userInfo: {},
-    hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo'),
 
     // 条件逻辑
     length:4,
