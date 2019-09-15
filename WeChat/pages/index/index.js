@@ -7,6 +7,13 @@ var multiplyBy2 = require('./moduleA')
 var a = multiplyBy2(4)  // 4 * 3 = 12
 
 Page({
+  onLoad: function (options) {
+    this.setData({
+      title: options.title
+    })
+  },
+
+
   data: {
 
     // 数据绑定
@@ -44,6 +51,11 @@ Page({
 
   },
 
+  jumpView: function() {
+    wx.navigateTo({
+      url: '../logs/logs'
+    })
+  },
 
   // 列表渲染
   switch: function(e) {

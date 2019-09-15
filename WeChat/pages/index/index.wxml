@@ -1,4 +1,5 @@
 
+<button bindtap="jumpView" style="background:orange"> 跳转 </button>
 
 <!--一个简单的文本标签 -->
 <text>hello world</text>
