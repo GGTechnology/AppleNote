@@ -119,9 +119,7 @@ Page({
       })
     }
   },
-
-发生的风景
-
+  
   getUserInfo: function(e) {
     console.log(e)
     app.globalData.userInfo = e.detail.userInfo
