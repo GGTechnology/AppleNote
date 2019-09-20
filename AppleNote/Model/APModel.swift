@@ -7,9 +7,26 @@
 //
 
 import UIKit
+import SwiftyJSON
 
-class APModel: NSObject {
-    
-    
+//class APModel: NSObject {
+//
+//
+//
+//}
 
+struct APModel {
+    var num : String
+    var date : String
+    var address : String
+    var content : String
+    var image : Array<Any>
+    
+    init(jsonDate: JSON) {
+        num = jsonDate["num"].stringValue
+        date = jsonDate["date"].stringValue
+        address = jsonDate["address"].stringValue
+        content = jsonDate["content"].stringValue
+        image = jsonDate["image"].arrayValue
+    }
 }

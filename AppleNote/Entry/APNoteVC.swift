@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import SwiftyJSON
 
 var a = 10
 var tableview:UITableView!
@@ -47,11 +48,27 @@ class APNoteVC: APBaseVC {
         
         let urlStr:String = "https://raw.githubusercontent.com/GGTechnology/AppleNote/master/Configuration/AppleNote.json"
         AF.request(urlStr, method: .get).responseJSON {
-            (returnResult) in
-            let a = returnResult
-            print(a)
+            responds in
+            switch responds.result {
+            case .success(let value):
+                let json = JSON(value)
+//                print("\(json)")
+//                print(json)
+                
+                let model = APModel(jsonDate: json)
+                let num:String = model.num
+                print("🍎" + num + "🍏")
+                
+            case .failure(let error):
+                print(error)
+            }
         }
     }
+    
+//    func setJson(json:JSON) {
+//        let apModel = APModel(jsonDate: json)
+//        print(APModel.init(jsonDate: json))
+//    }
 }
 
 extension APNoteVC:UITableViewDataSource,UITableViewDelegate {
