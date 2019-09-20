@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 var a = 10
 var tableview:UITableView!
@@ -43,6 +44,13 @@ class APNoteVC: APBaseVC {
     override func viewDidLoad() {
         self.view.backgroundColor = .cyan
         self.view.addSubview(tableView)
+        
+        let urlStr:String = "https://raw.githubusercontent.com/GGTechnology/AppleNote/master/Configuration/AppleNote.json"
+        AF.request(urlStr, method: .get).responseJSON {
+            (returnResult) in
+            let a = returnResult
+            print(a)
+        }
     }
 }
 
