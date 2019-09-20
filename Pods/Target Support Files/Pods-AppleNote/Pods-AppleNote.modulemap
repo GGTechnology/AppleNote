@@ -1,0 +1,6 @@
+framework module Pods_AppleNote {
+  umbrella header "Pods-AppleNote-umbrella.h"
+
+  export *
+  module * { export * }
+}
