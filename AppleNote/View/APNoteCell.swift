@@ -109,7 +109,7 @@ class APNoteCell: UITableViewCell {
         whiteBackgroundView.snp.makeConstraints { (make) -> Void in
             make.top.equalTo(10)
             make.left.equalTo(triangleImageView.snp.right).offset(0)
-            make.right.bottom.equalTo(-10)
+            make.right.bottom.equalTo(-15)
         }
         
         timeLabel.textColor = .gray
@@ -148,6 +148,12 @@ class APNoteCell: UITableViewCell {
     }
     
     func setDate(model:APModel) {
+        let dateString = model.date
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy/mm/dd HH:mm:ss e"
+        
+        
+        
         dayLabel.text = model.date
         dateLabel.text = model.date
         timeLabel.text = model.date
