@@ -10,10 +10,8 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-var a = 10
 var tableview:UITableView!
 var dataArray:Array<Any>!
-//var dataArray = [String]()
 var array = ["愿这个世界与你温柔相待🌃",
              "简单精致，记录生活😘😘😘",
              "有的路，你必须一个人走，这不是孤独，而是选择...🏃",
@@ -25,12 +23,6 @@ var imageArray = ["123", "456", "123", "456"]
 
 class APNoteVC: APBaseVC {
     
-    lazy var names: NSArray = {
-        let names = NSArray()
-        print("只在首次访问输出")
-        return names
-    }()
-    
     lazy var tableView:UITableView = {
         let tableView = UITableView(frame:self.view.bounds, style: UITableView.Style.grouped)
         tableView.delegate = self as UITableViewDelegate
@@ -40,12 +32,12 @@ class APNoteVC: APBaseVC {
         tableView.rowHeight = UITableView.automaticDimension
         tableView.separatorStyle = .none
         tableView.showsVerticalScrollIndicator = false
-        tableView.estimatedRowHeight = 110;
+        tableView.estimatedRowHeight = 111;
+        tableView.backgroundColor = colorWithHex(hexColor: 0xEFF4F6)
         return tableView
     }()
     
     override func viewDidLoad() {
-        self.view.backgroundColor = .cyan
         self.view.addSubview(tableView)
         
         let urlStr:String = "https://raw.githubusercontent.com/GGTechnology/AppleNote/master/Configuration/AppleNote.json"
@@ -54,6 +46,7 @@ class APNoteVC: APBaseVC {
             switch responds.result {
             case .success(let value):
                 dataArray = JSON(value).arrayValue
+                print("🍏", dataArray as Any, "🍎")
                 self.tableView.reloadData()
                 break
             case .failure(let error):

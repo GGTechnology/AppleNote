@@ -8,6 +8,7 @@
 
 import UIKit
 import SnapKit
+import Kingfisher
 
 class APNoteCell: UITableViewCell {
     
@@ -48,7 +49,7 @@ class APNoteCell: UITableViewCell {
         verticalLine.snp.makeConstraints { (make) -> Void in
             make.top.bottom.equalTo(0)
             make.left.equalTo(67)
-            make.size.equalTo(CGSize(width: 1, height: 110))
+            make.size.equalTo(CGSize(width: 1, height: 111))
         }
         let circleView = UIView()
         circleView.backgroundColor = colorWithHex(hexColor: 0xD2D0D0)
@@ -127,6 +128,8 @@ class APNoteCell: UITableViewCell {
             make.bottom.equalTo(-5)
         }
         
+        iconographImageView.layer.masksToBounds = true
+        iconographImageView.layer.cornerRadius = 3
         whiteBackgroundView.addSubview(iconographImageView)
         iconographImageView.snp.makeConstraints { (make) -> Void in
             make.top.equalTo(5)
@@ -150,8 +153,9 @@ class APNoteCell: UITableViewCell {
         timeLabel.text = model.date
         addressLabel.text = model.address
         contentLabel.text = model.content
-        if (model.image.count > 2) {
-            iconographImageView.image = UIImage.init(named: model.image[0] as! String)
+        if (model.image.count > 0) {
+            let imageURL:String = "\(model.image[0])"
+            iconographImageView.kf.setImage(with: URL(string: imageURL))
         } else {
             contentLabel.snp.makeConstraints { (make) -> Void in
                 make.top.left.equalTo(10)
