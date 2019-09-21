@@ -12,6 +12,8 @@ import SwiftyJSON
 
 var a = 10
 var tableview:UITableView!
+var dataArray:Array<Any>!
+//var dataArray = [String]()
 var array = ["愿这个世界与你温柔相待🌃",
              "简单精致，记录生活😘😘😘",
              "有的路，你必须一个人走，这不是孤独，而是选择...🏃",
@@ -51,47 +53,25 @@ class APNoteVC: APBaseVC {
             responds in
             switch responds.result {
             case .success(let value):
-                let json = JSON(value)
-//                print("\(json)")
-//                print(json)
-                
-                let model = APModel(jsonDate: json)
-                let num:String = model.num
-                print("🍎" + num + "🍏")
-                
+                dataArray = JSON(value).arrayValue
+                self.tableView.reloadData()
+                break
             case .failure(let error):
                 print(error)
+                break
             }
         }
     }
-    
-//    func setJson(json:JSON) {
-//        let apModel = APModel(jsonDate: json)
-//        print(APModel.init(jsonDate: json))
-//    }
 }
 
 extension APNoteVC:UITableViewDataSource,UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return 2
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell2 = APNoteCell()
-        let day = String(indexPath.row) + "号 周" + String(indexPath.row)
-        var contents = "contents"
-        var imageString = "s"
-        if (indexPath.row >= array.count) {
-            
-        } else {
-            contents = String(array[indexPath.row])
-        }
-        if (indexPath.row >= 4) {
-            
-        } else {
-            imageString = String(imageArray[indexPath.row])
-        }
-        cell2.setDate(day: day, date: "2016.04", time: "10:00", address: "广东省深圳市", content: contents, image: imageString)
-        return cell2;
+        let cell = APNoteCell()
+        cell.setDate(model: setModelValue(row: indexPath.row))
+        return cell;
     }
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 0.1
@@ -99,5 +79,16 @@ extension APNoteVC:UITableViewDataSource,UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         print("🍎", indexPath.row)
+    }
+    
+    func setModelValue(row:Int) -> (APModel) {
+        if (dataArray != nil) {
+            let data:JSON = JSON(dataArray[row])
+            let model = APModel(jsonData: data)
+            return model
+        } else {
+            let model = APModel(jsonData: JSON())
+            return model
+        }
     }
 }

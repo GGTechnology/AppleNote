@@ -10,9 +10,6 @@ import UIKit
 import SwiftyJSON
 
 //class APModel: NSObject {
-//
-//
-//
 //}
 
 struct APModel {
@@ -22,11 +19,18 @@ struct APModel {
     var content : String
     var image : Array<Any>
     
-    init(jsonDate: JSON) {
-        num = jsonDate["num"].stringValue
-        date = jsonDate["date"].stringValue
-        address = jsonDate["address"].stringValue
-        content = jsonDate["content"].stringValue
-        image = jsonDate["image"].arrayValue
+    init(jsonData: JSON) {
+        num = jsonData["num"].stringValue
+        date = jsonData["date"].stringValue
+        address = jsonData["address"].stringValue
+        content = jsonData["content"].stringValue
+        image = jsonData["image"].arrayValue
+    }
+}
+
+struct bModel {
+    var a:String
+    init() {
+        a = "a"
     }
 }

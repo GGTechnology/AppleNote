@@ -144,14 +144,14 @@ class APNoteCell: UITableViewCell {
         }
     }
     
-    func setDate(day:String, date:String, time:String, address:String, content:String, image:String) {
-        dayLabel.text = day
-        dateLabel.text = date
-        timeLabel.text = time
-        addressLabel.text = address
-        contentLabel.text = content
-        if (image.count > 2) {
-            iconographImageView.image = UIImage.init(named: image)
+    func setDate(model:APModel) {
+        dayLabel.text = model.date
+        dateLabel.text = model.date
+        timeLabel.text = model.date
+        addressLabel.text = model.address
+        contentLabel.text = model.content
+        if (model.image.count > 2) {
+            iconographImageView.image = UIImage.init(named: model.image[0] as! String)
         } else {
             contentLabel.snp.makeConstraints { (make) -> Void in
                 make.top.left.equalTo(10)
