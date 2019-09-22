@@ -32,7 +32,7 @@ class APNoteVC: APBaseVC {
         tableView.rowHeight = UITableView.automaticDimension
         tableView.separatorStyle = .none
         tableView.showsVerticalScrollIndicator = false
-        tableView.estimatedRowHeight = 111;
+        tableView.estimatedRowHeight = 120;
         tableView.backgroundColor = colorWithHex(hexColor: 0xEFF4F6)
         return tableView
     }()

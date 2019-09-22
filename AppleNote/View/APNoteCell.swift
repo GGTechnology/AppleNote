@@ -49,7 +49,7 @@ class APNoteCell: UITableViewCell {
         verticalLine.snp.makeConstraints { (make) -> Void in
             make.top.bottom.equalTo(0)
             make.left.equalTo(67)
-            make.size.equalTo(CGSize(width: 1, height: 111))
+            make.size.equalTo(CGSize(width: 1, height: 116))
         }
         let circleView = UIView()
         circleView.backgroundColor = colorWithHex(hexColor: 0xD2D0D0)
@@ -148,12 +148,12 @@ class APNoteCell: UITableViewCell {
     }
     
     func setDate(model:APModel) {
-//        let 
+//        let
         
         
-        dayLabel.text = model.date
+        dayLabel.text = model.day
         dateLabel.text = model.date
-        timeLabel.text = model.date
+        timeLabel.text = model.time + " " + model.week
         addressLabel.text = model.address
         contentLabel.text = model.content
         if (model.image.count > 0) {
