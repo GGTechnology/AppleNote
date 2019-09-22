@@ -59,7 +59,11 @@ class APNoteVC: APBaseVC {
 
 extension APNoteVC:UITableViewDataSource,UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        if (dataArray != nil) {
+            return dataArray.count
+        } else {
+            return 0
+        }
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = APNoteCell()

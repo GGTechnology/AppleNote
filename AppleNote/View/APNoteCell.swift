@@ -148,12 +148,15 @@ class APNoteCell: UITableViewCell {
     }
     
     func setDate(model:APModel) {
-//        let
+        let dwStr:String = "\(model.day)" + " " + "\(model.week)"
+        if (dwStr.count == 5) {
+            let attrStr = NSMutableAttributedString.init(string: dwStr)
+            attrStr.addAttribute(NSAttributedString.Key.font, value:UIFont.systemFont(ofSize: 10), range:NSRange.init(location:3, length: 2))
+            dayLabel.attributedText = attrStr
+        }
         
-        
-        dayLabel.text = model.day
         dateLabel.text = model.date
-        timeLabel.text = model.time + " " + model.week
+        timeLabel.text = model.time
         addressLabel.text = model.address
         contentLabel.text = model.content
         if (model.image.count > 0) {
