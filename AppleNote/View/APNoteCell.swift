@@ -148,10 +148,7 @@ class APNoteCell: UITableViewCell {
     }
     
     func setDate(model:APModel) {
-        let dateString = model.date
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy/mm/dd HH:mm:ss e"
-        
+//        let 
         
         
         dayLabel.text = model.date
