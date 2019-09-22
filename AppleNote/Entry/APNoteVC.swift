@@ -12,14 +12,6 @@ import SwiftyJSON
 
 var tableview:UITableView!
 var dataArray:Array<Any>!
-var array = ["愿这个世界与你温柔相待🌃",
-             "",
-             "有的路，你必须一个人走，这不是孤独，而是选择...🏃",
-             "长大了，总有那么一两次，你会为重视的人奔跑，因为是对的人，走路真的来不及",
-             "总有人说你变了，却没有问你经历过什么。😄",
-             "孤独的日子，往往是你迅速成长的日子。☁️",
-             "Hello World 🌞"]
-var imageArray = ["123", "456", "123", "456"]
 
 class APNoteVC: APBaseVC {
     
