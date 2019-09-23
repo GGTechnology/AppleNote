@@ -24,7 +24,6 @@
 
 @implementation JWRefreshHeaderView
 - (instancetype)initWithFrame:(CGRect)frame{
-    
     if (self = [super initWithFrame:frame]) {
         self.frame = CGRectMake(0, -50, SW, 50);
         [self creatViews];
@@ -56,6 +55,8 @@
     self.title.font = [UIFont systemFontOfSize:18];
     self.title.text = cancelRefresh;
     self.title.textAlignment = NSTextAlignmentCenter;
+    
+    self.backgroundColor = [UIColor orangeColor];
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context{
