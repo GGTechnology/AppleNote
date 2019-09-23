@@ -15,6 +15,8 @@
 		2363BA2B230BC5F000D81AA4 /* APNoteTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2363BA2A230BC5F000D81AA4 /* APNoteTableView.swift */; };
 		2363BA6B230CF24600D81AA4 /* APModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2363BA6A230CF24600D81AA4 /* APModel.swift */; };
 		236599422338EB69005C2A97 /* LGDTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236599412338EB69005C2A97 /* LGDTableView.swift */; };
+		236599452338EC9A005C2A97 /* LGDRefreshHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236599442338EC9A005C2A97 /* LGDRefreshHeaderView.swift */; };
+		236599472338ECC3005C2A97 /* LGDRefreshFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236599462338ECC3005C2A97 /* LGDRefreshFooterView.swift */; };
 		23A6FE9C2333985C0077AF7A /* DEFINE.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A6FE9B2333985C0077AF7A /* DEFINE.swift */; };
 		23A6FE9E2333A1720077AF7A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23A6FE9D2333A1720077AF7A /* Images.xcassets */; };
 		23B0391623068410002174E6 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 23B0391523068410002174E6 /* Podfile */; };
@@ -56,6 +58,8 @@
 		2363BA2A230BC5F000D81AA4 /* APNoteTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APNoteTableView.swift; sourceTree = "<group>"; };
 		2363BA6A230CF24600D81AA4 /* APModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APModel.swift; sourceTree = "<group>"; };
 		236599412338EB69005C2A97 /* LGDTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LGDTableView.swift; sourceTree = "<group>"; };
+		236599442338EC9A005C2A97 /* LGDRefreshHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LGDRefreshHeaderView.swift; sourceTree = "<group>"; };
+		236599462338ECC3005C2A97 /* LGDRefreshFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LGDRefreshFooterView.swift; sourceTree = "<group>"; };
 		23A6FE9B2333985C0077AF7A /* DEFINE.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DEFINE.swift; sourceTree = "<group>"; };
 		23A6FE9D2333A1720077AF7A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		23B0391523068410002174E6 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
@@ -157,6 +161,8 @@
 			isa = PBXGroup;
 			children = (
 				236599412338EB69005C2A97 /* LGDTableView.swift */,
+				236599442338EC9A005C2A97 /* LGDRefreshHeaderView.swift */,
+				236599462338ECC3005C2A97 /* LGDRefreshFooterView.swift */,
 			);
 			path = TableView;
 			sourceTree = "<group>";
@@ -428,7 +434,9 @@
 				2363BA6B230CF24600D81AA4 /* APModel.swift in Sources */,
 				23A6FE9C2333985C0077AF7A /* DEFINE.swift in Sources */,
 				2363BA2B230BC5F000D81AA4 /* APNoteTableView.swift in Sources */,
+				236599472338ECC3005C2A97 /* LGDRefreshFooterView.swift in Sources */,
 				2363BA21230BC13C00D81AA4 /* APBaseVC.swift in Sources */,
+				236599452338EC9A005C2A97 /* LGDRefreshHeaderView.swift in Sources */,
 				23B0391823068927002174E6 /* ANTabBarController.swift in Sources */,
 				236599422338EB69005C2A97 /* LGDTableView.swift in Sources */,
 				2363BA23230BC17600D81AA4 /* APNoteVC.swift in Sources */,
