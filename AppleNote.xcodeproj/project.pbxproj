@@ -14,6 +14,9 @@
 		2363BA29230BC5B200D81AA4 /* APBaseTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2363BA28230BC5B200D81AA4 /* APBaseTableView.swift */; };
 		2363BA2B230BC5F000D81AA4 /* APNoteTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2363BA2A230BC5F000D81AA4 /* APNoteTableView.swift */; };
 		2363BA6B230CF24600D81AA4 /* APModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2363BA6A230CF24600D81AA4 /* APModel.swift */; };
+		236599422338EB69005C2A97 /* LGDTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236599412338EB69005C2A97 /* LGDTableView.swift */; };
+		236599452338EC9A005C2A97 /* LGDRefreshHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236599442338EC9A005C2A97 /* LGDRefreshHeaderView.swift */; };
+		236599472338ECC3005C2A97 /* LGDRefreshFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 236599462338ECC3005C2A97 /* LGDRefreshFooterView.swift */; };
 		23A6FE9C2333985C0077AF7A /* DEFINE.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23A6FE9B2333985C0077AF7A /* DEFINE.swift */; };
 		23A6FE9E2333A1720077AF7A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23A6FE9D2333A1720077AF7A /* Images.xcassets */; };
 		23B0391623068410002174E6 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 23B0391523068410002174E6 /* Podfile */; };
@@ -54,6 +57,9 @@
 		2363BA28230BC5B200D81AA4 /* APBaseTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APBaseTableView.swift; sourceTree = "<group>"; };
 		2363BA2A230BC5F000D81AA4 /* APNoteTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APNoteTableView.swift; sourceTree = "<group>"; };
 		2363BA6A230CF24600D81AA4 /* APModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APModel.swift; sourceTree = "<group>"; };
+		236599412338EB69005C2A97 /* LGDTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LGDTableView.swift; sourceTree = "<group>"; };
+		236599442338EC9A005C2A97 /* LGDRefreshHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LGDRefreshHeaderView.swift; sourceTree = "<group>"; };
+		236599462338ECC3005C2A97 /* LGDRefreshFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LGDRefreshFooterView.swift; sourceTree = "<group>"; };
 		23A6FE9B2333985C0077AF7A /* DEFINE.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DEFINE.swift; sourceTree = "<group>"; };
 		23A6FE9D2333A1720077AF7A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		23B0391523068410002174E6 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
@@ -125,13 +131,6 @@
 			path = Main;
 			sourceTree = "<group>";
 		};
-		2363BA1F230BC11B00D81AA4 /* Class */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Class;
-			sourceTree = "<group>";
-		};
 		2363BA26230BC56A00D81AA4 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -150,6 +149,24 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		236599402338EB59005C2A97 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				236599432338EC5C005C2A97 /* TableView */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		236599432338EC5C005C2A97 /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				236599412338EB69005C2A97 /* LGDTableView.swift */,
+				236599442338EC9A005C2A97 /* LGDRefreshHeaderView.swift */,
+				236599462338ECC3005C2A97 /* LGDRefreshFooterView.swift */,
+			);
+			path = TableView;
+			sourceTree = "<group>";
+		};
 		23B0398A2306C4C9002174E6 /* SYSTEM */ = {
 			isa = PBXGroup;
 			children = (
@@ -158,13 +175,6 @@
 				23B0398C2306C63B002174E6 /* PCH.h */,
 			);
 			path = SYSTEM;
-			sourceTree = "<group>";
-		};
-		A9F8B60E233631FD001AD1E2 /* New Group */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "New Group";
 			sourceTree = "<group>";
 		};
 		C4054F7322DF2C2E0065CFB2 = {
@@ -193,10 +203,9 @@
 		C4054F7E22DF2C2E0065CFB2 /* AppleNote */ = {
 			isa = PBXGroup;
 			children = (
-				A9F8B60E233631FD001AD1E2 /* New Group */,
+				236599402338EB59005C2A97 /* Common */,
 				2363BA27230BC57500D81AA4 /* Model */,
 				2363BA26230BC56A00D81AA4 /* View */,
-				2363BA1F230BC11B00D81AA4 /* Class */,
 				2363BA1E230B9F5B00D81AA4 /* Main */,
 				2363BA1D230B9EEE00D81AA4 /* Entry */,
 				23B0398A2306C4C9002174E6 /* SYSTEM */,
@@ -425,8 +434,11 @@
 				2363BA6B230CF24600D81AA4 /* APModel.swift in Sources */,
 				23A6FE9C2333985C0077AF7A /* DEFINE.swift in Sources */,
 				2363BA2B230BC5F000D81AA4 /* APNoteTableView.swift in Sources */,
+				236599472338ECC3005C2A97 /* LGDRefreshFooterView.swift in Sources */,
 				2363BA21230BC13C00D81AA4 /* APBaseVC.swift in Sources */,
+				236599452338EC9A005C2A97 /* LGDRefreshHeaderView.swift in Sources */,
 				23B0391823068927002174E6 /* ANTabBarController.swift in Sources */,
+				236599422338EB69005C2A97 /* LGDTableView.swift in Sources */,
 				2363BA23230BC17600D81AA4 /* APNoteVC.swift in Sources */,
 				2363BA29230BC5B200D81AA4 /* APBaseTableView.swift in Sources */,
 			);
@@ -597,7 +609,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9F53PVM963;
+				DEVELOPMENT_TEAM = MC32WL4XZA;
 				INFOPLIST_FILE = AppleNote/Main/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -618,7 +630,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9F53PVM963;
+				DEVELOPMENT_TEAM = MC32WL4XZA;
 				INFOPLIST_FILE = AppleNote/Main/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (

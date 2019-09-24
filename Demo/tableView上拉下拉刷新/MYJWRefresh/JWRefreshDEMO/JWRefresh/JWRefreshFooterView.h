@@ -17,4 +17,5 @@ typedef NS_ENUM(NSInteger, JW_LoadShowType) {
 @interface JWRefreshFooterView : UIView
 
 @property (nonatomic , assign) JW_LoadShowType type;
+
 @end

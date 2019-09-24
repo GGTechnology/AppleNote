@@ -10,13 +10,13 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-var tableview:UITableView!
+var tableview:LGDTableView!
 var dataArray:Array<Any>!
 
 class APNoteVC: APBaseVC {
     
-    lazy var tableView:UITableView = {
-        let tableView = UITableView(frame:self.view.bounds, style: UITableView.Style.grouped)
+    lazy var tableView:LGDTableView = {
+        let tableView = LGDTableView(frame:self.view.bounds, style: UITableView.Style.grouped)
         tableView.delegate = self as UITableViewDelegate
         tableView.dataSource = self as UITableViewDataSource
         tableView.sectionHeaderHeight = 0
