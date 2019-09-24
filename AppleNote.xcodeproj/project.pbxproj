@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		235C0A33233A4000001499D8 /* Refresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235C0A32233A4000001499D8 /* Refresh.swift */; };
 		2363BA1C230B9EC200D81AA4 /* ANNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2363BA1B230B9EC200D81AA4 /* ANNavigationController.swift */; };
 		2363BA21230BC13C00D81AA4 /* APBaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2363BA20230BC13C00D81AA4 /* APBaseVC.swift */; };
 		2363BA23230BC17600D81AA4 /* APNoteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2363BA22230BC17600D81AA4 /* APNoteVC.swift */; };
@@ -50,6 +51,7 @@
 /* Begin PBXFileReference section */
 		018F9B7A3B7DB6712635CA80 /* Pods-AppleNote.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppleNote.release.xcconfig"; path = "Pods/Target Support Files/Pods-AppleNote/Pods-AppleNote.release.xcconfig"; sourceTree = "<group>"; };
 		15B62D79167E16CFF69BDF1B /* Pods_AppleNote.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AppleNote.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		235C0A32233A4000001499D8 /* Refresh.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Refresh.swift; sourceTree = "<group>"; };
 		2363BA1B230B9EC200D81AA4 /* ANNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ANNavigationController.swift; sourceTree = "<group>"; };
 		2363BA20230BC13C00D81AA4 /* APBaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APBaseVC.swift; sourceTree = "<group>"; };
 		2363BA22230BC17600D81AA4 /* APNoteVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APNoteVC.swift; sourceTree = "<group>"; };
@@ -107,6 +109,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		235C0A31233A3FB0001499D8 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				235C0A32233A4000001499D8 /* Refresh.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		2363BA1D230B9EEE00D81AA4 /* Entry */ = {
 			isa = PBXGroup;
 			children = (
@@ -152,6 +162,7 @@
 		236599402338EB59005C2A97 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				235C0A31233A3FB0001499D8 /* Extension */,
 				236599432338EC5C005C2A97 /* TableView */,
 			);
 			path = Common;
@@ -433,6 +444,7 @@
 				2363BA1C230B9EC200D81AA4 /* ANNavigationController.swift in Sources */,
 				2363BA6B230CF24600D81AA4 /* APModel.swift in Sources */,
 				23A6FE9C2333985C0077AF7A /* DEFINE.swift in Sources */,
+				235C0A33233A4000001499D8 /* Refresh.swift in Sources */,
 				2363BA2B230BC5F000D81AA4 /* APNoteTableView.swift in Sources */,
 				236599472338ECC3005C2A97 /* LGDRefreshFooterView.swift in Sources */,
 				2363BA21230BC13C00D81AA4 /* APBaseVC.swift in Sources */,
