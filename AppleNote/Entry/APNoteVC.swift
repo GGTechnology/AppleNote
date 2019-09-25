@@ -26,6 +26,14 @@ class APNoteVC: APBaseVC {
         tableView.showsVerticalScrollIndicator = false
         tableView.estimatedRowHeight = 120;
         tableView.backgroundColor = colorWithHex(hexColor: 0xEFF4F6)
+        let a:LGDRefreshFooterView!
+//        tableView.LGD_addFooterRefreshWithBlock(block: { a in
+//            print("下拉刷新")
+//        })
+//        tableView.LGD_addHeaderRefreshWithBlock(block: { (LGDRefreshHeaderView) in
+//            print("上拉刷新")
+//        })
+        
         return tableView
     }()
     
@@ -38,7 +46,7 @@ class APNoteVC: APBaseVC {
             switch responds.result {
             case .success(let value):
                 dataArray = JSON(value).arrayValue
-                print("🍏", dataArray as Any, "🍎")
+//                print("🍏", dataArray as Any, "🍎")
                 self.tableView.reloadData()
                 break
             case .failure(let error):

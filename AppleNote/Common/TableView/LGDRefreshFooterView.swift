@@ -8,7 +8,7 @@
 
 import UIKit
 
-var type: LGD_LoadShowType?
+var footerType: LGD_LoadShowType?
 enum LGD_LoadShowType : Int {
     // 刷新状态
     case willLoad = 0
@@ -19,22 +19,21 @@ enum LGD_LoadShowType : Int {
 let loading = "正在加载更多"
 let willLoad = "松手加载更多"
 let cancelLoad = "上拉加载更多"
-let SW = UIScreen.main.bounds.size.width
-let SH = UIScreen.main.bounds.size.height
+let footerSW = UIScreen.main.bounds.size.width
+let footerSH = UIScreen.main.bounds.size.height
 // 标题
-var title: UILabel?
+var footerTitle: UILabel?
 // 图片
-var img: UIImageView?
+var footerImg: UIImageView?
 // 加载「菊花」
-var refreshView: UIActivityIndicatorView?
-
+var footerRefreshView: UIActivityIndicatorView?
 
 class LGDRefreshFooterView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = UIColor.cyan
+        self.backgroundColor = UIColor.cyan
         creatViews()
-        self.addObserver(self, forKeyPath: "type", options: .new, context: nil)
+        self.addObserver(self, forKeyPath: "footerType", options: .new, context: nil)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -42,48 +41,48 @@ class LGDRefreshFooterView: UIView {
     }
     
     func creatViews() {
-        if (title == nil) {
-            title = UILabel.init(frame: CGRect(x: SW/3, y: 0, width: SW/3, height: 50))
-            self.addSubview(title!)
+        if (footerTitle == nil) {
+            footerTitle = UILabel.init(frame: CGRect(x: footerSW/3, y: 0, width: footerSW/3, height: 50))
+            self.addSubview(footerTitle!)
             
         }
-        if (img == nil) {
-            img = UIImageView.init(frame: CGRect(x: SW/3-30, y: 10, width: 30, height: 30))
-            img?.image = UIImage.init(named: "jw_refresh")
-            self.addSubview(img!)
+        if (footerImg == nil) {
+            footerImg = UIImageView.init(frame: CGRect(x: footerSW/3-30, y: 10, width: 30, height: 30))
+            footerImg?.image = UIImage.init(named: "jw_refresh")
+            self.addSubview(footerImg!)
         }
-        if (refreshView == nil) {
-            refreshView = UIActivityIndicatorView.init(style: .gray)
-            refreshView?.center = CGPoint(x: SW/3-15, y: 25)
-            refreshView?.isHidden = true
-            refreshView?.startAnimating()
-            self.addSubview(refreshView!)
+        if (footerRefreshView == nil) {
+            footerRefreshView = UIActivityIndicatorView.init(style: .gray)
+            footerRefreshView?.center = CGPoint(x: footerSW/3-15, y: 25)
+            footerRefreshView?.isHidden = true
+            footerRefreshView?.startAnimating()
+            self.addSubview(footerRefreshView!)
         }
-        title?.font = UIFont.systemFont(ofSize: 18)
-        title?.text = cancelLoad
-        title?.textAlignment = .center
+        footerTitle?.font = UIFont.systemFont(ofSize: 18)
+        footerTitle?.text = cancelLoad
+        footerTitle?.textAlignment = .center
     }
     
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
-        if (keyPath == "type") {
-            title?.text = getRefreshStatus(status: type!)
-            if (type! == .willLoad) {
-                img?.isHidden = false
-                refreshView?.isHidden = true
+        if (keyPath == "footerType") {
+            footerTitle?.text = getRefreshStatus(status: footerType!)
+            if (footerType! == .willLoad) {
+                footerImg?.isHidden = false
+                footerRefreshView?.isHidden = true
                 UIView.animate(withDuration: 0.3, animations: {
-                    img?.transform = CGAffineTransform(rotationAngle: .pi)
+                    footerImg?.transform = CGAffineTransform(rotationAngle: .pi)
                 })
                 UIView.animate(withDuration: 0.3) {
-                    img?.transform = CGAffineTransform(rotationAngle: .pi)
+                    footerImg?.transform = CGAffineTransform(rotationAngle: .pi)
                 }
-            } else if (type! == .loading) {
-                img?.isHidden = true
-                refreshView?.isHidden = false
+            } else if (footerType! == .loading) {
+                footerImg?.isHidden = true
+                footerRefreshView?.isHidden = false
             } else {
-                img?.isHidden = false
-                refreshView?.isHidden = true
+                footerImg?.isHidden = false
+                footerRefreshView?.isHidden = true
                 UIView.animate(withDuration: 0.3) {
-                    img?.transform = CGAffineTransform(rotationAngle: 0)
+                    footerImg?.transform = CGAffineTransform(rotationAngle: 0)
                 }
             }
         }
