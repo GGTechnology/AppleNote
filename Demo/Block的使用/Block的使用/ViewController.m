@@ -23,7 +23,7 @@
 - (IBAction)push {
     bb *vc = [bb new];
     [vc setBlock:^(NSDictionary * _Nonnull str) {
-        NSLog(@"%@", str);
+        NSLog(@"🍐 = %@", str);
     }];
     [self.navigationController pushViewController:vc animated:YES];
 }
