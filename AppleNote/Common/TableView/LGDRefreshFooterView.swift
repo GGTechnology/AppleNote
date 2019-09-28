@@ -8,7 +8,7 @@
 
 import UIKit
 
-var footerType: LGD_LoadShowType?
+private var footerType: LGD_LoadShowType?
 enum LGD_LoadShowType : Int {
     // 刷新状态
     case willLoad = 0
@@ -16,17 +16,17 @@ enum LGD_LoadShowType : Int {
     case cancelLoad = 2
 }
 
-let loading = "正在加载更多"
-let willLoad = "松手加载更多"
-let cancelLoad = "上拉加载更多"
-let footerSW = UIScreen.main.bounds.size.width
-let footerSH = UIScreen.main.bounds.size.height
+private let loading = "正在加载更多"
+private let willLoad = "松手加载更多"
+private let cancelLoad = "上拉加载更多"
+private let footerSW = UIScreen.main.bounds.size.width
+private let footerSH = UIScreen.main.bounds.size.height
 // 标题
-var footerTitle: UILabel?
+private var footerTitle: UILabel?
 // 图片
-var footerImg: UIImageView?
+private var footerImg: UIImageView?
 // 加载「菊花」
-var footerRefreshView: UIActivityIndicatorView?
+private var footerRefreshView: UIActivityIndicatorView?
 
 class LGDRefreshFooterView: UIView {
     override init(frame: CGRect) {
