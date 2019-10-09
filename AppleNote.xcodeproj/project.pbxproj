@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		235C0A33233A4000001499D8 /* Refresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235C0A32233A4000001499D8 /* Refresh.swift */; };
-		235C0A71233B89FE001499D8 /* UIScrollView+LGD_RefreshStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235C0A70233B89FE001499D8 /* UIScrollView+LGD_RefreshStatus.swift */; };
+		235C0A71233B89FE001499D8 /* UIScrollView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 235C0A70233B89FE001499D8 /* UIScrollView+Extensions.swift */; };
 		2363BA1C230B9EC200D81AA4 /* ANNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2363BA1B230B9EC200D81AA4 /* ANNavigationController.swift */; };
 		2363BA21230BC13C00D81AA4 /* APBaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2363BA20230BC13C00D81AA4 /* APBaseVC.swift */; };
 		2363BA23230BC17600D81AA4 /* APNoteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2363BA22230BC17600D81AA4 /* APNoteVC.swift */; };
@@ -53,7 +53,7 @@
 		018F9B7A3B7DB6712635CA80 /* Pods-AppleNote.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppleNote.release.xcconfig"; path = "Pods/Target Support Files/Pods-AppleNote/Pods-AppleNote.release.xcconfig"; sourceTree = "<group>"; };
 		15B62D79167E16CFF69BDF1B /* Pods_AppleNote.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AppleNote.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		235C0A32233A4000001499D8 /* Refresh.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Refresh.swift; sourceTree = "<group>"; };
-		235C0A70233B89FE001499D8 /* UIScrollView+LGD_RefreshStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+LGD_RefreshStatus.swift"; sourceTree = "<group>"; };
+		235C0A70233B89FE001499D8 /* UIScrollView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+Extensions.swift"; sourceTree = "<group>"; };
 		2363BA1B230B9EC200D81AA4 /* ANNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ANNavigationController.swift; sourceTree = "<group>"; };
 		2363BA20230BC13C00D81AA4 /* APBaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APBaseVC.swift; sourceTree = "<group>"; };
 		2363BA22230BC17600D81AA4 /* APNoteVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APNoteVC.swift; sourceTree = "<group>"; };
@@ -176,7 +176,7 @@
 				236599412338EB69005C2A97 /* LGDTableView.swift */,
 				236599442338EC9A005C2A97 /* LGDRefreshHeaderView.swift */,
 				236599462338ECC3005C2A97 /* LGDRefreshFooterView.swift */,
-				235C0A70233B89FE001499D8 /* UIScrollView+LGD_RefreshStatus.swift */,
+				235C0A70233B89FE001499D8 /* UIScrollView+Extensions.swift */,
 			);
 			path = TableView;
 			sourceTree = "<group>";
@@ -446,7 +446,7 @@
 				C4054F8022DF2C2E0065CFB2 /* AppDelegate.swift in Sources */,
 				2363BA1C230B9EC200D81AA4 /* ANNavigationController.swift in Sources */,
 				2363BA6B230CF24600D81AA4 /* APModel.swift in Sources */,
-				235C0A71233B89FE001499D8 /* UIScrollView+LGD_RefreshStatus.swift in Sources */,
+				235C0A71233B89FE001499D8 /* UIScrollView+Extensions.swift in Sources */,
 				23A6FE9C2333985C0077AF7A /* DEFINE.swift in Sources */,
 				235C0A33233A4000001499D8 /* Refresh.swift in Sources */,
 				2363BA2B230BC5F000D81AA4 /* APNoteTableView.swift in Sources */,
@@ -625,7 +625,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = MC32WL4XZA;
+				DEVELOPMENT_TEAM = 9F53PVM963;
 				INFOPLIST_FILE = AppleNote/Main/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -646,7 +646,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = MC32WL4XZA;
+				DEVELOPMENT_TEAM = 9F53PVM963;
 				INFOPLIST_FILE = AppleNote/Main/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (

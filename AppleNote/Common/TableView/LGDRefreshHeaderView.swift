@@ -8,7 +8,7 @@
 
 import UIKit
 
-var headerType: LGD_LoadRefreshShowType?
+private var headerType: LGD_LoadRefreshShowType?
 enum LGD_LoadRefreshShowType : Int {
     // 刷新状态
     case willLoad = 0
@@ -16,17 +16,17 @@ enum LGD_LoadRefreshShowType : Int {
     case cancelLoad = 2
 }
 
-let refreshing = "正在刷新数据"
-let willRefresh = "松手刷新数据"
-let cancelRefresh = "下拉刷新数据"
-let headerSW = UIScreen.main.bounds.size.width
-let headerSH = UIScreen.main.bounds.size.height
+private let refreshing = "正在刷新数据"
+private let willRefresh = "松手刷新数据"
+private let cancelRefresh = "下拉刷新数据"
+private let headerSW = UIScreen.main.bounds.size.width
+private let headerSH = UIScreen.main.bounds.size.height
 // 标题
-var headerTitle: UILabel?
+private var headerTitle: UILabel?
 // 图片
-var headerImg: UIImageView?
+private var headerImg: UIImageView?
 // 加载「菊花」
-var headerRefreshView: UIActivityIndicatorView?
+private var headerRefreshView: UIActivityIndicatorView?
 
 class LGDRefreshHeaderView: UIView {
 
@@ -94,9 +94,9 @@ class LGDRefreshHeaderView: UIView {
         case .willLoad:
             return willRefresh
         case .loading:
-            return loading
+            return refreshing
         case .cancelLoad:
-            return cancelLoad
+            return cancelRefresh
         default:
             break
         }
