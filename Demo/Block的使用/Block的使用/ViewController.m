@@ -7,25 +7,27 @@
 //
 
 #import "ViewController.h"
-#import "bb.h"
+#import "aa.h"
 
 @interface ViewController ()
-
+@property (nonatomic, strong) aa *cc;
 @end
 
 @implementation ViewController
 
-
 - (void)viewDidLoad {
     [super viewDidLoad];
-}
-
-- (IBAction)push {
-    bb *vc = [bb new];
-    [vc setBlock:^(NSDictionary * _Nonnull str) {
-        NSLog(@"🍐 = %@", str);
+    self.view.backgroundColor = [UIColor whiteColor];
+    
+    _cc = [[aa alloc] initWithFrame:CGRectMake(10, 100, 250, 250)];
+    _cc.backgroundColor = [UIColor brownColor];
+    [self.view addSubview:_cc];
+    [_cc setBlock_a1:^(NSString *str, NSDictionary *dic) {
+        NSLog(@"%@ %@", str, dic);
     }];
-    [self.navigationController pushViewController:vc animated:YES];
+    [_cc setBlock_a2:^(NSString *str, NSDictionary *dic) {
+        NSLog(@"%@ %@", str, dic);
+    }];
 }
 
 @end
