@@ -1,0 +1,51 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/timestamp/timestamp",
+    "pages/logs/logs"
+  ],
+
+  "window": {
+    "navigationBarBackgroundColor":"#00B588",
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "app.json标题",
+    "navigationStyle": "default",
+    "backgroundColor": "#ooofff",
+    "backgroundTextStyle": "light",
+    "backgroundColorTop": "#DEF061",
+    "backgroundColorBottom": "#3941F0",
+
+    "enablePullDownRefresh": true,
+    "onReachBottomDistance": 20,
+
+    "pageOrientation": "auto"
+  },
+
+  "tabBar": {
+    "color": "#a9b7b7",
+    "selectedColor": "#59B689",
+    "borderStyle": "black",
+    "list": [
+      {
+        "selectedIconPath": "pages/image/tabbar_sEdit.png",
+        "iconPath": "pages/image/tabbar_Edit.png",
+        "pagePath": "pages/index/index",
+        "text": "日记"
+      },
+      {
+        "selectedIconPath": "pages/image/tabbar_sTimestamp.png",
+        "iconPath": "pages/image/tabbar_Timestamp.png",
+        "pagePath": "pages/timestamp/timestamp",
+        "text": "时间戳"
+      },
+      {
+        "selectedIconPath": "pages/image/tabbar_sMine.png",
+        "iconPath": "pages/image/tabbar_Mine.png",
+        "pagePath": "pages/logs/logs",
+        "text": "我的"
+      }
+    ]
+  },
+
+  "sitemapLocation": "sitemap.json"
+}
