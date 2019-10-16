@@ -2,11 +2,11 @@
   "pages": [
     "pages/index/index",
     "pages/timestamp/timestamp",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/item/item"
   ],
-
   "window": {
-    "navigationBarBackgroundColor":"#00B588",
+    "navigationBarBackgroundColor": "#00B588",
     "navigationBarTextStyle": "white",
     "navigationBarTitleText": "app.json标题",
     "navigationStyle": "default",
@@ -14,13 +14,10 @@
     "backgroundTextStyle": "light",
     "backgroundColorTop": "#DEF061",
     "backgroundColorBottom": "#3941F0",
-
     "enablePullDownRefresh": true,
     "onReachBottomDistance": 20,
-
     "pageOrientation": "auto"
   },
-
   "tabBar": {
     "color": "#a9b7b7",
     "selectedColor": "#59B689",
@@ -46,6 +43,5 @@
       }
     ]
   },
-
   "sitemapLocation": "sitemap.json"
 }

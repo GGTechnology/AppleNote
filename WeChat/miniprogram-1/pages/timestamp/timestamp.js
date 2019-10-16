@@ -12,6 +12,11 @@ Page({
     // 模板
     staffA: { firstName: '🍎', lastName: '🍏' },
     staffB: { firstName: '😄', lastName: '😢' },
-    staffC: { firstName: '🏀', lastName: '🎾' }
+    staffC: { firstName: '🏀', lastName: '🎾' },
+    item: {
+      index: 0,
+      msg: 'this is a template',
+      time: '2016-09-15'
+    }
   }
 })
