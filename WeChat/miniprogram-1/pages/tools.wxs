@@ -1,0 +1,12 @@
+var foo = "🥰 我在 tools.wxs 文件";
+var value = "🎾 我在 tools.wxs 文件";
+var bar = function (d) {
+  return d;
+}
+module.exports = {
+  key: value,
+  keyWithFoo: foo,
+  keyFunctionWithBar: bar,
+};
+module.exports.msg = "😍 我在 tools.wxs 文件";
+module.exports.ball = "🏀 我在 tools.wxs 文件";
