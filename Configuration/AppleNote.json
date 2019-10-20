@@ -7,7 +7,7 @@
 		"time" : "22:05",
 		"address" : "澳门特别行政区",
 		"content" : "简单精致，记录生活😘😘😘",
-		"image" : ["https://raw.githubusercontent.com/GGTechnology/AppleNote/master/Source/image/note0.jpg"]
+		"image" : ["https://raw.githubusercontent.com/GGTechnology/AppleNote/master/Source/image/index/note0.jpg"]
 	},
 	{
 		"num" : "1",
@@ -17,7 +17,7 @@
 		"time" : "17:05",
 		"address" : "广东省兴宁市",
 		"content" : "如人饮水，冷暖自知。",
-		"image" : ["https://raw.githubusercontent.com/GGTechnology/AppleNote/master/Source/image/note1.jpg"]
+		"image" : ["https://raw.githubusercontent.com/GGTechnology/AppleNote/master/Source/image/index/note1.jpg"]
 	},
 	{
 		"num" : "2",
@@ -27,7 +27,7 @@
 		"time" : "14:05",
 		"address" : "广东省珠海市",
 		"content" : "一失足成千古恨，再回头已百年身。",
-		"image" : ["https://raw.githubusercontent.com/GGTechnology/AppleNote/master/Source/image/note2.jpg"]
+		"image" : ["https://raw.githubusercontent.com/GGTechnology/AppleNote/master/Source/image/index/note2.jpg"]
 	},
 	{
 		"num" : "3",
@@ -37,7 +37,7 @@
 		"time" : "23:00",
 		"address" : "广东省深圳市",
 		"content" : "对现在的中国年轻人来说，父母的控制欲已然是理想的主要大敌。许多父母一辈的人，没有察觉到“开放社会”的来临。开放社会的好处是：1、每个合法的目标都可以成为正当的理想；2、每个正当的理想都有可以登高的路径；3、理想和欲望并不对立；4、理想的反面，仅仅是懒惰。",
-		"image" : ["https://raw.githubusercontent.com/GGTechnology/AppleNote/master/Source/image/note3.jpg"]
+		"image" : ["https://raw.githubusercontent.com/GGTechnology/AppleNote/master/Source/image/index/note3.jpg"]
 	},
 	{
 		"num" : "4",
@@ -47,7 +47,7 @@
 		"time" : "00:05",
 		"address" : "广东省珠海市",
 		"content" : "最大的教养是能在复杂的环境中不迷失自己，不趋炎附势，能遵从自己的内心去为人处世，有着自己的人生目标，并且坚定不移地靠近。",
-		"image" : ["https://raw.githubusercontent.com/GGTechnology/AppleNote/master/Source/image/note4.jpg"]
+		"image" : ["https://raw.githubusercontent.com/GGTechnology/AppleNote/master/Source/image/index/note4.jpg"]
 	},
 	{
 		"num" : "5",
@@ -57,7 +57,7 @@
 		"time" : "23:18",
 		"address" : "广东省珠海市",
 		"content" : "长大了，总有那么一两次，你会为重视的人奔跑，因为是对的人，走路真的来不及。",
-		"image" : ["https://raw.githubusercontent.com/GGTechnology/AppleNote/master/Source/image/note5.jpg"]
+		"image" : ["https://raw.githubusercontent.com/GGTechnology/AppleNote/master/Source/image/index/note5.jpg"]
 	},
 	{
 		"num" : "6",
@@ -67,7 +67,7 @@
 		"time" : "21:22",
 		"address" : "广东省珠海市",
 		"content" : "勤奋可以弥补聪明的不足，但聪明弥补不了懒惰的缺陷。",
-		"image" : ["https://raw.githubusercontent.com/GGTechnology/AppleNote/master/Source/image/note6.jpg"]
+		"image" : ["https://raw.githubusercontent.com/GGTechnology/AppleNote/master/Source/image/index/note6.jpg"]
 	},
 	{
 		"num" : "7",
@@ -77,7 +77,7 @@
 		"time" : "22:10",
 		"address" : "广东省珠海市",
 		"content" : "以绝大多数人的努力程度之低，根本轮不到去拼天赋。 ​",
-		"image" : ["https://raw.githubusercontent.com/GGTechnology/AppleNote/master/Source/image/note7.jpg"]
+		"image" : ["https://raw.githubusercontent.com/GGTechnology/AppleNote/master/Source/image/index/note7.jpg"]
 	},
 	{
 		"num" : "8",
@@ -87,7 +87,7 @@
 		"time" : "22:25",
 		"address" : "广东省珠海市",
 		"content" : "孤独的日子，往往是你迅速成长的日子。☁️",
-		"image" : ["https://raw.githubusercontent.com/GGTechnology/AppleNote/master/Source/image/note8.jpg"]
+		"image" : ["https://raw.githubusercontent.com/GGTechnology/AppleNote/master/Source/image/index/note8.jpg"]
 	},
 	{
 		"num" : "9",
@@ -97,6 +97,6 @@
 		"time" : "12:00",
 		"address" : "广东省珠海市",
 		"content" : "让人迷茫的原因只有一个，那就是本该拼搏的年纪，却想的太多，做的太少。",
-		"image" : ["https://raw.githubusercontent.com/GGTechnology/AppleNote/master/Source/image/note9.jpg"]
+		"image" : ["https://raw.githubusercontent.com/GGTechnology/AppleNote/master/Source/image/index/note9.jpg"]
 	}
 ]
