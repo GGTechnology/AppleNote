@@ -22,6 +22,9 @@
 		23A6FE9E2333A1720077AF7A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 23A6FE9D2333A1720077AF7A /* Images.xcassets */; };
 		23B0391623068410002174E6 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 23B0391523068410002174E6 /* Podfile */; };
 		23B0391823068927002174E6 /* ANTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23B0391723068927002174E6 /* ANTabBarController.swift */; };
+		23D238552366C1AA0062C0AB /* APConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D238542366C1AA0062C0AB /* APConfig.swift */; };
+		23D238572366C61E0062C0AB /* APUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D238562366C61E0062C0AB /* APUserDefaults.swift */; };
+		23D2385B2366D43C0062C0AB /* APRefreshView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D2385A2366D43C0062C0AB /* APRefreshView.swift */; };
 		23D3CD6523177A9D009C9941 /* APNoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D3CD6423177A9D009C9941 /* APNoteCell.swift */; };
 		AD3563575E0742FB39E3EAEE /* Pods_AppleNote.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15B62D79167E16CFF69BDF1B /* Pods_AppleNote.framework */; };
 		C4054F8022DF2C2E0065CFB2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4054F7F22DF2C2E0065CFB2 /* AppDelegate.swift */; };
@@ -68,6 +71,9 @@
 		23B0391723068927002174E6 /* ANTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ANTabBarController.swift; sourceTree = "<group>"; };
 		23B0398C2306C63B002174E6 /* PCH.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PCH.h; sourceTree = "<group>"; };
 		23B0398D2306C64F002174E6 /* APHeaderFile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APHeaderFile.h; sourceTree = "<group>"; };
+		23D238542366C1AA0062C0AB /* APConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APConfig.swift; sourceTree = "<group>"; };
+		23D238562366C61E0062C0AB /* APUserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APUserDefaults.swift; sourceTree = "<group>"; };
+		23D2385A2366D43C0062C0AB /* APRefreshView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APRefreshView.swift; sourceTree = "<group>"; };
 		23D3CD6423177A9D009C9941 /* APNoteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APNoteCell.swift; sourceTree = "<group>"; };
 		B7837FBDF83BA540E66B2C2E /* Pods-AppleNote.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppleNote.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AppleNote/Pods-AppleNote.debug.xcconfig"; sourceTree = "<group>"; };
 		C4054F7C22DF2C2E0065CFB2 /* AppleNote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppleNote.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -174,6 +180,7 @@
 				236599412338EB69005C2A97 /* LGDTableView.swift */,
 				236599442338EC9A005C2A97 /* LGDRefreshHeaderView.swift */,
 				236599462338ECC3005C2A97 /* LGDRefreshFooterView.swift */,
+				23D2385A2366D43C0062C0AB /* APRefreshView.swift */,
 			);
 			path = TableView;
 			sourceTree = "<group>";
@@ -186,6 +193,15 @@
 				23B0398C2306C63B002174E6 /* PCH.h */,
 			);
 			path = SYSTEM;
+			sourceTree = "<group>";
+		};
+		23D238532366C0480062C0AB /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				23D238542366C1AA0062C0AB /* APConfig.swift */,
+				23D238562366C61E0062C0AB /* APUserDefaults.swift */,
+			);
+			path = Config;
 			sourceTree = "<group>";
 		};
 		C4054F7322DF2C2E0065CFB2 = {
@@ -214,6 +230,7 @@
 		C4054F7E22DF2C2E0065CFB2 /* AppleNote */ = {
 			isa = PBXGroup;
 			children = (
+				23D238532366C0480062C0AB /* Config */,
 				236599402338EB59005C2A97 /* Common */,
 				2363BA27230BC57500D81AA4 /* Model */,
 				2363BA26230BC56A00D81AA4 /* View */,
@@ -440,16 +457,19 @@
 				C4054F8222DF2C2E0065CFB2 /* ViewController.swift in Sources */,
 				2363BA25230BC1C200D81AA4 /* APShoppingVC.swift in Sources */,
 				23D3CD6523177A9D009C9941 /* APNoteCell.swift in Sources */,
+				23D2385B2366D43C0062C0AB /* APRefreshView.swift in Sources */,
 				C4054F8022DF2C2E0065CFB2 /* AppDelegate.swift in Sources */,
 				2363BA1C230B9EC200D81AA4 /* ANNavigationController.swift in Sources */,
 				2363BA6B230CF24600D81AA4 /* APModel.swift in Sources */,
 				23A6FE9C2333985C0077AF7A /* DEFINE.swift in Sources */,
+				23D238572366C61E0062C0AB /* APUserDefaults.swift in Sources */,
 				235C0A33233A4000001499D8 /* Refresh.swift in Sources */,
 				2363BA2B230BC5F000D81AA4 /* APNoteTableView.swift in Sources */,
 				236599472338ECC3005C2A97 /* LGDRefreshFooterView.swift in Sources */,
 				2363BA21230BC13C00D81AA4 /* APBaseVC.swift in Sources */,
 				236599452338EC9A005C2A97 /* LGDRefreshHeaderView.swift in Sources */,
 				23B0391823068927002174E6 /* ANTabBarController.swift in Sources */,
+				23D238552366C1AA0062C0AB /* APConfig.swift in Sources */,
 				236599422338EB69005C2A97 /* LGDTableView.swift in Sources */,
 				2363BA23230BC17600D81AA4 /* APNoteVC.swift in Sources */,
 				2363BA29230BC5B200D81AA4 /* APBaseTableView.swift in Sources */,
@@ -622,7 +642,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9F53PVM963;
+				DEVELOPMENT_TEAM = MC32WL4XZA;
 				INFOPLIST_FILE = AppleNote/Main/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -644,7 +664,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9F53PVM963;
+				DEVELOPMENT_TEAM = MC32WL4XZA;
 				INFOPLIST_FILE = AppleNote/Main/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
