@@ -1,14 +1,14 @@
 //
-//  LGDTableView.swift
+//  APTableView.swift
 //  AppleNote
 //
-//  Created by kadis on 2019/9/23.
+//  Created by kadis on 2019/10/29.
 //  Copyright © 2019 mingcol. All rights reserved.
 //
 
 import UIKit
 
-class LGDTableView: UITableView {
+class APTableView: UITableView {
 
     /*
     // Only override draw() if you perform custom drawing.

@@ -13,7 +13,7 @@ class APRefreshView: UIView {
     public enum Style {
         case header, footer, autoFooter
     }
-    
+
     private let style: Style
     public let height: CGFloat
     private let action: () -> Void
@@ -26,36 +26,76 @@ class APRefreshView: UIView {
 
         self.autoresizingMask = .flexibleWidth
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
+    private var isRefreshing = false {
+        didSet { didUpdateState(isRefreshing) }
+    }
+
+    private var progress: CGFloat = 0 {
+        didSet { didUpdateProgress(progress) }
+    }
+
+    open func didUpdateState(_ isRefreshing: Bool) {
+        fatalError("didUpdateState(_:) has not been implemented")
+    }
+
+    open func didUpdateProgress(_ progress: CGFloat) {
+        fatalError("didUpdateProgress(_:) has not been implemented")
+    }
+
+    private var scrollView: UIScrollView? {
+        return superview as? UIScrollView
+    }
+
     private var offsetToken: NSKeyValueObservation?
     private var stateToken: NSKeyValueObservation?
     private var sizeToken: NSKeyValueObservation?
+
+    open override func willMove(toWindow newWindow: UIWindow?) {
+        if newWindow == nil {
+            clearObserver()
+        } else {
+            guard let scrollView = scrollView else { return }
+            setupObserver(scrollView)
+        }
+    }
+
+    open override func willMove(toSuperview newSuperview: UIView?) {
+        guard let scrollView = newSuperview as? UIScrollView, window != nil else {
+            clearObserver()
+            return
+        }
+        setupObserver(scrollView)
+    }
+
+    private func setupObserver(_ scrollView: UIScrollView) {
+        offsetToken = scrollView.observe(\.contentOffset) { [weak self] scrollView, _ in
+            self?.scrollViewDidScroll(scrollView)
+        }
+        stateToken = scrollView.observe(\.panGestureRecognizer.state) { [weak self] scrollView, _ in
+            guard scrollView.panGestureRecognizer.state == .ended else { return }
+            self?.scrollViewDidEndDragging(scrollView)
+        }
+        if style == .header {
+            frame = CGRect(x: 0, y: -height, width: scrollView.bounds.width, height: height)
+        } else {
+            sizeToken = scrollView.observe(\.contentSize) { [weak self] scrollView, _ in
+                self?.frame = CGRect(x: 0, y: scrollView.contentSize.height, width: scrollView.bounds.width, height: self?.height ?? 0)
+                self?.isHidden = scrollView.contentSize.height <= scrollView.bounds.height
+            }
+        }
+    }
+
     private func clearObserver() {
         offsetToken?.invalidate()
         stateToken?.invalidate()
         sizeToken?.invalidate()
     }
-    
-    private var scrollView: UIScrollView? {
-        return superview as? UIScrollView
-    }
-    private var isRefreshing = false {
-        didSet { didUpdateState(isRefreshing) }
-    }
-    open func didUpdateState(_ isRefreshing: Bool) {
-        fatalError("didUpdateState(_:) has not been implemented")
-    }
-    private var progress: CGFloat = 0 {
-        didSet { didUpdateProgress(progress) }
-    }
-    
-    open func didUpdateProgress(_ progress: CGFloat) {
-        fatalError("didUpdateProgress(_:) has not been implemented")
-    }
+
     private func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if isRefreshing { return }
 
@@ -72,10 +112,12 @@ class APRefreshView: UIView {
             }
         }
     }
+
     private func scrollViewDidEndDragging(_ scrollView: UIScrollView) {
         if isRefreshing || progress < 1 || style == .autoFooter { return }
         beginRefreshing()
     }
+
     func beginRefreshing() {
         guard let scrollView = scrollView, !isRefreshing else { return }
 
@@ -98,6 +140,7 @@ class APRefreshView: UIView {
             })
         }
     }
+
     func endRefreshing(completion: (() -> Void)? = nil) {
         guard let scrollView = scrollView else { return }
         guard isRefreshing else { completion?(); return }
@@ -121,18 +164,18 @@ class APRefreshView: UIView {
 
 private extension UIScrollView {
     var contentInsetTop: CGFloat {
-//        if #available(iOS 11.0, *) {
-//            return contentInset.top + adjustedContentInset.top
-//        } else {
+        if #available(iOS 11.0, *) {
+            return contentInset.top + adjustedContentInset.top
+        } else {
             return contentInset.top
-//        }
+        }
     }
 
     var contentInsetBottom: CGFloat {
-//        if #available(iOS 11.0, *) {
-//            return contentInset.bottom + adjustedContentInset.bottom
-//        } else {
+        if #available(iOS 11.0, *) {
+            return contentInset.bottom + adjustedContentInset.bottom
+        } else {
             return contentInset.bottom
-//        }
+        }
     }
 }

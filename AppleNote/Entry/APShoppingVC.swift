@@ -8,9 +8,40 @@
 
 import UIKit
 
+private var tableview:UITableView!
+
 class APShoppingVC: APBaseVC {
+    
+    lazy var tableView:UITableView = {
+        let tableView = UITableView(frame:self.view.bounds, style: UITableView.Style.plain)
+        tableView.delegate = self as UITableViewDelegate
+        tableView.dataSource = self as UITableViewDataSource
+        tableView.sectionHeaderHeight = 0
+        tableView.sectionFooterHeight = 0
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.separatorStyle = .none
+        tableView.showsVerticalScrollIndicator = false
+        tableView.estimatedRowHeight = 120;
+        tableView.backgroundColor = colorWithHex(hexColor: 0xEFF4F6)
+        
+        tableView.spr_setIndicatorHeader {
+            [weak self] in
+            self?.action()
+        }
+
+        return tableView
+    }()
+    
+    private func action() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            self.tableView.spr_endRefreshing()
+        }
+    }
+    
     override func viewDidLoad() {
         self.view.backgroundColor = .white
+        
+        self.view.addSubview(tableView)
         
         let btn1 = UIButton.init(frame: CGRect(x: 100, y: 100, width: 50, height: 50))
         btn1.backgroundColor = .randomColor
@@ -41,5 +72,17 @@ class APShoppingVC: APBaseVC {
     @objc func clean() {
         print("清除")
         removeUserDefault(key: "aa")
+    }
+}
+
+extension APShoppingVC:UITableViewDataSource,UITableViewDelegate {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell()
+        cell.backgroundColor = .cyan
+        cell.textLabel?.text = String(indexPath.row)
+        return cell;
+    }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 20
     }
 }

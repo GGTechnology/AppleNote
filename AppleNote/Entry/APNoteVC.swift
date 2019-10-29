@@ -10,13 +10,13 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-private var tableview:LGDTableView!
+private var tableview:APTableView!
 private var dataArray:Array<Any>!
 
 class APNoteVC: APBaseVC {
     
-    lazy var tableView:LGDTableView = {
-        let tableView = LGDTableView(frame:self.view.bounds, style: UITableView.Style.grouped)
+    lazy var tableView:APTableView = {
+        let tableView = APTableView(frame:self.view.bounds, style: UITableView.Style.grouped)
         tableView.delegate = self as UITableViewDelegate
         tableView.dataSource = self as UITableViewDataSource
         tableView.sectionHeaderHeight = 0
@@ -26,32 +26,38 @@ class APNoteVC: APBaseVC {
         tableView.showsVerticalScrollIndicator = false
         tableView.estimatedRowHeight = 120;
         tableView.backgroundColor = colorWithHex(hexColor: 0xEFF4F6)
-
         
-//        tableView.spr_setIndicatorHeader {
-//            [weak self] in
-//            self?.action()
-//        }
-
+        tableView.spr_setIndicatorHeader {
+//            [weak self] in self?.action()
+            [weak self] in self?.request()
+        }
         
         return tableView
     }()
     
-//    private func action() {
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-//            self.tableView.spr_endRefreshing()
-//        }
-//    }
+    func action() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            self.tableView.spr_endRefreshing()
+        }
+    }
     
     override func viewDidLoad() {
         self.view.addSubview(tableView)
-        let urlStr:String = "https://raw.githubusercontent.com/GGTechnology/AppleNote/master/Configuration/apple0.json"
+        request()
+    }
+    
+    func request() {
+        let urlStr:String = APNoteJson + "apple0.json"
         AF.request(urlStr, method: .get).responseJSON {
             responds in
             switch responds.result {
             case .success(let value):
                 dataArray = JSON(value).arrayValue
-//                print("🍏", dataArray as Any, "🍎")
+                print("🍏", dataArray ?? "🍍")
+                if (dataArray.count > 0) {
+//                    [weak self] in self?.action()
+                    self.action()
+                }
                 self.tableView.reloadData()
                 break
             case .failure(let error):

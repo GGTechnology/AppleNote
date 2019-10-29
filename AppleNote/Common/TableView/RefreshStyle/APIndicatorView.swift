@@ -62,5 +62,5 @@ class APIndicatorView: APRefreshView {
             arrowLayer.transform = progress == 1 ? CATransform3DIdentity : rotation
         }
     }
-
 }
+
