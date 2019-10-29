@@ -25,6 +25,8 @@
 		23D238552366C1AA0062C0AB /* APConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D238542366C1AA0062C0AB /* APConfig.swift */; };
 		23D238572366C61E0062C0AB /* APUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D238562366C61E0062C0AB /* APUserDefaults.swift */; };
 		23D2385B2366D43C0062C0AB /* APRefreshView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D2385A2366D43C0062C0AB /* APRefreshView.swift */; };
+		23D2385E2366EAA10062C0AB /* APIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D2385D2366EAA10062C0AB /* APIndicatorView.swift */; };
+		23D2386A2366F18B0062C0AB /* UIScrollView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D238692366F18B0062C0AB /* UIScrollView+Extensions.swift */; };
 		23D3CD6523177A9D009C9941 /* APNoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D3CD6423177A9D009C9941 /* APNoteCell.swift */; };
 		AD3563575E0742FB39E3EAEE /* Pods_AppleNote.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15B62D79167E16CFF69BDF1B /* Pods_AppleNote.framework */; };
 		C4054F8022DF2C2E0065CFB2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4054F7F22DF2C2E0065CFB2 /* AppDelegate.swift */; };
@@ -74,6 +76,8 @@
 		23D238542366C1AA0062C0AB /* APConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APConfig.swift; sourceTree = "<group>"; };
 		23D238562366C61E0062C0AB /* APUserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APUserDefaults.swift; sourceTree = "<group>"; };
 		23D2385A2366D43C0062C0AB /* APRefreshView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APRefreshView.swift; sourceTree = "<group>"; };
+		23D2385D2366EAA10062C0AB /* APIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIndicatorView.swift; sourceTree = "<group>"; };
+		23D238692366F18B0062C0AB /* UIScrollView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+Extensions.swift"; sourceTree = "<group>"; };
 		23D3CD6423177A9D009C9941 /* APNoteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APNoteCell.swift; sourceTree = "<group>"; };
 		B7837FBDF83BA540E66B2C2E /* Pods-AppleNote.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppleNote.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AppleNote/Pods-AppleNote.debug.xcconfig"; sourceTree = "<group>"; };
 		C4054F7C22DF2C2E0065CFB2 /* AppleNote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppleNote.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -181,6 +185,8 @@
 				236599442338EC9A005C2A97 /* LGDRefreshHeaderView.swift */,
 				236599462338ECC3005C2A97 /* LGDRefreshFooterView.swift */,
 				23D2385A2366D43C0062C0AB /* APRefreshView.swift */,
+				23D2385C2366E9200062C0AB /* RefreshStyle */,
+				23D238692366F18B0062C0AB /* UIScrollView+Extensions.swift */,
 			);
 			path = TableView;
 			sourceTree = "<group>";
@@ -202,6 +208,14 @@
 				23D238562366C61E0062C0AB /* APUserDefaults.swift */,
 			);
 			path = Config;
+			sourceTree = "<group>";
+		};
+		23D2385C2366E9200062C0AB /* RefreshStyle */ = {
+			isa = PBXGroup;
+			children = (
+				23D2385D2366EAA10062C0AB /* APIndicatorView.swift */,
+			);
+			path = RefreshStyle;
 			sourceTree = "<group>";
 		};
 		C4054F7322DF2C2E0065CFB2 = {
@@ -459,6 +473,8 @@
 				23D3CD6523177A9D009C9941 /* APNoteCell.swift in Sources */,
 				23D2385B2366D43C0062C0AB /* APRefreshView.swift in Sources */,
 				C4054F8022DF2C2E0065CFB2 /* AppDelegate.swift in Sources */,
+				23D2385E2366EAA10062C0AB /* APIndicatorView.swift in Sources */,
+				23D2386A2366F18B0062C0AB /* UIScrollView+Extensions.swift in Sources */,
 				2363BA1C230B9EC200D81AA4 /* ANNavigationController.swift in Sources */,
 				2363BA6B230CF24600D81AA4 /* APModel.swift in Sources */,
 				23A6FE9C2333985C0077AF7A /* DEFINE.swift in Sources */,

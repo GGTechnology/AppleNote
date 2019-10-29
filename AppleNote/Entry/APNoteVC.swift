@@ -10,8 +10,8 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-var tableview:LGDTableView!
-var dataArray:Array<Any>!
+private var tableview:LGDTableView!
+private var dataArray:Array<Any>!
 
 class APNoteVC: APBaseVC {
     
@@ -26,21 +26,26 @@ class APNoteVC: APBaseVC {
         tableView.showsVerticalScrollIndicator = false
         tableView.estimatedRowHeight = 120;
         tableView.backgroundColor = colorWithHex(hexColor: 0xEFF4F6)
-        let a:LGDRefreshFooterView!
-//        tableView.LGD_addFooterRefreshWithBlock(block: { a in
-//            print("下拉刷新")
-//        })
-//        tableView.LGD_addHeaderRefreshWithBlock(block: { (LGDRefreshHeaderView) in
-//            print("上拉刷新")
-//        })
+
+        
+//        tableView.spr_setIndicatorHeader {
+//            [weak self] in
+//            self?.action()
+//        }
+
         
         return tableView
     }()
     
+//    private func action() {
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+//            self.tableView.spr_endRefreshing()
+//        }
+//    }
+    
     override func viewDidLoad() {
         self.view.addSubview(tableView)
-        
-        let urlStr:String = "https://raw.githubusercontent.com/GGTechnology/AppleNote/master/Configuration/AppleNote.json"
+        let urlStr:String = "https://raw.githubusercontent.com/GGTechnology/AppleNote/master/Configuration/apple0.json"
         AF.request(urlStr, method: .get).responseJSON {
             responds in
             switch responds.result {
