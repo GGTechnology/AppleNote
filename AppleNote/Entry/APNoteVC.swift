@@ -12,6 +12,7 @@ import SwiftyJSON
 
 private var tableview:APTableView!
 private var dataArray:Array<Any>!
+private var page:Int = 0
 
 class APNoteVC: APBaseVC {
     
@@ -29,43 +30,47 @@ class APNoteVC: APBaseVC {
         
         tableView.spr_setIndicatorHeader {
 //            [weak self] in self?.action()
-            [weak self] in self?.request()
+            [weak self] in self?.request(page: page)
         }
         
         return tableView
     }()
     
     func action() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+        page += 1
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             self.tableView.spr_endRefreshing()
-        }
+//        }
     }
     
     override func viewDidLoad() {
         self.view.addSubview(tableView)
-        request()
+        request(page: page)
     }
     
-    func request() {
-        let urlStr:String = APNoteJson + "apple0.json"
+    func request(page:Int) {
+        let urlStr:String = APNoteJson + "apple" + String(page) + ".json"
+            
         AF.request(urlStr, method: .get).responseJSON {
             responds in
             switch responds.result {
+                
             case .success(let value):
                 if (dataArray != nil) {
                     dataArray = dataArray + JSON(value).arrayValue
                 } else {
                     dataArray = JSON(value).arrayValue
                 }
-                print("🍏", dataArray ?? "🍍")
+//                print("🍏", dataArray ?? "🍍")
                 if (dataArray.count > 0) {
-//                    [weak self] in self?.action()
                     self.action()
                 }
                 self.tableView.reloadData()
                 break
             case .failure(let error):
+                print("🌐")
                 print(error)
+                print("🌐")
                 break
             }
         }

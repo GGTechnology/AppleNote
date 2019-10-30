@@ -160,7 +160,7 @@ class APNoteCell: UITableViewCell {
         addressLabel.text = model.address
         contentLabel.text = model.content
         if (model.image.count > 0) {
-            let imageURL:String = "\(model.image[0])"
+            let imageURL:String = "\(APNoteImage)" + "\(model.image[0])"
             iconographImageView.kf.setImage(with: URL(string: imageURL))
         } else {
             contentLabel.snp.makeConstraints { (make) -> Void in
