@@ -52,7 +52,11 @@ class APNoteVC: APBaseVC {
             responds in
             switch responds.result {
             case .success(let value):
-                dataArray = JSON(value).arrayValue
+                if (dataArray != nil) {
+                    dataArray = dataArray + JSON(value).arrayValue
+                } else {
+                    dataArray = JSON(value).arrayValue
+                }
                 print("🍏", dataArray ?? "🍍")
                 if (dataArray.count > 0) {
 //                    [weak self] in self?.action()
