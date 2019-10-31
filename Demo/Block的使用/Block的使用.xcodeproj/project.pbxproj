@@ -106,13 +106,13 @@
 			children = (
 				2363BAB9230D468500D81AA4 /* AppDelegate.h */,
 				2363BABA230D468500D81AA4 /* AppDelegate.m */,
-				2363BABC230D468500D81AA4 /* ViewController.h */,
-				2363BABD230D468500D81AA4 /* ViewController.m */,
 				2363BABF230D468500D81AA4 /* Main.storyboard */,
 				2363BAC2230D468600D81AA4 /* Assets.xcassets */,
 				2363BAC4230D468600D81AA4 /* LaunchScreen.storyboard */,
 				2363BAC7230D468600D81AA4 /* Info.plist */,
 				2363BAC8230D468600D81AA4 /* main.m */,
+				2363BABC230D468500D81AA4 /* ViewController.h */,
+				2363BABD230D468500D81AA4 /* ViewController.m */,
 				2368AEA9234F445800C7D8BE /* aa.h */,
 				2368AEAA234F445800C7D8BE /* aa.m */,
 			);
