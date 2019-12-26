@@ -24,6 +24,7 @@ typedef void(^blockBB)(NSString *str);
 @property (nonatomic, copy) blockAA blockChange;
 //------------------------ a4 -------------------------------
 @property (nonatomic, copy) void (^blockName)(void);
+@property (nonatomic, copy) void (^blockBB)(NSString *str);
 //------------------------ a5 -------------------------------
 - (void)blue:(blockBB )blockCC;
 @property (nonatomic, copy) blockBB tempBlockBB;
