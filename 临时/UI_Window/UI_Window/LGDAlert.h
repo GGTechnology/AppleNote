@@ -46,6 +46,4 @@ typedef enum : NSUInteger{
                leftHandle:(NavClickBlock)leftBlock
               rightHandle:(NavClickBlock)rightBlock;
 
-
-
 @end

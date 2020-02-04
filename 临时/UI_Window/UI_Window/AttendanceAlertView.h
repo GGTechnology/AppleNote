@@ -34,7 +34,7 @@ typedef void (^ClickBlock)(id anyID);
  * @param  rightBlock 重新补签按钮点击回调
  *
  */
-- (void)showAlertWithFailHeadTitle:(NSString*)title
+- (void)showAlertWithFailHeadTitle:(NSString *)title
                 textTitle:(NSString *)text
                leftHandle:(ClickBlock )leftBlock
               rightHandle:(ClickBlock )rightBlock;
