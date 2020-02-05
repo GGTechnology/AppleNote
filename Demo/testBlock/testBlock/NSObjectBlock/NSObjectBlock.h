@@ -21,5 +21,7 @@ typedef void (^ClickBlock)(id anyID);;
 
 - (void)timeCountParamater:(NSInteger )timeCount HandleBlock:(ClickBlock )handleBlock;
 
+
+
 @end
 

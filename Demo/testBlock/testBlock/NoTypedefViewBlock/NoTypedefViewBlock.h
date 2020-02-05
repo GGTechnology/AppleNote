@@ -12,11 +12,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NoTypedefViewBlock : UILabel
 
-// @property (nonatomic, copy) void(^voidBlock)(BOOL status);
+@property (nonatomic, copy) void(^voidBlock)(BOOL status);
 
 // 这种方式不方便，一般推荐使用 typedef
 - (void)TimeCount:(void (^) (void))timeBlock;
-
 @end
 
 NS_ASSUME_NONNULL_END
