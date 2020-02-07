@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "KVC_VC.h"
 
+
 @interface Person : NSObject
 @property(nonatomic,copy)NSString *name;
 @end
@@ -18,7 +19,7 @@
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *ZiBianLiang;
 @property (weak, nonatomic) IBOutlet UILabel *YinBianLiang;
-@property(nonatomic,strong)Person *p;
+@property (nonatomic,strong)Person *p;
 @end
 
 @implementation ViewController
@@ -29,17 +30,17 @@
     _YinBianLiang.numberOfLines = 0;
     _ZiBianLiang.numberOfLines = 0;
     
-Person *p = [[Person alloc]init];
-//引用
-_p = p;
-// 注册，指定被观察者属性
-// keyPath就是要观察的属性值
-// options给你观察键值变化的选择
-// 而context方便传输你需要的数据（注意这是一个void型）
-[_p addObserver:self
-     forKeyPath:@"name"
-        options:(NSKeyValueObservingOptionNew)
-        context:nil];
+    Person *p = [[Person alloc]init];
+    //引用
+    _p = p;
+    // 注册，指定被观察者属性
+    // keyPath就是要观察的属性值
+    // options给你观察键值变化的选择
+    // 而context方便传输你需要的数据（注意这是一个void型）
+    [_p addObserver:self
+         forKeyPath:@"name"
+            options:(NSKeyValueObservingOptionNew)
+            context:nil];
 }
 
 - (IBAction)ButtonClickChangeValue {
