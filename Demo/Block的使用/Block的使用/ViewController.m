@@ -10,6 +10,7 @@
 #import "aa.h"
 
 @interface ViewController ()
+@property (weak, nonatomic) IBOutlet UIButton *a6;
 @property (nonatomic, strong) aa *cc;
 @end
 
@@ -42,11 +43,17 @@
         NSLog(@"🍏blockName🍏");
         _cc.backgroundColor = [UIColor brownColor];
     }];
-//------------------------ a5 -------------------------------
-    [_cc blue:^(NSString *str) {
-        _cc.backgroundColor = [UIColor grayColor];
-        NSLog(@"%@", str);
+    [_cc setBlockBB:^(NSString *str) {
+        NSLog(@"🍏%@🍏", str);
     }];
+//------------------------ a5 -------------------------------
+//    [_cc blue:^(NSString *str) {
+//        _cc.backgroundColor = [UIColor grayColor];
+//        NSLog(@"%@", str);
+//    }];
+    [_cc blue:^(NSString *str) {
+        NSLog(@"%@", str);
+    } parameter:@"a5 的参数"];
 //-------------------------------------------------------
     
     /*
@@ -78,11 +85,19 @@
          NSLog(@"😄");
     };
     gg();
+    
+    
+    _a6.backgroundColor = [UIColor greenColor];
+    NSString *bb = [[aa shareInstance] ButtonWithTitle:@"传入的值" BlockWithAction:^(id anyID) {
+        NSLog(@"🍎 = %@", anyID);
+    }];
+
+    [_a6 setTitle:bb forState:UIControlStateNormal];
 }
 - (IBAction)a6:(id)sender {
-    [[aa shareInstance] blue:^(NSString *str) {
-       NSLog(@"%@", str);
-    }];
+//    [[aa shareInstance] blue:^(NSString *str) {
+//       NSLog(@"%@", str);
+//    }];
 }
 
 @end

@@ -59,6 +59,10 @@
         [btn4 setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         [btn4 addTarget:self action:@selector(a4) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:btn4];
+        
+        if (self.blockHandel) {
+            self.blockHandel(@"🍎");
+        }
     }
     return self;
 }
@@ -85,9 +89,16 @@
 }
 //-------------------------------------------------------
 - (void)a4 {
-    if (self.blockName) {
-        self.blockName();
+    // 不传参
+//    if (self.blockName) {
+//        self.blockName();
+//    }
+    
+    // 穿参数
+    if (self.blockBB) {
+        self.blockBB(@"a4");
     }
+    
 }
 //-------------------------------------------------------
 - (void)a5 {
@@ -97,8 +108,22 @@
         NSLog(@"👛👛👛");
     }
 }
-- (void)blue:(blockBB)blockCC {
+- (void)blue:(blockBB)blockCC parameter:(NSString *)string {
+    NSLog(@"%@", string);
     self.tempBlockBB = blockCC;
 }
 //-------------------------------------------------------
+
+- (NSString *)ButtonWithTitle:(NSString *)title BlockWithAction:(ClickBlock )action {
+//    if (self.blockHandel) {
+//        self.blockHandel = action;
+//        return title;
+//    } else {
+//        return @"No_Connected";
+//    }
+//
+    self.blockHandel = action;
+    return title;
+}
+
 @end

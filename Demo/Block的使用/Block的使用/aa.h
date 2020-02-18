@@ -11,6 +11,8 @@
 typedef void(^blockAA)(NSString *str, NSDictionary *dic);
 typedef void(^blockBB)(NSString *str);
 
+typedef void (^ClickBlock)(id anyID);
+
 @interface aa : UIView
 
 + (instancetype) shareInstance;
@@ -26,8 +28,16 @@ typedef void(^blockBB)(NSString *str);
 @property (nonatomic, copy) void (^blockName)(void);
 @property (nonatomic, copy) void (^blockBB)(NSString *str);
 //------------------------ a5 -------------------------------
-- (void)blue:(blockBB )blockCC;
+//- (void)blue:(blockBB )blockCC;
+- (void)blue:(blockBB )blockCC parameter:(NSString *)string;// 带参数
 @property (nonatomic, copy) blockBB tempBlockBB;
+
+
+
+
+
 //------------------------ a6 -------------------------------
+- (NSString *)ButtonWithTitle:(NSString *)title BlockWithAction:(ClickBlock )action;
+@property (nonatomic, copy)ClickBlock blockHandel;
 @end
 
