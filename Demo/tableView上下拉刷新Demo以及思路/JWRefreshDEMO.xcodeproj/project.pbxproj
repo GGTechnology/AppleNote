@@ -232,7 +232,6 @@
 				TargetAttributes = {
 					0F29388A1EDEBE36005AC5EA = {
 						CreatedOnToolsVersion = 8.3;
-						DevelopmentTeam = MC32WL4XZA;
 						ProvisioningStyle = Automatic;
 					};
 					0F2938A31EDEBE36005AC5EA = {
@@ -252,7 +251,6 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				English,
 				en,
 				Base,
 			);
@@ -456,7 +454,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = MC32WL4XZA;
 				INFOPLIST_FILE = JWRefreshDEMO/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.---.JWRefreshDEMO";
@@ -468,7 +465,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = MC32WL4XZA;
 				INFOPLIST_FILE = JWRefreshDEMO/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.---.JWRefreshDEMO";
@@ -541,7 +537,6 @@
 				0F2938BA1EDEBE36005AC5EA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
 		};
 		0F2938BB1EDEBE36005AC5EA /* Build configuration list for PBXNativeTarget "JWRefreshDEMOTests" */ = {
 			isa = XCConfigurationList;
@@ -550,7 +545,6 @@
 				0F2938BD1EDEBE36005AC5EA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
 		};
 		0F2938BE1EDEBE36005AC5EA /* Build configuration list for PBXNativeTarget "JWRefreshDEMOUITests" */ = {
 			isa = XCConfigurationList;
@@ -559,7 +553,6 @@
 				0F2938C01EDEBE36005AC5EA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

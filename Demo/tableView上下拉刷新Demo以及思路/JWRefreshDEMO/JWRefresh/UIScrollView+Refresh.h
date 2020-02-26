@@ -11,6 +11,7 @@
 @class JWRefreshFooterView;
 
 typedef NS_ENUM(NSInteger , JW_RefreshStatus) {
+
     // 刷新状态
     JW_RefreshStatusWillRefresh = 0,
     JW_RefreshStatusRefreshing = 1,
@@ -35,5 +36,4 @@ typedef void(^footerRefresh)();
 // 上拉加载
 - (void)jw_addFooterRefreshWithBlock:(footerRefresh)block;
 - (void)endFooterRefresh;
-
 @end

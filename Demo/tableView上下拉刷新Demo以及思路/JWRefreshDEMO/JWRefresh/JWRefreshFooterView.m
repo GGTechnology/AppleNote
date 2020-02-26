@@ -27,7 +27,6 @@
 - (instancetype)initWithFrame:(CGRect)frame{
     
     if (self = [super initWithFrame:frame]) {
-        self.backgroundColor = [UIColor cyanColor];
         [self creatViews];
         [self addObserver:self forKeyPath:@"type" options:NSKeyValueObservingOptionNew context:nil];
     }
