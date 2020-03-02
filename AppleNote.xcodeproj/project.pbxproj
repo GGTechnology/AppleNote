@@ -293,6 +293,7 @@
 				C4054F7922DF2C2E0065CFB2 /* Frameworks */,
 				C4054F7A22DF2C2E0065CFB2 /* Resources */,
 				FB4309FE932C8C011F4A22AB /* [CP] Embed Pods Frameworks */,
+				A300B42CA1629FB08CDA14BE /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -410,6 +411,25 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		A300B42CA1629FB08CDA14BE /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AppleNote/Pods-AppleNote-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		B2B8A01E0BA7DD48DDA572F8 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;

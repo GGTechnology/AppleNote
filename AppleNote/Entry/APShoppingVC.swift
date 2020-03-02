@@ -41,19 +41,21 @@ class APShoppingVC: APBaseVC {
     override func viewDidLoad() {
         self.view.backgroundColor = .white
         
+        exit(0)
+        
         self.view.addSubview(tableView)
         
-        let btn1 = UIButton.init(frame: CGRect(x: 100, y: 100, width: 50, height: 50))
+        let btn1 = UIButton.init(frame: CGRect(x: 100, y: 100, width: 150, height: 50))
         btn1.backgroundColor = .randomColor
         btn1.addTarget(self, action: #selector(save), for: .touchUpInside)
         self.view.addSubview(btn1)
         
-        let btn2 = UIButton.init(frame: CGRect(x: 100, y: 200, width: 50, height: 50))
+        let btn2 = UIButton.init(frame: CGRect(x: 100, y: 200, width: 150, height: 50))
         btn2.backgroundColor = .randomColor
         btn2.addTarget(self, action: #selector(prints), for: .touchUpInside)
         self.view.addSubview(btn2)
         
-        let btn3 = UIButton.init(frame: CGRect(x: 100, y: 300, width: 50, height: 50))
+        let btn3 = UIButton.init(frame: CGRect(x: 100, y: 300, width: 150, height: 50))
         btn3.backgroundColor = .randomColor
         btn3.addTarget(self, action: #selector(clean), for: .touchUpInside)
         self.view.addSubview(btn3)
