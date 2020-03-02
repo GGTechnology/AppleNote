@@ -9,4 +9,6 @@
 #ifndef APHeaderFile_h
 #define APHeaderFile_h
 
+#import <Bugly/Bugly.h>
+
 #endif /* APHeaderFile_h */
