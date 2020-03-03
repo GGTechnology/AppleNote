@@ -8,6 +8,12 @@
 
 import UIKit
 
+protocol APTableViewDelegate {
+  
+    
+
+}
+
 class APTableView: UITableView {
 
     /*
