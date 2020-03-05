@@ -8,7 +8,7 @@
 
 import UIKit
 
-class APBaseTableView: UITableView {
+class APBaseTableView: APTableView {
 
     
     

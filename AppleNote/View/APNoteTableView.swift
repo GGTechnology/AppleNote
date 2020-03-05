@@ -8,6 +8,6 @@
 
 import UIKit
 
-class APNoteTableView: APBaseTableView {
+class APNoteTableView: APTableView {
     
 }
