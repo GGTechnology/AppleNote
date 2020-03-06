@@ -28,7 +28,7 @@ class APNoteVC: APBaseVC {
         tableView.delegateObj = self;
         tableView.isHFR = true;
         tableView.inteface = .note
-        tableView.hRequestNetwork()
+        tableView.RequestNetwork(refreshDirection: .header)
         
         return tableView
     }()
@@ -56,9 +56,31 @@ extension APNoteVC:UITableViewDataSource,UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 0.1
     }
+//    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+//        return 0;
+//    }
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 0;
-    }
+          // 有下一页数据
+          if false {
+              return 0
+          } else {
+              return 50
+          }
+      }
+      
+      func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+          // 有下一页数据
+          if false {
+              return UIView()
+          } else {
+              let view = UIView.init(frame: CGRect(x: 0, y: 0, width: kWidth, height: 50))
+              view.backgroundColor = .clear
+              view.backgroundColor = .cyan
+              
+              return view
+              
+          }
+      }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         print("🍎", indexPath.row)
