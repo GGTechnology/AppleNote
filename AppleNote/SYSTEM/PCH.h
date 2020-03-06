@@ -9,5 +9,6 @@
 #ifndef PCH_h
 #define PCH_h
 
+#import <Bugly/Bugly.h>
 
 #endif /* PCH_h */

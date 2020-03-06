@@ -20,64 +20,27 @@ class APNoteVC: APBaseVC {
         let tableView = APTableView(frame:self.view.bounds, style: UITableView.Style.grouped)
         tableView.delegate = self as UITableViewDelegate
         tableView.dataSource = self as UITableViewDataSource
-        tableView.sectionHeaderHeight = 0
-        tableView.sectionFooterHeight = 0
         tableView.rowHeight = UITableView.automaticDimension
         tableView.separatorStyle = .none
         tableView.showsVerticalScrollIndicator = false
         tableView.estimatedRowHeight = 120;
         tableView.backgroundColor = colorWithHex(hexColor: 0xEFF4F6)
-        
-        tableView.spr_setIndicatorHeader {
-//            [weak self] in self?.action()
-            [weak self] in self?.request(page: page)
-        }
+        tableView.delegateObj = self;
+        tableView.isHFR = true;
+        tableView.inteface = .note
+        tableView.hRequestNetwork()
         
         return tableView
     }()
-    
-    func action() {
-        page += 1
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            self.tableView.spr_endRefreshing()
-//        }
-    }
-    
+        
     override func viewDidLoad() {
         self.view.addSubview(tableView)
-        request(page: page)
-    }
-    
-    func request(page:Int) {
-        let urlStr:String = APNoteJson + "apple" + String(page) + ".json"
-            
-        AF.request(urlStr, method: .get).responseJSON {
-            responds in
-            switch responds.result {
-                
-            case .success(let value):
-                if (dataArray != nil) {
-                    dataArray = dataArray + JSON(value).arrayValue
-                } else {
-                    dataArray = JSON(value).arrayValue
-                }
-//                print("🍏", dataArray ?? "🍍")
-                if (dataArray.count > 0) {
-                    self.action()
-                }
-                self.tableView.reloadData()
-                break
-            case .failure(let error):
-                print("🌐")
-                print(error)
-                print("🌐")
-                break
-            }
-        }
+        
     }
 }
 
 extension APNoteVC:UITableViewDataSource,UITableViewDelegate {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if (dataArray != nil) {
             return dataArray.count
@@ -93,6 +56,9 @@ extension APNoteVC:UITableViewDataSource,UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 0.1
     }
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 0;
+    }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         print("🍎", indexPath.row)
@@ -107,5 +73,21 @@ extension APNoteVC:UITableViewDataSource,UITableViewDelegate {
             let model = APModel(jsonData: JSON())
             return model
         }
+    }
+}
+
+
+extension APNoteVC:APTableViewDelegate {
+    internal func endRreshData(refreshStatu: Bool, _dataArray: Array<Any>, refreshDirection: Bool) {
+        if refreshDirection {
+            if (dataArray != nil) {
+                dataArray = dataArray + _dataArray
+            } else {
+                dataArray = _dataArray
+            }
+        } else {
+            dataArray = _dataArray;
+        }
+        self.tableView.reloadData()
     }
 }
