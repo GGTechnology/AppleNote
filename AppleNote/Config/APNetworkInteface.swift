@@ -8,11 +8,6 @@
 
 import Foundation
 
-private let URL:String = "https://gitee.com/ggkeji/AppleNote/raw/master/Source/"
-
-//let APNoteJson:String = "https://gitee.com/ggkeji/AppleNote/raw/master/Source/note/"
-//let APNoteImage:String = "https://gitee.com/ggkeji/AppleNote/raw/master/Source/image/index/"
-
 public enum APRequestURLInteface {
     case note
     case image
@@ -25,16 +20,16 @@ public func AP_GetRequestStr(inteface:APRequestURLInteface) -> (String) {
     case .note:
         return SplicingString(parameter: "note/apple")
     case .image:
-        return SplicingImage(parameter: "image/index")
+        return SplicingImage(parameter: "image/index/")
     default:
         return ""
     }
 }
 
+private let URL:String = "https://gitee.com/ggkeji/AppleNote/raw/master/Source/"
 private func SplicingString(parameter:String) -> String {
     return URL + parameter
 }
-
 private func SplicingImage(parameter:String) -> String {
     return URL + parameter
 }

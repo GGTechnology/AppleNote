@@ -12,9 +12,9 @@ import UIKit
 //屏幕大小
 let ScreenSize                           = UIScreen.main.bounds.size
 //屏幕宽度
-let ScreenWidth:CGFloat                  = UIScreen.main.bounds.size.width
+let kWidth:CGFloat                  = UIScreen.main.bounds.size.width
 //屏幕高度
-let ScreenHeight:CGFloat                 = UIScreen.main.bounds.size.height
+let kHeight:CGFloat                 = UIScreen.main.bounds.size.height
 
 //根据传入的值算出乘以比例之后的值
 func width(width:CGFloat) ->CGFloat {
