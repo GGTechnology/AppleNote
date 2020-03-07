@@ -13,8 +13,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+        // print("💙 首次进入 APP 进入前台会调用，优先级 1")
+        
         // Override point for customization after application launch.
         
         Bugly.start(withAppId: "28fc2f286b")
@@ -26,29 +28,79 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
          
         return true
     }
+    
+    func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+        
+        
+        return true
+    }
 
+    // 前台进入后台
     func applicationWillResignActive(_ application: UIApplication) {
-        // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-        // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
+        // print("❤️ 每次前台进入后台调用，优先级 1")
     }
-
     func applicationDidEnterBackground(_ application: UIApplication) {
-        // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-        // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+        // print("🧡 每次前台进入后台调用，优先级 2")
     }
-
+    // 后台进入前台
     func applicationWillEnterForeground(_ application: UIApplication) {
-        // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
+        // print("💛 后台进入前台调用，优先级 1")
     }
-
+    
     func applicationDidBecomeActive(_ application: UIApplication) {
-        // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        // 1: 首次进入 APP 进入前台成功会调用(如果进入前台立刻 Crash，则不会调用)，优先级
+        // 2: 后台进入前台调用，优先级 2
+        // print("🤎")
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
-        // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+        print("💚 KILL APP")
+    }
+    
+    func application(_ application: UIApplication, handleEventsForBackgroundURLSession identifier: String, completionHandler: @escaping () -> Void) {
+        print("💜 应用处于后台，所有下载任务完成调用，handleEventsForBackgroundURLSession")
+    }
+    
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        UIApplication.shared.beginBackgroundTask {
+            
+        }
+    }
+    
+    func applicationDidReceiveMemoryWarning(_ application: UIApplication) {
+        //iPhone设备只有有限的内存，如果为应用程序分配了太多内存操作系统会终止应用程序的运行，在终止前会执行这个方法，通常可以在这里进行内存清理工作防止程序被终止
+    }
+    func applicationSignificantTimeChange(_ application: UIApplication) {
+        // 当系统时间发生改变时执行
+    }
+    func application(_ application: UIApplication, willChangeStatusBarFrame newStatusBarFrame: CGRect) {
+        // 当StatusBar框将要变化时执行
+    }
+    func application(_ application: UIApplication, willChangeStatusBarOrientation newStatusBarOrientation: UIInterfaceOrientation, duration: TimeInterval) {
+        // 当StatusBar框方向将要变化时执行
+    }
+    func application(_ application: UIApplication, didChangeStatusBarOrientation oldStatusBarOrientation: UIInterfaceOrientation) {
+        //    说明：当StatusBar框方向变化完成后执行
+    }
+    func application(_ application: UIApplication, didChangeStatusBarFrame oldStatusBarFrame: CGRect) {
+        //    说明：当StatusBar框变化完成后执行
     }
 
 
+    
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any]) {
+        // 当一个运行着的应用程序收到一个远程的通知 发送到委托去...7.0之后
+    }
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        // 当一个应用程序成功的注册一个推送服务（APS） 发送到委托去...
+    }
+    func application(_ application:
+        UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+        // 当 APS无法成功的完成向 程序进程推送时 发送到委托去..
+    }
+    
+//    appDidEnterBackgroundNotif
+//    appdidenterfackg
+    
 }
 

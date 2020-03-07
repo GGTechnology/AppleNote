@@ -44,6 +44,8 @@ class APShoppingVC: APBaseVC {
         
         tableView.inteface = .note
         tableView.parameter = ["key" : "value"]
+        
+        exit(0)
     }
     
     func userTest() {

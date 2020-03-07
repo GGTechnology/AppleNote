@@ -28,7 +28,6 @@
 		23D3CD6523177A9D009C9941 /* APNoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23D3CD6423177A9D009C9941 /* APNoteCell.swift */; };
 		AD3563575E0742FB39E3EAEE /* Pods_AppleNote.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15B62D79167E16CFF69BDF1B /* Pods_AppleNote.framework */; };
 		C4054F8022DF2C2E0065CFB2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4054F7F22DF2C2E0065CFB2 /* AppDelegate.swift */; };
-		C4054F8222DF2C2E0065CFB2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4054F8122DF2C2E0065CFB2 /* ViewController.swift */; };
 		C4054F8A22DF2C300065CFB2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4054F8822DF2C300065CFB2 /* LaunchScreen.storyboard */; };
 		C4054F9522DF2C300065CFB2 /* AppleNoteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4054F9422DF2C300065CFB2 /* AppleNoteTests.swift */; };
 		C4054FA022DF2C300065CFB2 /* AppleNoteUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4054F9F22DF2C300065CFB2 /* AppleNoteUITests.swift */; };
@@ -77,7 +76,6 @@
 		B7837FBDF83BA540E66B2C2E /* Pods-AppleNote.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppleNote.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AppleNote/Pods-AppleNote.debug.xcconfig"; sourceTree = "<group>"; };
 		C4054F7C22DF2C2E0065CFB2 /* AppleNote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppleNote.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4054F7F22DF2C2E0065CFB2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C4054F8122DF2C2E0065CFB2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C4054F8922DF2C300065CFB2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C4054F8B22DF2C300065CFB2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C4054F9022DF2C300065CFB2 /* AppleNoteTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AppleNoteTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -138,7 +136,6 @@
 			isa = PBXGroup;
 			children = (
 				C4054F7F22DF2C2E0065CFB2 /* AppDelegate.swift */,
-				C4054F8122DF2C2E0065CFB2 /* ViewController.swift */,
 				C4054F8822DF2C300065CFB2 /* LaunchScreen.storyboard */,
 				C4054F8B22DF2C300065CFB2 /* Info.plist */,
 				23A6FE9D2333A1720077AF7A /* Images.xcassets */,
@@ -480,7 +477,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C4054F8222DF2C2E0065CFB2 /* ViewController.swift in Sources */,
 				2363BA25230BC1C200D81AA4 /* APShoppingVC.swift in Sources */,
 				23D2386C23682D1A0062C0AB /* APTableView.swift in Sources */,
 				23D3CD6523177A9D009C9941 /* APNoteCell.swift in Sources */,

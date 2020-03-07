@@ -36,6 +36,7 @@ class APNoteVC: APBaseVC {
     override func viewDidLoad() {
         self.view.addSubview(tableView)
         
+        
     }
 }
 
