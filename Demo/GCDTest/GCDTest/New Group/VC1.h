@@ -6,11 +6,11 @@
 //  Copyright © 2020 shijunnian. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "rootVC.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface VC1 : UIViewController
+@interface VC1 : rootVC
 
 @end
 

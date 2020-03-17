@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		238FD69524207CDC00E38B98 /* rootVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 238FD69424207CDC00E38B98 /* rootVC.m */; };
 		A9A74A02241FC52A003CDF26 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A9A74A01241FC52A003CDF26 /* AppDelegate.m */; };
 		A9A74A05241FC52A003CDF26 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A9A74A04241FC52A003CDF26 /* SceneDelegate.m */; };
 		A9A74A08241FC52A003CDF26 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9A74A07241FC52A003CDF26 /* ViewController.m */; };
@@ -37,6 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		238FD69324207CDC00E38B98 /* rootVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = rootVC.h; sourceTree = "<group>"; };
+		238FD69424207CDC00E38B98 /* rootVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = rootVC.m; sourceTree = "<group>"; };
 		A9A749FD241FC529003CDF26 /* GCDTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GCDTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9A74A00241FC52A003CDF26 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		A9A74A01241FC52A003CDF26 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -119,6 +122,8 @@
 				A9A74A0E241FC531003CDF26 /* LaunchScreen.storyboard */,
 				A9A74A11241FC531003CDF26 /* Info.plist */,
 				A9A74A12241FC531003CDF26 /* main.m */,
+				238FD69324207CDC00E38B98 /* rootVC.h */,
+				238FD69424207CDC00E38B98 /* rootVC.m */,
 			);
 			path = GCDTest;
 			sourceTree = "<group>";
@@ -282,6 +287,7 @@
 			files = (
 				A9A74A08241FC52A003CDF26 /* ViewController.m in Sources */,
 				A9A74A02241FC52A003CDF26 /* AppDelegate.m in Sources */,
+				238FD69524207CDC00E38B98 /* rootVC.m in Sources */,
 				A9A74A38241FC90D003CDF26 /* VC1.m in Sources */,
 				A9A74A13241FC531003CDF26 /* main.m in Sources */,
 				A9A74A05241FC52A003CDF26 /* SceneDelegate.m in Sources */,
