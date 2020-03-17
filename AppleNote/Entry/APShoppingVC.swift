@@ -45,7 +45,7 @@ class APShoppingVC: APBaseVC {
         tableView.inteface = .note
         tableView.parameter = ["key" : "value"]
         
-        exit(0)
+//        exit(0)
     }
     
     func userTest() {
@@ -73,6 +73,7 @@ class APShoppingVC: APBaseVC {
     @objc func save() {
         print("存储")
         setDefault(key: "aa", value: "bb" as AnyObject)
+        
     }
     @objc func prints() {
         print("获取")
@@ -81,6 +82,8 @@ class APShoppingVC: APBaseVC {
     @objc func clean() {
         print("清除")
         removeUserDefault(key: "aa")
+        let someInts:[Int] = [10, 20, 30]
+        print(someInts[5])
     }
 }
 
