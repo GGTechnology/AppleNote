@@ -7,6 +7,8 @@
 //
 
 #import "rootVC.h"
+#import "MMPhotoView/MMPhotoViewController.h"
+
 #define bw self.view.backgroundColor=[UIColor whiteColor];
 #define kWidth  [UIScreen mainScreen].bounds.size.width
 #define kHeight [UIScreen mainScreen].bounds.size.height
@@ -60,12 +62,29 @@
 }
 
 - (void)code {
-    UIViewController *rootViewController = [UIApplication sharedApplication].keyWindow.rootViewController;
-    if (self.codeStr) {
-        self.textView.text = self.codeStr;
-    }
-    [rootViewController.view addSubview:self.bgView];
-    [rootViewController.view addSubview:self.textView];
+//    UIViewController *rootViewController = [UIApplication sharedApplication].keyWindow.rootViewController;
+//    if (self.codeStr) {
+//        self.textView.text = self.codeStr;
+//    }
+//    [rootViewController.view addSubview:self.bgView];
+//    [rootViewController.view addSubview:self.textView];
+    
+    
+    
+    MMPhotoViewController *vc = [[MMPhotoViewController alloc] init];
+       vc.urlArray = @[@"https://cdn.cnbj1.fds.api.mi-img.com/middle.community.vip.bkt/4677d7dba9a93320faf515e0d5e4f585"];
+       UIImage *image = [UIImage imageNamed:@"test"];
+       vc.imageObj = image;
+       
+       
+       vc.imgIndex = 1;
+    UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(kWidth-100, statusHeight, 100, 44)];
+//       if (btn.tag == 1000) {
+           vc.rect = btn.frame;//传一个frame,消失时会回归原位，不传会在手指离开的位置消失
+//       }
+       
+       [self.view addSubview:vc.view];
+       [self addChildViewController:vc];
 }
 
 - (void)result {

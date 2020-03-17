@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		238FD69524207CDC00E38B98 /* rootVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 238FD69424207CDC00E38B98 /* rootVC.m */; };
+		238FD6A32420F72000E38B98 /* DALabeledCircularProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 238FD6972420F71F00E38B98 /* DALabeledCircularProgressView.m */; };
+		238FD6A42420F72000E38B98 /* ZoomingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 238FD69A2420F71F00E38B98 /* ZoomingView.m */; };
+		238FD6A52420F72000E38B98 /* AutoDismissAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = 238FD69B2420F71F00E38B98 /* AutoDismissAlert.m */; };
+		238FD6A62420F72000E38B98 /* DACircularProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 238FD69C2420F71F00E38B98 /* DACircularProgressView.m */; };
+		238FD6A72420F72000E38B98 /* MMPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 238FD6A12420F72000E38B98 /* MMPhotoViewController.m */; };
+		238FD6A82420F72000E38B98 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 238FD6A22420F72000E38B98 /* UIView+Extension.m */; };
 		A9A74A02241FC52A003CDF26 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A9A74A01241FC52A003CDF26 /* AppDelegate.m */; };
 		A9A74A05241FC52A003CDF26 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A9A74A04241FC52A003CDF26 /* SceneDelegate.m */; };
 		A9A74A08241FC52A003CDF26 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9A74A07241FC52A003CDF26 /* ViewController.m */; };
@@ -40,6 +46,18 @@
 /* Begin PBXFileReference section */
 		238FD69324207CDC00E38B98 /* rootVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = rootVC.h; sourceTree = "<group>"; };
 		238FD69424207CDC00E38B98 /* rootVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = rootVC.m; sourceTree = "<group>"; };
+		238FD6972420F71F00E38B98 /* DALabeledCircularProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DALabeledCircularProgressView.m; sourceTree = "<group>"; };
+		238FD6982420F71F00E38B98 /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
+		238FD6992420F71F00E38B98 /* MMPhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMPhotoViewController.h; sourceTree = "<group>"; };
+		238FD69A2420F71F00E38B98 /* ZoomingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZoomingView.m; sourceTree = "<group>"; };
+		238FD69B2420F71F00E38B98 /* AutoDismissAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutoDismissAlert.m; sourceTree = "<group>"; };
+		238FD69C2420F71F00E38B98 /* DACircularProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DACircularProgressView.m; sourceTree = "<group>"; };
+		238FD69D2420F71F00E38B98 /* DALabeledCircularProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DALabeledCircularProgressView.h; sourceTree = "<group>"; };
+		238FD69E2420F71F00E38B98 /* DACircularProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DACircularProgressView.h; sourceTree = "<group>"; };
+		238FD69F2420F72000E38B98 /* AutoDismissAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutoDismissAlert.h; sourceTree = "<group>"; };
+		238FD6A02420F72000E38B98 /* ZoomingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZoomingView.h; sourceTree = "<group>"; };
+		238FD6A12420F72000E38B98 /* MMPhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMPhotoViewController.m; sourceTree = "<group>"; };
+		238FD6A22420F72000E38B98 /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
 		A9A749FD241FC529003CDF26 /* GCDTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GCDTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9A74A00241FC52A003CDF26 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		A9A74A01241FC52A003CDF26 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -87,6 +105,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		238FD6962420F71F00E38B98 /* MMPhotoView */ = {
+			isa = PBXGroup;
+			children = (
+				238FD6972420F71F00E38B98 /* DALabeledCircularProgressView.m */,
+				238FD6982420F71F00E38B98 /* UIView+Extension.h */,
+				238FD6992420F71F00E38B98 /* MMPhotoViewController.h */,
+				238FD69A2420F71F00E38B98 /* ZoomingView.m */,
+				238FD69B2420F71F00E38B98 /* AutoDismissAlert.m */,
+				238FD69C2420F71F00E38B98 /* DACircularProgressView.m */,
+				238FD69D2420F71F00E38B98 /* DALabeledCircularProgressView.h */,
+				238FD69E2420F71F00E38B98 /* DACircularProgressView.h */,
+				238FD69F2420F72000E38B98 /* AutoDismissAlert.h */,
+				238FD6A02420F72000E38B98 /* ZoomingView.h */,
+				238FD6A12420F72000E38B98 /* MMPhotoViewController.m */,
+				238FD6A22420F72000E38B98 /* UIView+Extension.m */,
+			);
+			path = MMPhotoView;
+			sourceTree = "<group>";
+		};
 		A9A749F4241FC529003CDF26 = {
 			isa = PBXGroup;
 			children = (
@@ -110,6 +147,7 @@
 		A9A749FF241FC529003CDF26 /* GCDTest */ = {
 			isa = PBXGroup;
 			children = (
+				238FD6962420F71F00E38B98 /* MMPhotoView */,
 				A9A74A35241FC8F4003CDF26 /* New Group */,
 				A9A74A00241FC52A003CDF26 /* AppDelegate.h */,
 				A9A74A01241FC52A003CDF26 /* AppDelegate.m */,
@@ -288,8 +326,14 @@
 				A9A74A08241FC52A003CDF26 /* ViewController.m in Sources */,
 				A9A74A02241FC52A003CDF26 /* AppDelegate.m in Sources */,
 				238FD69524207CDC00E38B98 /* rootVC.m in Sources */,
+				238FD6A52420F72000E38B98 /* AutoDismissAlert.m in Sources */,
 				A9A74A38241FC90D003CDF26 /* VC1.m in Sources */,
+				238FD6A62420F72000E38B98 /* DACircularProgressView.m in Sources */,
+				238FD6A82420F72000E38B98 /* UIView+Extension.m in Sources */,
+				238FD6A32420F72000E38B98 /* DALabeledCircularProgressView.m in Sources */,
+				238FD6A72420F72000E38B98 /* MMPhotoViewController.m in Sources */,
 				A9A74A13241FC531003CDF26 /* main.m in Sources */,
+				238FD6A42420F72000E38B98 /* ZoomingView.m in Sources */,
 				A9A74A05241FC52A003CDF26 /* SceneDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
