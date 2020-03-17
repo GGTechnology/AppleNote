@@ -29,8 +29,6 @@
     UIBarButtonItem *resultBtn = [[UIBarButtonItem alloc]initWithTitle:@"结果" style:UIBarButtonItemStylePlain target:self action:@selector(result)];
     UIBarButtonItem *closeBtn = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemStop target:self action:@selector(close)];
     [self.navigationItem setRightBarButtonItems:[NSArray arrayWithObjects: codeBtn, resultBtn, closeBtn, nil]];
-    
-//    [self.view bringSubviewToFront:btn];
 }
 
 - (UITextView *)textView {
@@ -45,10 +43,10 @@
         _textView.backgroundColor = [UIColor blackColor];
         _textView.textColor = hex(0x09FA95);
         _textView.font = [UIFont systemFontOfSize:15];
-        NSString *str = @"Hello world!   ";
-        for (NSInteger i = 0; i < 300; i++) {
-            str = [NSString stringWithFormat:@"Hello world!   %@", str];
-        }
+        NSString *str = @"   Hello world!   ";
+        //    for (NSInteger i = 0; i < 300; i++) {
+        //        str = [NSString stringWithFormat:@"Hello world!   %@", str];
+        //    }
         _textView.text = str;
     }
     return _textView;
