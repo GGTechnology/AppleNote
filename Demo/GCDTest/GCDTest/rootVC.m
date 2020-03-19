@@ -62,29 +62,22 @@
 }
 
 - (void)code {
-//    UIViewController *rootViewController = [UIApplication sharedApplication].keyWindow.rootViewController;
-//    if (self.codeStr) {
-//        self.textView.text = self.codeStr;
-//    }
-//    [rootViewController.view addSubview:self.bgView];
-//    [rootViewController.view addSubview:self.textView];
-    
-    
-    
-    MMPhotoViewController *vc = [[MMPhotoViewController alloc] init];
-       vc.urlArray = @[@"https://cdn.cnbj1.fds.api.mi-img.com/middle.community.vip.bkt/4677d7dba9a93320faf515e0d5e4f585"];
-       UIImage *image = [UIImage imageNamed:@"test"];
-       vc.imageObj = image;
-       
-       
-       vc.imgIndex = 1;
-    UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(kWidth-100, statusHeight, 100, 44)];
-//       if (btn.tag == 1000) {
-           vc.rect = btn.frame;//传一个frame,消失时会回归原位，不传会在手指离开的位置消失
-//       }
-       
-       [self.view addSubview:vc.view];
-       [self addChildViewController:vc];
+    if (_codeImageStr) {
+        MMPhotoViewController *vc = [[MMPhotoViewController alloc] init];
+        vc.urlArray = @[@"临时放在这里"];
+        UIImage *image = [UIImage imageNamed:_codeImageStr];
+        vc.imageObj = image;
+        vc.imgIndex = 1;
+        UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(kWidth-100, statusHeight, 100, 44)];
+        //  if (btn.tag == 1000) {
+        vc.rect = btn.frame;//传一个frame,消失时会回归原位，不传会在手指离开的位置消失
+        //  }
+        // [self.view addSubview:vc.view];
+        // [self addChildViewController:vc];
+        UIViewController *rootViewController = [UIApplication sharedApplication].keyWindow.rootViewController;
+        [rootViewController.view addSubview:vc.view];
+        [rootViewController addChildViewController:vc];
+    }
 }
 
 - (void)result {
@@ -99,6 +92,15 @@
 - (void)close {
     [self.bgView removeFromSuperview];
     [self.textView removeFromSuperview];
+}
+
+- (void)loading {
+    UIViewController *vc = [[UIViewController alloc] init];
+    UIActivityIndicatorView *loading = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    loading.center = CGPointMake(kWidth/2, kHeight/2-50);
+    [loading startAnimating];
+    [vc.view addSubview:loading];
+    [self presentViewController:vc animated:NO completion:nil];
 }
 
 @end

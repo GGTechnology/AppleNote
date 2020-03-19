@@ -9,8 +9,9 @@
 #import "VC1.h"
 
 @interface VC1 ()<UITableViewDataSource, UITableViewDelegate> {
-    UIButton *btn;
-    NSArray  *GCD_dataArray;
+    UIButton  *btn;
+    NSArray   *GCD_dataArray;
+    NSArray   *GCD_imageArray;
 }
 
 @end
@@ -19,12 +20,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    
-    btn  = [[UIButton alloc] initWithFrame:CGRectMake(100, 100, 100, 100)];
-    btn.backgroundColor = [UIColor greenColor];
-    [btn addTarget:self action:@selector(test) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:btn];
     
     UITableView *tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
     tableView.delegate = self;
@@ -38,70 +33,22 @@
                       @"同步执行 + 串行队列",
                       @"异步执行 + 串行队列",
                       @"同步执行 + 主队列",
+                      @"异步执行 + 主队列",
+                      @"",
+                      @"同步执行 + 主队列",
                       @"在主线程中调用 『同步执行 + 主队列』",
                       @"在其他线程中调用『同步执行 + 主队列』",
                       @"异步执行 + 主队列"];
+   
+    GCD_imageArray = @[@"GCD_SyncConcurrent",
+                       @"GCD_AsyncConcurrent",
+                       @"GCD_SyncSerial",
+                       @"GCD_AsyncSerial",
+                       @"GCD_SyncMain",
+                       @"GCD_AsyncMain"];
 }
-
-- (void)test {
-    
-//    [self codeDisplay:@"显示代码"];
-    self.codeStr = @"显示代码";
-    self.resultStr = @"显示结果";
-    
-//    NSLog(@"🍎currentThread---%@",[NSThread currentThread]);  // 打印当前线程
-//    NSLog(@"🍏syncConcurrent---begin");
-//
-//    dispatch_queue_t queue = dispatch_queue_create("net.bujige.testQueue", DISPATCH_QUEUE_CONCURRENT);
-//
-//    dispatch_sync(queue, ^{
-//        // 追加任务 1
-//        [NSThread sleepForTimeInterval:2];              // 模拟耗时操作
-//        NSLog(@"🍊1---%@",[NSThread currentThread]);      // 打印当前线程
-//    });
-//
-//    dispatch_sync(queue, ^{
-//        // 追加任务 2
-//        [NSThread sleepForTimeInterval:2];              // 模拟耗时操作
-//        NSLog(@"🍋2---%@",[NSThread currentThread]);      // 打印当前线程
-//    });
-//
-//    dispatch_sync(queue, ^{
-//        // 追加任务 3
-//        [NSThread sleepForTimeInterval:2];              // 模拟耗时操作
-//        NSLog(@"🍉3---%@",[NSThread currentThread]);      // 打印当前线程
-//    });
-//
-//    NSLog(@"🥭syncConcurrent---end");
-}
-
-- (void)queueCreat {
-    // 串行队列的创建方法
-    dispatch_queue_t queueSerial = dispatch_queue_create("queueSerial ", DISPATCH_QUEUE_SERIAL);
-    
-//    dispatch_main();
-    
-//    dispatch_get_global_queue
-    // 全局并发队列的获取方法
-    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
-
-    
-    
-    // 并发队列的创建方法
-    dispatch_queue_t queueConcurrent = dispatch_queue_create("queueConcurrent", DISPATCH_QUEUE_CONCURRENT);
-    
-    // 同步执行任务创建方法
-    dispatch_sync(queueSerial, ^{
-        // 这里放同步执行任务代码
-        [self performSelector:@selector(clickBack) withObject:self afterDelay:1.0];
-    });
-
-    dispatch_queue_t mainQueue = dispatch_get_main_queue();
-    // 异步执行任务创建方法
-    dispatch_async(mainQueue, ^{
-        // 这里放异步执行任务代码
-        self->btn.backgroundColor = [UIColor orangeColor];
-    });
+- (void)viewDidDisappear:(BOOL)animated {
+    [self close];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
@@ -120,23 +67,303 @@
     }
     return cell;
 }
-
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
+    if (indexPath.row <= GCD_imageArray.count) {
+        self.codeImageStr = [NSString stringWithFormat:@"%@", GCD_imageArray[indexPath.row]];
+    }
+    
     switch (indexPath.row) {
         case 0:
+            [self syncConcurrent];
+            break;
+        case 1:
+            [self asyncConcurrent];
+            break;
+        case 2:
+            [self syncSerial];
+            break;
+        case 3:
+            [self asyncSerial];
+            break;
+        case 4:
         {
-            
+            UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"此运行会卡死" message:@"是否执行?" preferredStyle:UIAlertControllerStyleAlert];
+            [alertVC addAction:[UIAlertAction actionWithTitle:@"是" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                [self syncMain];
+            }]];
+            [alertVC addAction:[UIAlertAction actionWithTitle:@"否" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {}]];
+            [self presentViewController:alertVC animated:YES completion:nil];
         }
+            break;
+        case 5:
+            [self asyncMain];
             break;
         default:
             break;
     }
 }
 
-- (void)one {
-    self.codeStr = @"";
+/**
+ * 同步执行 + 并发队列
+ * 特点：在当前线程中执行任务，不会开启新线程，执行完一个任务，再执行下一个任务。
+ */
+- (void)syncConcurrent {
+    __block NSString *string;
+    
+    NSLog(@"currentThread---%@",[NSThread currentThread]);  // 打印当前线程
+    string = [NSString stringWithFormat:@"currentThread---%@\n",[NSThread currentThread]];
+    
+    NSLog(@"syncConcurrent---begin\n");
+    string = [string stringByAppendingString:@"syncConcurrent---begin\n"];
+    
+    dispatch_queue_t queue = dispatch_queue_create("net.bujige.testQueue", DISPATCH_QUEUE_CONCURRENT);
+    
+    dispatch_sync(queue, ^{
+        // 追加任务 1
+        [NSThread sleepForTimeInterval:2];              // 模拟耗时操作
+        NSLog(@"1---%@",[NSThread currentThread]);      // 打印当前线程
+        string = [string stringByAppendingFormat:@"1---%@\n",[NSThread currentThread]];
+        self.resultStr = string;
+    });
+    
+    dispatch_sync(queue, ^{
+        // 追加任务 2
+        [NSThread sleepForTimeInterval:2];              // 模拟耗时操作
+        NSLog(@"2---%@",[NSThread currentThread]);      // 打印当前线程
+        string = [string stringByAppendingFormat:@"2---%@\n",[NSThread currentThread]];
+        self.resultStr = string;
+    });
+    
+    dispatch_sync(queue, ^{
+        // 追加任务 3
+        [NSThread sleepForTimeInterval:2];              // 模拟耗时操作
+        NSLog(@"3---%@",[NSThread currentThread]);      // 打印当前线程
+        string = [string stringByAppendingFormat:@"3---%@\n",[NSThread currentThread]];
+        self.resultStr = string;
+    });
+    
+    NSLog(@"syncConcurrent---end");
+    string = [string stringByAppendingString:@"syncConcurrent---end\n"];
+    self.resultStr = string;
+}
+
+/**
+ * 异步执行 + 并发队列
+ * 特点：可以开启多个线程，任务交替（同时）执行。
+ */
+- (void)asyncConcurrent {
+    __block NSString *string;
+    
+    NSLog(@"currentThread---%@",[NSThread currentThread]);  // 打印当前线程
+    string = [NSString stringWithFormat:@"currentThread---%@\n", [NSThread currentThread]];
+    
+    NSLog(@"asyncConcurrent---begin");
+    string = [string stringByAppendingString:@"asyncConcurrent---begin\n"];
+    
+    dispatch_queue_t queue = dispatch_queue_create("net.bujige.testQueue", DISPATCH_QUEUE_CONCURRENT);
+    
+    dispatch_async(queue, ^{
+        // 追加任务 1
+        [NSThread sleepForTimeInterval:2];              // 模拟耗时操作
+        NSLog(@"1---%@",[NSThread currentThread]);      // 打印当前线程
+        string = [string stringByAppendingFormat:@"1---%@",[NSThread currentThread]];
+        self.resultStr = string;
+    });
+    
+    dispatch_async(queue, ^{
+        // 追加任务 2
+        [NSThread sleepForTimeInterval:2];              // 模拟耗时操作
+        NSLog(@"2---%@",[NSThread currentThread]);      // 打印当前线程
+        string = [string stringByAppendingFormat:@"2---%@\n",[NSThread currentThread]];
+        self.resultStr = string;
+    });
+    
+    dispatch_async(queue, ^{
+        // 追加任务 3
+        [NSThread sleepForTimeInterval:2];              // 模拟耗时操作
+        NSLog(@"3---%@",[NSThread currentThread]);      // 打印当前线程
+        string = [string stringByAppendingFormat:@"3---%@\n",[NSThread currentThread]];
+        self.resultStr = string;
+    });
+    
+    NSLog(@"asyncConcurrent---end");
+    string = [string stringByAppendingString:@"asyncConcurrent---end\n"];
+    self.resultStr = string;
+}
+
+/**
+ * 同步执行 + 串行队列
+ * 特点：不会开启新线程，在当前线程执行任务。任务是串行的，执行完一个任务，再执行下一个任务。
+ */
+- (void)syncSerial {
+    __block NSString *string;
+    
+    NSLog(@"currentThread---%@",[NSThread currentThread]);  // 打印当前线程
+    string = [NSString stringWithFormat:@"currentThread---%@\n",[NSThread currentThread]];
+    
+    NSLog(@"syncSerial---begin");
+    string = [string stringByAppendingString:@"syncSerial---begin\n"];
+    
+    dispatch_queue_t queue = dispatch_queue_create("net.bujige.testQueue", DISPATCH_QUEUE_SERIAL);
+    
+    dispatch_sync(queue, ^{
+        // 追加任务 1
+        [NSThread sleepForTimeInterval:2];              // 模拟耗时操作
+        NSLog(@"1---%@",[NSThread currentThread]);      // 打印当前线程
+        string = [string stringByAppendingFormat:@"1---%@\n",[NSThread currentThread]];
+        self.resultStr = string;
+    });
+    dispatch_sync(queue, ^{
+        // 追加任务 2
+        [NSThread sleepForTimeInterval:2];              // 模拟耗时操作
+        NSLog(@"2---%@",[NSThread currentThread]);      // 打印当前线程
+        string = [string stringByAppendingFormat:@"2---%@\n",[NSThread currentThread]];
+        self.resultStr = string;
+    });
+    dispatch_sync(queue, ^{
+        // 追加任务 3
+        [NSThread sleepForTimeInterval:2];              // 模拟耗时操作
+        NSLog(@"3---%@",[NSThread currentThread]);      // 打印当前线程
+        string = [string stringByAppendingFormat:@"3---%@\n",[NSThread currentThread]];
+        self.resultStr = string;
+    });
+    
+    NSLog(@"syncSerial---end");
+    string = [string stringByAppendingString:@"syncSerial---end\n"];
+    self.resultStr = string;
+}
+
+/**
+ * 异步执行 + 串行队列
+ * 特点：会开启新线程，但是因为任务是串行的，执行完一个任务，再执行下一个任务。
+ */
+- (void)asyncSerial {
+    __block NSString *string;
+    
+    NSLog(@"currentThread---%@",[NSThread currentThread]);  // 打印当前线程
+    string = [NSString stringWithFormat:@"currentThread---%@\n",[NSThread currentThread]];
+    
+    NSLog(@"asyncSerial---begin");
+    string = [string stringByAppendingString:@"asyncSerial---begin\n"];
+    
+    dispatch_queue_t queue = dispatch_queue_create("net.bujige.testQueue", DISPATCH_QUEUE_SERIAL);
+    
+    dispatch_async(queue, ^{
+        // 追加任务 1
+        [NSThread sleepForTimeInterval:2];              // 模拟耗时操作
+        NSLog(@"1---%@",[NSThread currentThread]);      // 打印当前线程
+        string = [string stringByAppendingFormat:@"1---%@\n",[NSThread currentThread]];
+        self.resultStr = string;
+    });
+    dispatch_async(queue, ^{
+        // 追加任务 2
+        [NSThread sleepForTimeInterval:2];              // 模拟耗时操作
+        NSLog(@"2---%@",[NSThread currentThread]);      // 打印当前线程
+        string = [string stringByAppendingFormat:@"2---%@\n",[NSThread currentThread]];
+        self.resultStr = string;
+    });
+    dispatch_async(queue, ^{
+        // 追加任务 3
+        [NSThread sleepForTimeInterval:2];              // 模拟耗时操作
+        NSLog(@"3---%@",[NSThread currentThread]);      // 打印当前线程
+        string = [string stringByAppendingFormat:@"3---%@\n",[NSThread currentThread]];
+        self.resultStr = string;
+    });
+    
+    NSLog(@"asyncSerial---end");
+    string = [string stringByAppendingString:@"asyncSerial---end\n"];
+    self.resultStr = string;
+}
+
+/**
+ * 同步执行 + 主队列
+ * 特点(主线程调用)：互等卡主不执行。
+ * 特点(其他线程调用)：不会开启新线程，执行完一个任务，再执行下一个任务。
+ */
+- (void)syncMain {
+    __block NSString *string;
+    
+    NSLog(@"currentThread---%@",[NSThread currentThread]);  // 打印当前线程
+    string = [NSString stringWithFormat:@"currentThread---%@\n",[NSThread currentThread]];
+    
+    NSLog(@"syncMain---begin");
+    string = [string stringByAppendingString:@"syncMain---begin\n"];
+    
+    dispatch_queue_t queue = dispatch_get_main_queue();
+    
+    dispatch_sync(queue, ^{
+        // 追加任务 1
+        [NSThread sleepForTimeInterval:2];              // 模拟耗时操作
+        NSLog(@"1---%@",[NSThread currentThread]);      // 打印当前线程
+        string = [string stringByAppendingFormat:@"1---%@\n",[NSThread currentThread]];
+        self.resultStr = string;
+    });
+    
+    dispatch_sync(queue, ^{
+        // 追加任务 2
+        [NSThread sleepForTimeInterval:2];              // 模拟耗时操作
+        NSLog(@"2---%@",[NSThread currentThread]);      // 打印当前线程
+        string = [string stringByAppendingFormat:@"2---%@\n",[NSThread currentThread]];
+        self.resultStr = string;
+    });
+    
+    dispatch_sync(queue, ^{
+        // 追加任务 3
+        [NSThread sleepForTimeInterval:2];              // 模拟耗时操作
+        NSLog(@"3---%@",[NSThread currentThread]);      // 打印当前线程
+        string = [string stringByAppendingFormat:@"3---%@\n",[NSThread currentThread]];
+        self.resultStr = string;
+    });
+    
+    NSLog(@"syncMain---end");
+    string = [string stringByAppendingString:@"syncMain---end\n"];
+    self.resultStr = string;
+}
+
+/**
+ * 异步执行 + 主队列
+ * 特点：只在主线程中执行任务，执行完一个任务，再执行下一个任务
+ */
+- (void)asyncMain {
+    __block NSString *string;
+    
+    NSLog(@"currentThread---%@",[NSThread currentThread]);  // 打印当前线程
+    string = [NSString stringWithFormat:@"currentThread---%@\n",[NSThread currentThread]];
+    
+    NSLog(@"asyncMain---begin");
+    string = [string stringByAppendingString:@"asyncMain---begin\n"];
+    
+    dispatch_queue_t queue = dispatch_get_main_queue();
+    
+    dispatch_async(queue, ^{
+        // 追加任务 1
+        [NSThread sleepForTimeInterval:2];              // 模拟耗时操作
+        NSLog(@"1---%@",[NSThread currentThread]);      // 打印当前线程
+        string = [string stringByAppendingFormat:@"1---%@\n",[NSThread currentThread]];
+        self.resultStr = string;
+    });
+    
+    dispatch_async(queue, ^{
+        // 追加任务 2
+        [NSThread sleepForTimeInterval:2];              // 模拟耗时操作
+        NSLog(@"2---%@",[NSThread currentThread]);      // 打印当前线程
+        string = [string stringByAppendingFormat:@"2---%@\n",[NSThread currentThread]];
+        self.resultStr = string;
+    });
+    
+    dispatch_async(queue, ^{
+        // 追加任务 3
+        [NSThread sleepForTimeInterval:2];              // 模拟耗时操作
+        NSLog(@"3---%@",[NSThread currentThread]);      // 打印当前线程
+        string = [string stringByAppendingFormat:@"3---%@\n",[NSThread currentThread]];
+        self.resultStr = string;
+    });
+    
+    NSLog(@"asyncMain---end");
+    string = [string stringByAppendingString:@"asyncMain---end\n"];
+    self.resultStr = string;
 }
 
 @end
