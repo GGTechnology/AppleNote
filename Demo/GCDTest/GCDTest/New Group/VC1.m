@@ -79,7 +79,14 @@
             [self syncConcurrent];
             break;
         case 1:
-            [self asyncConcurrent];
+        {
+            UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"此运行会卡死" message:@"是否执行?" preferredStyle:UIAlertControllerStyleAlert];
+            [alertVC addAction:[UIAlertAction actionWithTitle:@"是" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                [self asyncConcurrent];
+            }]];
+            [alertVC addAction:[UIAlertAction actionWithTitle:@"否" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {}]];
+            [self presentViewController:alertVC animated:YES completion:nil];
+        }
             break;
         case 2:
             [self syncSerial];
@@ -152,6 +159,8 @@
 /**
  * 异步执行 + 并发队列
  * 特点：可以开启多个线程，任务交替（同时）执行。
+ * 异步并发执行对同一个对象进行 read 操作可以，对同一对像进行 write 会出现堵塞 crash
+ * 解决方法是用 semaphore 进行加锁（这个 case 未进行枷锁操作）
  */
 - (void)asyncConcurrent {
     __block NSString *string;
@@ -238,6 +247,7 @@
 /**
  * 异步执行 + 串行队列
  * 特点：会开启新线程，但是因为任务是串行的，执行完一个任务，再执行下一个任务。
+ *
  */
 - (void)asyncSerial {
     __block NSString *string;
