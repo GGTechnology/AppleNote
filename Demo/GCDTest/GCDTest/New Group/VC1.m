@@ -113,7 +113,7 @@
     __block NSString *string;
     
     NSLog(@"currentThread---%@",[NSThread currentThread]);  // 打印当前线程
-    string = [NSString stringWithFormat:@"currentThread---%@\n",[NSThread currentThread]];
+    string = [NSString stringWithFormat:@"currentThread---%@\n", [NSThread currentThread]];
     
     NSLog(@"syncConcurrent---begin\n");
     string = [string stringByAppendingString:@"syncConcurrent---begin\n"];
@@ -163,29 +163,29 @@
     string = [string stringByAppendingString:@"asyncConcurrent---begin\n"];
     
     dispatch_queue_t queue = dispatch_queue_create("net.bujige.testQueue", DISPATCH_QUEUE_CONCURRENT);
-    
+       
     dispatch_async(queue, ^{
-        // 追加任务 1
-        [NSThread sleepForTimeInterval:2];              // 模拟耗时操作
-        NSLog(@"1---%@",[NSThread currentThread]);      // 打印当前线程
-        string = [string stringByAppendingFormat:@"1---%@\n",[NSThread currentThread]];
-        self.resultStr = string;
+       // 追加任务 1
+       [NSThread sleepForTimeInterval:2];              // 模拟耗时操作
+       NSLog(@"1---%@",[NSThread currentThread]);      // 打印当前线程
+       string = [string stringByAppendingFormat:@"1---%@\n",[NSThread currentThread]];
+       self.resultStr = string;
     });
-    
+
     dispatch_async(queue, ^{
-        // 追加任务 2
-        [NSThread sleepForTimeInterval:2];              // 模拟耗时操作
-        NSLog(@"2---%@",[NSThread currentThread]);      // 打印当前线程
-        string = [string stringByAppendingFormat:@"2---%@\n",[NSThread currentThread]];
-        self.resultStr = string;
+       // 追加任务 2
+       [NSThread sleepForTimeInterval:2];              // 模拟耗时操作
+       NSLog(@"2---%@",[NSThread currentThread]);      // 打印当前线程
+       string = [string stringByAppendingFormat:@"2---%@\n",[NSThread currentThread]];
+       self.resultStr = string;
     });
-    
+
     dispatch_async(queue, ^{
-        // 追加任务 3
-        [NSThread sleepForTimeInterval:2];              // 模拟耗时操作
-        NSLog(@"3---%@",[NSThread currentThread]);      // 打印当前线程
-        string = [string stringByAppendingFormat:@"3---%@\n",[NSThread currentThread]];
-        self.resultStr = string;
+       // 追加任务 3
+       [NSThread sleepForTimeInterval:2];              // 模拟耗时操作
+       NSLog(@"3---%@",[NSThread currentThread]);      // 打印当前线程
+       string = [string stringByAppendingFormat:@"3---%@\n",[NSThread currentThread]];
+       self.resultStr = string;
     });
     
     NSLog(@"asyncConcurrent---end");
