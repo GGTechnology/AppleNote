@@ -168,7 +168,7 @@
         // 追加任务 1
         [NSThread sleepForTimeInterval:2];              // 模拟耗时操作
         NSLog(@"1---%@",[NSThread currentThread]);      // 打印当前线程
-        string = [string stringByAppendingFormat:@"1---%@",[NSThread currentThread]];
+        string = [string stringByAppendingFormat:@"1---%@\n",[NSThread currentThread]];
         self.resultStr = string;
     });
     
