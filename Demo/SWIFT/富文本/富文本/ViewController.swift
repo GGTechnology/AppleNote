@@ -21,9 +21,15 @@ class ViewController: UIViewController {
         attrStr.addAttribute(NSAttributedString.Key.font, value:UIFont.systemFont(ofSize: 10), range:NSRange.init(location:3, length: 2))
         a.attributedText = attrStr
         
+        
+        let button:UIButton! = UIButton.init(frame: CGRect(x: 10, y: 10, width: 10, height: 10))
+        button.addTarget(self, action:#selector(tapped(_:)), for:.touchUpInside)
+        
     }
 
-   
+   @objc func tapped(_ button:UIButton){
+        print(button.title(for: .normal))
+   }
 
 }
 
