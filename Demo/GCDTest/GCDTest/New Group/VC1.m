@@ -302,7 +302,8 @@
     string = [string stringByAppendingString:@"syncMain---begin\n"];
     
     dispatch_queue_t queue = dispatch_get_main_queue();
-    
+//    [self pushViewController:askVC];
+//    [self pushOutSKU];
     dispatch_sync(queue, ^{
         // 追加任务 1
         [NSThread sleepForTimeInterval:2];              // 模拟耗时操作
