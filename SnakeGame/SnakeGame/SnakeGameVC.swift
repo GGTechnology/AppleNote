@@ -20,8 +20,8 @@ private var GameView:UICollectionView!
 
 class SnakeGameVC: SnakeBaseVC {
     
-    private var safari:safariEnum = .up
-    private var Index:Int = 100
+    private var safari:safariEnum = .right
+    private var snake:[Int] = [102,101,100]
     
     lazy var GameView:UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -35,7 +35,6 @@ class SnakeGameVC: SnakeBaseVC {
         GameView.dataSource = self
         GameView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: GameViewCellIdentifier as String)
         GameView.backgroundColor = .gray
-        
         
         return GameView
     }()
@@ -71,7 +70,6 @@ class SnakeGameVC: SnakeBaseVC {
            // 返回主线程处理一些事件，更新UI等等
            DispatchQueue.main.async {
                print("-------%d",timeCount);
-            self.Index += 1
             self.GameView.reloadData()
            }
        })
@@ -80,43 +78,120 @@ class SnakeGameVC: SnakeBaseVC {
     }
     
     func configControl() {
-        let oneB = UIButton.init(frame: CGRect(x: 150, y: 400, width: 150, height: 150));
-        let twoB = UIButton.init(frame: CGRect(x: 0, y: 550, width: 150, height: 150));
-        let threeB = UIButton.init(frame: CGRect(x: 200, y: 550, width: 150, height: 150));
-        let fourB = UIButton.init(frame: CGRect(x: 150, y: 700, width: 150, height: 150));
-        oneB.addTarget(self, action: #selector(step(_:)), for: .touchUpInside)
-        twoB.addTarget(self, action: #selector(step(_:)), for: .touchUpInside)
-        threeB.addTarget(self, action: #selector(step(_:)), for: .touchUpInside)
-        fourB.addTarget(self, action: #selector(step(_:)), for: .touchUpInside)
-        oneB.tag = 0
-        twoB.tag = 1
-        threeB.tag = 2
-        fourB.tag = 3
-        oneB.backgroundColor = .brown
-        twoB.backgroundColor = .brown
-        threeB.backgroundColor = .brown
-        fourB.backgroundColor = .brown
-        self.view.addSubview(oneB)
-        self.view.addSubview(twoB)
-        self.view.addSubview(threeB)
-        self.view.addSubview(fourB)
+        let upBtn = UIButton.init(frame: CGRect(x: 150, y: 400, width: 150, height: 150));
+        upBtn.setTitle("⬆️", for: .normal)
+        upBtn.tag = 0
+        upBtn.addTarget(self, action: #selector(step(_:)), for: .touchUpInside)
+        
+        let leftBtn = UIButton.init(frame: CGRect(x: 0, y: 550, width: 150, height: 150));
+        leftBtn.setTitle("⬅️", for: .normal)
+        leftBtn.tag = 1
+        leftBtn.addTarget(self, action: #selector(step(_:)), for: .touchUpInside)
+        
+        let downBtn = UIButton.init(frame: CGRect(x: 150, y: 700, width: 150, height: 150));
+        downBtn.setTitle("⬇️", for: .normal)
+        downBtn.tag = 2
+        downBtn.addTarget(self, action: #selector(step(_:)), for: .touchUpInside)
+        
+        let rightBtn = UIButton.init(frame: CGRect(x: 200, y: 550, width: 150, height: 150));
+        rightBtn.setTitle("➡️", for: .normal)
+        rightBtn.tag = 3
+        rightBtn.addTarget(self, action: #selector(step(_:)), for: .touchUpInside)
+        
+        upBtn.backgroundColor = .brown
+        leftBtn.backgroundColor = .brown
+        downBtn.backgroundColor = .brown
+        rightBtn.backgroundColor = .brown
+        self.view.addSubview(upBtn)
+        self.view.addSubview(leftBtn)
+        self.view.addSubview(downBtn)
+        self.view.addSubview(rightBtn)
     }
     
     @objc func step(_ btn:UIButton) {
+        var tempArray = [Int]()
+        var temp:Int = 0
+        
         switch btn.tag {
-        case 0:
-            Index -= 15
-        case 1:
-            Index -= 1
-        case 2:
-            Index += 1
-        default:
-            Index += 15
+        case 0:// Up Even
+            if safari == .right {
+                for i in 0..<snake.count {
+                    if i == 0 {
+                        temp  = snake[i] - 15
+                        tempArray.append(temp)
+                    }
+                    else {
+                        temp  = snake[i] + 1
+                        tempArray.append(temp)
+                    }
+                }
+            }
+            else if safari == .left {
+                for i in 0..<snake.count {
+                    if i == 0 {
+                        temp  = snake[i] - 15
+                        tempArray.append(temp)
+                    }
+                    else {
+                        temp  = snake[i] - 1
+                        tempArray.append(temp)
+                    }
+                }
+            }
+            else {
+                return
+            }
+                    
+            safari = .up
+ 
+        case 1:// Left Even
+            
+            safari = .left
+            
+//            for i in 0..<snake.count {
+//                let temp = snake[i] - 1
+//                tempArray.append(temp)
+//            }
+        case 2:// Down Even
+            safari = .down
+            
+//            for i in 0..<snake.count {
+//                let temp = snake[i] + 15
+//                tempArray.append(temp)
+//            }
+        default:// Right Even
+            
+            
+            switch safari {
+            case .up:
+                for i in 0..<snake.count {
+                    if i == 0 {
+                        temp = snake[i] - 15
+                        tempArray.append(temp)
+                    } else {
+                        temp = snake[i] + 1
+                        tempArray.append(temp)
+                    }
+                }
+            case .down:
+                for i in 0..<snake.count {
+                    if i == 0 {
+                        temp = snake[i] + 15
+                        tempArray.append(temp)
+                    } else {
+                        temp = snake[i] + 1
+                        tempArray.append(temp)
+                    }
+                }
+            default:
+                safari = .right
+                return
+            }
         }
         
+        snake = tempArray
         self.GameView.reloadData()
     }
-    
 }
 
 extension SnakeGameVC:UICollectionViewDelegate, UICollectionViewDataSource {
@@ -133,15 +208,28 @@ extension SnakeGameVC:UICollectionViewDelegate, UICollectionViewDataSource {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GameViewCellIdentifier as String, for: indexPath)
         
-//
+
+        cell.backgroundColor = .green
+        cell.alpha = 0.5
+        
+        
 //        if (indexPath.item % 2 == 0) {
 //            cell.backgroundColor = .black
 //        } else {
-            cell.backgroundColor = .white
+//            cell.backgroundColor = .white
 //        }
         
-        if (indexPath.item == Index) {
-            cell.backgroundColor = .yellow
+        for i in 0..<snake.count {
+            if (indexPath.item == snake[i]) {
+                switch i {
+                case 0:
+                    cell.backgroundColor = .systemRed
+                case 1:
+                   cell.backgroundColor = .systemBlue
+                default:
+                    cell.backgroundColor = .systemYellow
+                }
+            }
         }
         
         return cell
