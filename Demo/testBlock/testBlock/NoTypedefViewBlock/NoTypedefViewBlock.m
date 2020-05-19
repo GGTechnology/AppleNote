@@ -15,10 +15,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         self.backgroundColor = [UIColor magentaColor];
-        self.textAlignment = NSTextAlignmentCenter;
-        self.font = [UIFont boldSystemFontOfSize:50];
-        self.text = @"3秒后消失";
-        self.textColor = [UIColor whiteColor];
+        [self addTarget:self action:@selector(TimeCount:) forControlEvents:UIControlEventTouchUpInside];
     }
     return self;
 }

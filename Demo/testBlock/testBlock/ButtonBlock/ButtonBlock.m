@@ -82,6 +82,7 @@
     NSString * tempStr;
     if (self.thirdBlock) {
         tempStr = self.thirdBlock(@"「ButtonBlock.m」🍓");
+        NSString *str = self.thirdBlock(@"");
         NSLog(@"\ntempStr = %@",tempStr);
     }
 }

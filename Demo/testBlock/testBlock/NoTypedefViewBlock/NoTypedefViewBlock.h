@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface NoTypedefViewBlock : UILabel
+@interface NoTypedefViewBlock : UIButton
 
 @property (nonatomic, copy) void(^voidBlock)(BOOL status);
 
