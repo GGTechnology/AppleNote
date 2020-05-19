@@ -454,7 +454,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = ER6GDQC543;
+				DEVELOPMENT_TEAM = MC32WL4XZA;
 				INFOPLIST_FILE = "present半透明/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -471,7 +471,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = ER6GDQC543;
+				DEVELOPMENT_TEAM = MC32WL4XZA;
 				INFOPLIST_FILE = "present半透明/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
