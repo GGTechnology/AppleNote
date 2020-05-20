@@ -114,35 +114,7 @@ class SnakeGameVC: SnakeBaseVC {
         
         switch btn.tag {
         case 0:// Up Even
-            if safari == .right {
-                for i in 0..<snake.count {
-                    if i == 0 {
-                        temp  = snake[i] - 15
-                        tempArray.append(temp)
-                    }
-                    else {
-                        temp  = snake[i] + 1
-                        tempArray.append(temp)
-                    }
-                }
-            }
-            else if safari == .left {
-                for i in 0..<snake.count {
-                    if i == 0 {
-                        temp  = snake[i] - 15
-                        tempArray.append(temp)
-                    }
-                    else {
-                        temp  = snake[i] - 1
-                        tempArray.append(temp)
-                    }
-                }
-            }
-            else {
-                return
-            }
-                    
-            safari = .up
+            
  
         case 1:// Left Even
             
@@ -192,6 +164,46 @@ class SnakeGameVC: SnakeBaseVC {
         snake = tempArray
         self.GameView.reloadData()
     }
+    
+    
+    
+    func nextStep(tag: Int) {
+        
+        
+        
+        if safari == .right {
+            for i in 0..<snake.count {
+                
+                if i == 0 {
+                    temp  = snake[i] - 15
+                    tempArray.append(temp)
+                }
+                else {
+                    temp  = snake[i] + 1
+                    tempArray.append(temp)
+                }
+            }
+        }
+        else if safari == .left {
+            for i in 0..<snake.count {
+                if i == 0 {
+                    temp  = snake[i] - 15
+                    tempArray.append(temp)
+                }
+                else {
+                    temp  = snake[i] - 1
+                    tempArray.append(temp)
+                }
+            }
+        }
+        else {
+            return
+        }
+                
+        safari = .up
+    }
+    
+    
 }
 
 extension SnakeGameVC:UICollectionViewDelegate, UICollectionViewDataSource {
