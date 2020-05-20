@@ -17,11 +17,12 @@ private enum safariEnum {
 
 private let GameViewCellIdentifier:NSString = "GameViewCellIdentifier"
 private var GameView:UICollectionView!
+private let timer = DispatchSource.makeTimerSource(queue: DispatchQueue.global())
 
 class SnakeGameVC: SnakeBaseVC {
     
     private var safari:safariEnum = .right
-    private var snake:[Int] = [102,101,100]
+    private var snake:[Int] = [92,91,106,121,136,151]
     
     lazy var GameView:UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -45,36 +46,35 @@ class SnakeGameVC: SnakeBaseVC {
         
         print(safari)
         self.view.addSubview(GameView)
-        
-        //  self.startTimer()
-        
         self.configControl()
+        self.startTimer()
     }
     
     func startTimer() {
-       // 定义需要计时的时间
+        // 定义需要计时的时间
         var timeCount = 225
-       // 在global线程里创建一个时间源
-       let timer = DispatchSource.makeTimerSource(queue: DispatchQueue.global())
-       // 设定这个时间源是每秒循环一次，立即开始
-//       timer.schedule(deadline: .now(), repeating: .seconds(1))
-        timer.schedule(deadline: .now(), repeating: 0.1)
-       // 设定时间源的触发事件
-       timer.setEventHandler(handler: {
-           // 每秒计时一次
-           timeCount = timeCount - 1
-           // 时间到了取消时间源
-           if timeCount <= 0 {
-               timer.cancel()
-           }
-           // 返回主线程处理一些事件，更新UI等等
-           DispatchQueue.main.async {
-               print("-------%d",timeCount);
-            self.GameView.reloadData()
-           }
-       })
-       // 启动时间源
-       timer.resume()
+        // 在global线程里创建一个时间源
+        //  let timer = DispatchSource.makeTimerSource(queue: DispatchQueue.global())
+        // 设定这个时间源是每秒循环一次，立即开始
+        //   timer.schedule(deadline: .now(), repeating: .seconds(1))
+        timer.schedule(deadline: .now(), repeating: 1.0)
+        // 设定时间源的触发事件
+        timer.setEventHandler(handler: {
+            // 每秒计时一次
+            timeCount = timeCount - 1
+            // 时间到了取消时间源
+            if timeCount <= 0 {
+                timer.cancel()
+            }
+            // 返回主线程处理一些事件，更新UI等等
+            DispatchQueue.main.async {
+                print("-------%d",timeCount);
+                self.autoStep()
+                self.GameView.reloadData()
+            }
+        })
+        // 启动时间源
+        timer.resume()
     }
     
     func configControl() {
@@ -109,60 +109,95 @@ class SnakeGameVC: SnakeBaseVC {
     }
     
     @objc func step(_ btn:UIButton) {
+        switch btn.tag {
+            case 0:// Up Even
+                timer.suspend()
+                safari = .up
+                timer.resume()
+            case 1:// Left Even
+                timer.suspend()
+                safari = .left
+                timer.resume()
+            case 2:// Down Even
+                timer.suspend()
+                safari = .down
+                timer.resume()
+            default:// Right Even
+                timer.suspend()
+                safari = .right
+                timer.resume()
+        }
+    }
+    
+    func autoStep() {
         var tempArray = [Int]()
         var temp:Int = 0
+        var front:Int = 0
+        var behind:Int = 0
         
-        switch btn.tag {
-        case 0:// Up Even
-            
- 
-        case 1:// Left Even
-            
-            safari = .left
-            
-//            for i in 0..<snake.count {
-//                let temp = snake[i] - 1
-//                tempArray.append(temp)
-//            }
-        case 2:// Down Even
-            safari = .down
-            
-//            for i in 0..<snake.count {
-//                let temp = snake[i] + 15
-//                tempArray.append(temp)
-//            }
-        default:// Right Even
-            
-            
-            switch safari {
+        switch safari {
             case .up:
                 for i in 0..<snake.count {
                     if i == 0 {
                         temp = snake[i] - 15
                         tempArray.append(temp)
                     } else {
-                        temp = snake[i] + 1
-                        tempArray.append(temp)
+                        front = snake[i-1]
+                        behind = snake[i]
+                        
+                        if (front - behind == 1) {
+                            temp = snake[i] + 1
+                            tempArray.append(temp)
+                        } else {
+                            temp = snake[i] - 15
+                            tempArray.append(temp)
+                        }
                     }
                 }
+                snake = tempArray
+            case .left:
+                temp = 0
             case .down:
                 for i in 0..<snake.count {
                     if i == 0 {
                         temp = snake[i] + 15
                         tempArray.append(temp)
                     } else {
-                        temp = snake[i] + 1
-                        tempArray.append(temp)
+                        front = snake[i-1]
+                        behind = snake[i]
+                        if (front - behind == 1) {
+                            temp = snake[i] + 1
+                            tempArray.append(temp)
+                        } else if (front - behind > 1) {
+                            temp = snake[i] + 15
+                            tempArray.append(temp)
+                        
+                        } else {
+                            temp = snake[i] - 15
+                            tempArray.append(temp)
+                        }
                     }
                 }
+                snake = tempArray
             default:
-                safari = .right
-                return
+                for i in 0..<snake.count {
+                    if i == 0 {
+                        temp = snake[i] + 1
+                        tempArray.append(temp)
+                    } else {
+                        front = snake[i-1]
+                        behind = snake[i]
+                        if (front - behind == 1) {
+                            temp = snake[i] + 1
+                            tempArray.append(temp)
+                        } else {
+                            temp = snake[i] - 15
+                            tempArray.append(temp)
+                        }
+                    }
+                }
+                snake = tempArray
             }
-        }
-        
-        snake = tempArray
-        self.GameView.reloadData()
     }
     
     
@@ -237,7 +272,13 @@ extension SnakeGameVC:UICollectionViewDelegate, UICollectionViewDataSource {
                 case 0:
                     cell.backgroundColor = .systemRed
                 case 1:
-                   cell.backgroundColor = .systemBlue
+                    cell.backgroundColor = .systemBlue
+                case 2:
+                    cell.backgroundColor = .systemTeal
+                case 3:
+                    cell.backgroundColor = .systemOrange
+                case 4:
+                    cell.backgroundColor = .systemPurple
                 default:
                     cell.backgroundColor = .systemYellow
                 }

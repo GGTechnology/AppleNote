@@ -26,6 +26,6 @@ typedef NSString *(^thirdTypeBlockName)(NSString *valueStr);
 @interface ButtonBlock : UIView
 @property (nonatomic, copy) firstTypeBlockName firstBlock;
 @property (nonatomic, copy) secondTypeBlockName secondBlock;
-@property (nonatomic, strong) thirdTypeBlockName thirdBlock;
+@property (nonatomic, copy) thirdTypeBlockName thirdBlock;
 @end
 
