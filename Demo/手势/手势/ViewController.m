@@ -20,13 +20,44 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     _label.text = @"两个手指触发";
-    [self TapGestureRecognizer];
-    [self SwipeGestureRecognizer];
-    [self LongPressGestureRecognizer];
-    [self PanGestureRecognizer];
-    [self ScreenEdgePanGestureRecognizer];
-    [self PinchGestureRecognizer];
-    [self RotationGestureRecognizer];
+//    [self TapGestureRecognizer];
+//    [self SwipeGestureRecognizer];
+//    [self LongPressGestureRecognizer];
+//    [self PanGestureRecognizer];
+//    [self ScreenEdgePanGestureRecognizer];
+//    [self PinchGestureRecognizer];
+//    [self RotationGestureRecognizer];
+    [self leftAndRightGesture];
+}
+
+#pragma -- mark 左滑右滑上滑下滑手势
+- (void)leftAndRightGesture {
+    UISwipeGestureRecognizer *swipeLeftGesture=[[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(handleSwipeGesture:)];
+    swipeLeftGesture.direction=UISwipeGestureRecognizerDirectionLeft;
+    [self.view addGestureRecognizer:swipeLeftGesture];
+    
+    UISwipeGestureRecognizer *swipeRightGesture=[[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(handleSwipeGesture:)];
+    swipeRightGesture.direction=UISwipeGestureRecognizerDirectionRight;
+    [self.view addGestureRecognizer:swipeRightGesture];
+    
+    UISwipeGestureRecognizer *swipeUpGesture=[[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(handleSwipeGesture:)];
+    swipeUpGesture.direction=UISwipeGestureRecognizerDirectionUp;
+    [self.view addGestureRecognizer:swipeUpGesture];
+    
+    UISwipeGestureRecognizer *swipeDownGesture=[[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(handleSwipeGesture:)];
+    swipeDownGesture.direction=UISwipeGestureRecognizerDirectionDown;
+    [self.view addGestureRecognizer:swipeDownGesture];
+}
+- (void)handleSwipeGesture:(UISwipeGestureRecognizer *)swipeGes {
+    if (swipeGes.direction == UISwipeGestureRecognizerDirectionLeft) {
+        _label.text = @"从右到左：左滑";
+    } else if (swipeGes.direction == UISwipeGestureRecognizerDirectionRight) {
+        _label.text = @"从左到右：右滑";
+    } else if (swipeGes.direction == UISwipeGestureRecognizerDirectionUp) {
+        _label.text = @"从下到上：上滑";
+    } else if (swipeGes.direction == UISwipeGestureRecognizerDirectionDown) {
+        _label.text = @"从上到下：下滑";
+    }
 }
 
 - (void)TapGestureRecognizer {

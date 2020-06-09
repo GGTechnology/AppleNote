@@ -46,7 +46,7 @@
 - (void)ac:(sBtn *)btn {
     btn.selected = !btn.selected;
     if (btn.selected) {
-        btn.backgroundColor = [UIColor greenColor];
+        btn.backgroundColor = [UIColor yellowColor];
     } else {
         btn.backgroundColor = [UIColor redColor];
         btn.btnArray = @[@0];

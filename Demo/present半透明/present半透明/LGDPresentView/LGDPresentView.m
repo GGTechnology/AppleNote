@@ -19,7 +19,7 @@
 //    self.view.backgroundColor = [UIColor redColor];
     // Do any additional setup after loading the view.
     UIButton *view = [[UIButton alloc] initWithFrame:self.view.bounds];
-    view.backgroundColor = [UIColor redColor];
+    view.backgroundColor = [UIColor lightGrayColor];
     view.alpha = 0.5;
     [view addTarget:self action:@selector(dismiss) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:view];
