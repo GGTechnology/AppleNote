@@ -9,12 +9,18 @@
 #import "ViewController.h"
 #import <Masonry.h>
 
+#import "CHPlayerView.h"
+#define WS(weakSelf)  __weak __typeof(&*self)weakSelf = self
+
 #define MS [UIScreen mainScreen].bounds.size.width/2
 #define VV self.view
 
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet UIView *red;
 @property (nonatomic, strong) UIView *green;
+
+@property (strong, nonatomic) CHPlayerView * playerView;
+
 @end
 
 @implementation ViewController
@@ -41,6 +47,22 @@
     dispatch_async(dispatch_get_main_queue(), ^{
         [self greenAnimation];
     });
+    
+    
+    NSString *strUrl = @"http://static.tripbe.com/videofiles/20121214/9533522808.f4v.mp4";
+    CGRect rect = CGRectMake((self.view.frame.size.width-300)/2.0f, 300, 300, 200);
+    CHPlayerView * playerView = [[CHPlayerView alloc] initWithFrame:rect playerType:PlayerTypeOfNavigationBar autoPlay:YES];
+    [self.view addSubview:playerView];
+    self.playerView = playerView;
+    playerView.playerUrl = strUrl;
+    playerView.videoTitle = @"Taylor Swift";
+    WS(weakSelf);
+
+    //可选 ===
+    playerView.playerEndBlock = ^(){
+         weakSelf.playerView.playerUrl = @"http://static.tripbe.com/videofiles/20121214/9533522808.f4v.mp4";
+         weakSelf.playerView.videoTitle = @"Taylor Swift style!!";
+    };
 }
 - (void)greenAnimation {
     [UIView animateWithDuration:3.0 animations:^{
