@@ -1,0 +1,305 @@
+{template 'common/header'}
+<style type="text/css">
+  #item ul{
+    display: flex;
+    justify-content: space-between;
+  }
+  .hide{
+    display:none;
+  }
+</style>
+<div class="panel panel-info">
+  <div class="panel-heading">
+    <h3 class="panel-title"> 修改员工 </h3>
+  </div>
+  <div class="panel-body">
+    <ul class="nav nav-tabs nav-info nav-justified" id="myTab">
+      <li class="active"><a href="#home" data-toggle="tab"> 基本设置</a> </li>
+      <li><a href="#ios" data-toggle="tab"> 通知消息</a> </li>
+    </ul>
+    <form class="form-horizontal" role="form" method="post" action="" name="submit">
+      <div id="myTabContent" class="tab-content">
+        <div class="tab-pane fade in active" id="home">
+      <div class="form-group">
+        <label  class="col-sm-2 control-label">员工名称</label>
+        <div class="col-sm-4">
+          <input type="text" class="form-control"  name="name" value="{$data['name']}">
+          <input type="hidden" name="token" value="{$_W['token']}">
+          <input type="hidden" class="form-control"  name="id" value="{$data['id']}">
+        </div>
+      </div>
+      <div class="form-group">
+        <label  class="col-sm-2 control-label">擅长的技术</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control"  name="skills" value="{$data['skills']}">
+        </div>
+          <div class="col-sm-4">
+           多个请用英文状态下的逗号分隔。例如：颈椎按摩,腰椎按摩
+        </div>
+      </div>
+      <div class="form-group">
+        <label  class="col-sm-2 control-label">员工职称</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control"  name="job_title" value="{$data['job_title']}">
+        </div>
+        <div class="col-sm-4">
+          比如：专家、科员等
+        </div>
+      </div>
+      <div class="form-group">
+        <label  class="col-sm-2 control-label">选择预约时间</label>
+        <div class="col-sm-8">
+          <select class="form-control"  style="width: 50%;" name="aid">
+            <option value="0" >不限制</option>
+            {loop $arrcat $index $item}
+            <option value="{$item['id']}" {if $item['id']==$data['aid']} selected="selected"{/if}>{$item['name']}</option>
+            {/loop}
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label  class="col-sm-2 control-label">适用门店</label>
+        <div class="col-sm-8">
+          <label class="radio-inline">
+            <input type="radio"  value="0" name="skind" {if $data['sid']=='0'}checked="checked"{/if}> 所有
+          </label>
+          <label class="radio-inline">
+            <input type="radio"  value="1" name="skind" {if $data['sid']!='0'}checked="checked"{/if}> 选择
+          </label>
+        </div>
+      </div>
+
+      <div class="form-group shopchoice {if $data['sid']=='0'}hide{/if}">
+        <label  class="col-sm-2 control-label"></label>
+        <div class="col-sm-10">
+          {loop $shopArr $index $item}
+          <label class="checkbox-inline">
+            <input type="checkbox"  value="{$item['id']}" name="sid[]" {if $item['checked']=='1'}checked="checked"{/if}> {$item['name']}
+          </label>
+          {/loop}
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label  class="col-sm-2 control-label">选择服务项目</label>
+        <div class="col-sm-10">
+           <select class="form-control"  style="width: 50%;" id="cate"> 
+            {loop $list $index $item}
+            <option value="{$item['id']}" test="{$item['type']}"  >{$item['name']}</option>
+              {loop $item['son'] $index1 $item1}
+                <option value="{$item1['id']}" test="{$item['type']}" >&nbsp;&nbsp;&nbsp;&nbsp;___{$item1['name']}</option>
+              {/loop}
+            {/loop}
+           </select>
+        </div>
+      </div>
+       <div class="form-group" id="item">
+      <label  class="col-sm-2 control-label">服务列表</label>
+        <div class="col-sm-10">
+            <UL id="item_ul">
+                {loop $itemList $index $item}
+                <li><input type='checkbox' class='form-control itemCheck' name='item{$item[id]}' {if $item['checked']=='1'} checked="checked" {/if}/> <span>
+                  {$item[title]}</span></li>
+                {/loop}
+            </UL>  
+        </div>
+      </div>
+      <div class="form-group" id="item">
+        <label  class="col-sm-2 control-label">已选项目</label>
+        <div class="col-sm-10">
+          <UL id="checkItem">
+            {loop $person_item_check $index $item}
+            <li><input type='checkbox' class='form-control' name='item{$item[iid]}' checked="checked" /> <span>
+              {$item[title]}</span></li>
+            {/loop}
+          </UL>
+        </div>
+      </div>
+      <div class="form-group">
+        <label  class="col-sm-2 control-label">缩略图</label>
+        <div class="col-sm-7"> {php echo tpl_form_field_image('thumb',$data['thumb']);} </div>
+      </div>
+      <div class="form-group">
+        <label  class="col-sm-2 control-label">排序</label>
+        <div class="col-sm-2">
+          <input type="text" class="form-control"  name="sortrank" value="{$data['sortrank']}">
+        </div>
+        <div class="col-sm-2">
+        	数值越大越靠前
+        </div>
+      </div>
+
+      <div style="text-align: center;">尺寸要求(375*200) </div>
+      <div class="form-group">
+        <label  class="col-sm-2 control-label">员工生活照</label>
+        <div class="col-sm-10">
+          {php echo tpl_form_field_multi_image('multi-image',$images);}
+        </div>
+      </div>
+      <div class="form-group">
+        <label  class="col-sm-2 control-label" style="margin-top: 5px;">是否显示在手机前台</label>
+        <div class="col-sm-10">
+          <label class="checkbox-inline">
+            <input type="checkbox"  name="show"  {if $data['show']==1}checked="checked"{/if}>
+          </label>
+        </div>
+      </div>
+      <div class="form-group" id="cotent">
+        <label  class="col-sm-2 control-label">员工简介</label>
+        <div class="col-sm-10">
+
+          {php echo tpl_ueditor('desc',$data['desc']);}
+        </div>
+      </div>
+        </div>
+
+        <div class="tab-pane fade" id="ios">
+          <div class="alert alert-info info" role="alert">
+            邮件设置
+          </div>
+          <div class="form-group">
+            <label  class="col-sm-2 control-label">表单提醒邮箱</label>
+            <div class="col-sm-6">
+              <input type="text" class="form-control"  name="message_email" value="{$data['message_email']}">
+            </div>
+            <div class="col-sm-4">
+              多个邮箱用英文逗号隔开。微信提醒设置方法：微信设置->通用->功能->开启QQ邮箱提醒
+            </div>
+          </div>
+
+
+          <div class="form-group">
+            <label  class="col-sm-2 control-label">发送邮箱：</label>
+            <div class="col-sm-6">
+              <input type="text" class="form-control"  name="smtp_email" value="{$data['smtp_email']}">
+            </div>
+            <div class="col-sm-4">
+              发送邮箱最好和提醒邮箱是同一个邮箱账号
+
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label  class="col-sm-2 control-label">发送邮箱授权码</label>
+            <div class="col-sm-6">
+              <input type="text" class="form-control"  name="smtp_key" value="{$data['smtp_key']}">
+            </div>
+            <div class="col-sm-4">
+              <a href="{url 'site/entry/Smtp',array('m'=>'yyf_oo')}" style="color: red; font-size: 16px" target="_blank">邮箱配置说明 </a>
+            </div>
+          </div>
+          <div class="form-group">
+            <label  class="col-sm-2 control-label">邮件标题设置</label>
+            <div class="col-sm-6">
+              <input type="text" class="form-control"  name="message_title" value="{$data['message_title']}">
+            </div>
+            <div class="col-sm-4">
+              客户提交表单后，管理员邮箱收到邮件标题。比如:您有新的业务咨询。
+            </div>
+          </div>
+          <div class="alert alert-info info" role="alert">
+            手机短信设置：如不想使用，留空即可。仅支持聚合短信，登录【<a href="https://www.juhe.cn/" style="color:red" target="_blank">官方网站</a>】,实名认证->申请短信API服务->添加自定义模板->等待审核通过->再申请API应用认证
+          </div>
+          <div class="form-group">
+            <label  class="col-sm-2 control-label">订单短信提醒手机号：</label>
+            <div class="col-sm-6">
+              <input type="text" class="form-control"  name="sms_phone" value="{$data['sms_phone']}">
+            </div>
+            <div class="col-sm-4">
+              多个手机号请用英文逗号(,)分隔开
+            </div>
+          </div>
+          <div class="form-group">
+            <label  class="col-sm-2 control-label">模板id</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control"  name="sms_id" value="{$data['sms_id']}">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label  class="col-sm-2 control-label">发送秘钥</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control"  name="sms_key" value="{$data['sms_key']}">
+            </div>
+          </div>
+
+
+
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <input type="submit" name="submit" class="btn btn-default" id="submitBtn">
+        </div>
+      </div>
+    </form>
+    {$page} </div>
+</div>
+<script type="text/javascript">
+    $(function(){
+        $('input[name="skind"]').click(function(){
+            var copy_kind=$('input[type="radio"][name="skind"]:checked').val();
+            if(copy_kind==0){
+                $('.shopchoice').addClass('hide');
+
+            }else{
+                $('.shopchoice').removeClass('hide');
+            }
+
+        })
+        $('#cate').change(function(){
+            var value=$(this).children('option:selected').val();
+            var uniacid="{$uniacid}";
+            $.ajax({
+                type: 'POST',
+                url: "{url 'site/entry/Person',array('m'=>'yyf_oo','op'=>'ajax')}",
+                data: {cid:value,uniacid:uniacid},
+                success:function(data){
+                    $('#item_ul').html(data);
+                }
+            });
+        })
+
+        $('body').on('click','.itemCheck',function(){
+            if($(this).prop('checked')){
+                //判断服务项目是否已经添加到了已选项目列表里
+                var exist=false;
+                var name=$(this).attr('name');
+                $("#checkItem li input:checkbox").each(function(){
+                    if($(this).attr('name')==name){
+                        exist=true;
+                    }
+                });
+                if(!exist){
+                    var str= $(this).attr("checked","checked").parent().html();
+                    var str='<li>'+str+'</li>';
+                    var checkItemHtml=$('#checkItem').html();
+                    checkItemHtml=checkItemHtml+str;
+                    $('#checkItem').html(checkItemHtml);
+                }
+
+            }else{//如果取消那么下边也跟着取消
+                var name=$(this).attr('name');
+                var yuan=$("#checkItem li input:checkbox[name='"+name+"']").parent().remove();
+            }
+        })
+
+        //已经选择的项目，如果取消对勾那么久删除
+        $('#checkItem').on('click','li input:checkbox',function(){
+            if(!$(this).prop('checked')){
+                $(this).parent().remove();
+            }
+        })
+        //提交表单之前，先把提供选择的服务项目input name属性删除掉
+        $('#submitBtn').click(function(){
+
+            $("#item_ul li input:checkbox").each(function(){
+                $(this).remove();
+            })
+            //$('#personForm').submit();
+        })
+
+
+    })
+</script>
+{template 'common/footer'}

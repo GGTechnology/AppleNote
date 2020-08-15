@@ -1,0 +1,43 @@
+.item {
+    width: 100%;
+    border-bottom: 1px solid #eee;
+}
+
+.item-layout {
+    display: flex;
+    justify-content: space-between;
+    width: 95%;
+    margin: 0 auto;
+    padding-top: 25rpx;
+}
+
+.item-left {
+    display: flex;
+}
+
+.item-left-text {
+    margin-left: 15rpx;
+}
+
+.title {
+    font-size: 14px;
+}
+
+.date {
+    color: #999;
+    font-size: 12px;
+}
+
+.item-left-img image {
+    width: 140rpx;
+    height: 110rpx;
+}
+
+.item-right {
+    font-size: 16px;
+    margin-top: 5rpx;
+}
+
+.red {
+    color: red;
+}

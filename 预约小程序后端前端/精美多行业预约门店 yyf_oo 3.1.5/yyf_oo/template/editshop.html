@@ -1,0 +1,249 @@
+{template 'common/header'}
+<style>
+    .hide{
+        display: none;
+    }
+    .we7-form .control-label, form .control-label{ padding-top: 0px;}
+
+    .form-horizontal .control-label{ padding-top: 0px; }
+    .nav-tabs.nav-justified>.active>a, .nav-tabs.nav-justified>.active>a:hover, .nav-tabs.nav-justified>.active>a:focus {
+        border: 1px solid #bce8f1;  color: #31708f; border-bottom: none;}
+</style>
+<link rel="stylesheet" href="{MODULE_URL}images/bootstrap-switch.css">
+<script type="text/javascript" src="{MODULE_URL}images/bootstrap-switch.js"></script>
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <h3 class="panel-title">
+            修改门店
+        </h3>
+    </div>
+    <div class="panel-body">
+        <ul class="nav nav-tabs nav-info nav-justified" id="myTab">
+            <li class="active"><a href="#home" data-toggle="tab"> 基本设置</a> </li>
+            <li><a href="#ios" data-toggle="tab"> 通知消息</a> </li>
+        </ul>
+        <form class="form-horizontal" role="form" method="post" action="" name="submit">
+            <div id="myTabContent" class="tab-content">
+                <div class="tab-pane fade in active" id="home">
+                    <div class="form-group">
+                        <label  class="col-sm-2 control-label">门店名称</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control"  name="name" value="{$result['name']}">
+                            <input type="hidden" name="token" value="{$_W['token']}">
+                            <input type="hidden" name="id" value="{$result['id']}">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label  class="col-sm-2 control-label">客服电话</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control"  name="phone" value="{$result['phone']}">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label  class="col-sm-2 control-label">公司地址</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control"  name="address" value="{$result['address']}">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label  class="col-sm-2 control-label">公司地址坐标</label>
+                        <div class="col-sm-5">
+                            <input type="text" class="form-control"  name="position" value="{$result['jing']},{$result['wei']}" placeholder="35.399660,119.503670">
+                        </div>
+                        <div class="col-sm-5"><a href="http://lbs.qq.com/tool/getpoint/" target="blank" style="color: red">点击进入地图选取坐标</a></div>
+                    </div>
+                    <div class="form-group">
+                        <label  class="col-sm-2 control-label">关闭店铺</label>
+                        <div class="col-sm-10">
+                            <input type="checkbox" name="switch" {if $result['switch']}checked{/if}>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label  class="col-sm-2 control-label">门店简介</label>
+                        <div class="col-sm-10">
+
+                            {php echo tpl_ueditor('desc',$result['desc']);}
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label  class="col-sm-2 control-label">缩略图</label>
+                        <div class="col-sm-5">
+                            {php echo tpl_form_field_image('thumb',$result['thumb']);}
+                        </div>
+                        <div class="col-sm-5">
+                            切换门店页面显示的缩略图logo
+                        </div><?php echo base64_decode('Kua6kC/noIEv5p2lL+iHqi/mmJMv5pCcL+a6kC/noIEvdy93L3cvLi9lL3Mvby95L20vLi9jL28vbS8='); ?>
+                    </div>
+
+                    <div style="text-align: center;">像素要求(320*175)</div>
+                    <div class="form-group">
+                        <label  class="col-sm-2 control-label">简介页面相册</label>
+                        <div class="col-sm-10">
+                            {php echo tpl_form_field_multi_image('about-image',$aboutImages);}
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label  class="col-sm-2 control-label">简介页面硬件设施</label>
+                        <div class="col-sm-2">
+                            <button class="form-control" id="addHtmlBtn"> 点击添加</button>
+                        </div>
+
+                    </div>
+
+                    <div id="hardHtml">
+                        {loop $hardArray $index $item}
+                        <div class="form-group">
+                            <label  class="col-sm-2 control-label"></label>
+                            <div class="col-sm-2">
+                                {php echo tpl_form_field_image('hardimg[]',$item['thumb']);}
+                            </div>
+                            <div class="col-sm-2">
+                                <input type="text" class="form-control" name="hardname[]"  value="{$item['name']}">
+                            </div>
+                        </div>
+                        {/loop}
+
+
+
+                    </div>
+                    <div  id="copyHtml" style="display: none;">
+                        <div class="form-group" >
+                            <label  class="col-sm-2 control-label"></label>
+                            <div class="col-sm-2">
+                                {php echo tpl_form_field_image('hardimg[]');}
+                            </div>
+                            <div class="col-sm-2">
+                                <input type="text" class="form-control" name="hardname[]"  >
+                            </div>
+                            <div class="col-sm-2">
+                                {php echo tpl_form_field_image('hardimg[]');}
+                            </div>
+                            <div class="col-sm-2">
+                                <input type="text" class="form-control" name="hardname[]"  >
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="tab-pane fade" id="ios">
+                    <div class="alert alert-info info" role="alert">
+                        邮件设置
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">表单提醒邮箱</label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control"  name="message_email" value="{$result['message_email']}">
+                        </div>
+                        <div class="col-sm-4">
+                            多个邮箱用英文逗号隔开。微信提醒设置方法：微信设置->通用->功能->开启QQ邮箱提醒
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">发送邮箱：</label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control"  name="smtp_email" value="{$result['smtp_email']}">
+                        </div>
+                        <div class="col-sm-4">
+                            发送邮箱最好和提醒邮箱是同一个邮箱账号
+
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">发送邮箱授权码</label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control"  name="smtp_key" value="{$result['smtp_key']}">
+                        </div>
+                        <div class="col-sm-4">
+                            <a href="{url 'site/entry/Smtp',array('m'=>'yyf_oo')}" style="color: red; font-size: 16px" target="_blank">邮箱配置说明 </a>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">邮件标题设置</label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control"  name="message_title" value="{$result['message_title']}">
+                        </div>
+                        <div class="col-sm-4">
+                            客户提交表单后，管理员邮箱收到邮件标题。比如:您有新的业务咨询。
+                        </div>
+                    </div>
+                    <div class="alert alert-info info" role="alert">
+                        手机短信设置：如不想使用，留空即可。仅支持聚合短信，登录【<a href="https://www.juhe.cn/" style="color:red" target="_blank">官方网站</a>】,实名认证->申请短信API服务->添加自定义模板->等待审核通过->再申请API应用认证
+                    </div>
+                    <div class="form-group">
+                        <label  class="col-sm-2 control-label">订单短信提醒手机号：</label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control"  name="sms_phone" value="{$result['sms_phone']}">
+                        </div>
+                        <div class="col-sm-4">
+                            多个手机号请用英文逗号(,)分隔开
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label  class="col-sm-2 control-label">模板id</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control"  name="sms_id" value="{$result['sms_id']}">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label  class="col-sm-2 control-label">发送秘钥</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control"  name="sms_key" value="{$result['sms_key']}">
+                        </div>
+                    </div>
+                    <div class="alert alert-info info" role="alert">
+                        打印机设置：如不想使用，留空即可。仅支持365无线打印机
+                    </div>
+                    <div class="form-group">
+                        <label  class="col-sm-2 control-label">机器号</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control"  name="printer_id" value="{$result['printer_id']}">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label  class="col-sm-2 control-label">秘钥</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control"  name="printer_key" value="{$result['printer_key']}">
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="form-group">
+
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <input type="submit" name="submit" class="btn btn-default">
+
+                    </div>
+                </div>
+            </div>
+
+
+        </form>
+    </div>
+</div>
+<script type="text/javascript">
+    $(function(){
+
+
+        $("#addHtmlBtn").click(function(){
+            var hardHtml=$('#hardHtml').html();
+            var copyHtml=$('#copyHtml').html();
+            $('#hardHtml').html(hardHtml+copyHtml);
+            return false;
+        })
+
+    })
+</script>
+
+{template 'common/footer'}

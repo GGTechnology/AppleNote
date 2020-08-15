@@ -1,0 +1,52 @@
+<view class="swiper">
+    <swiper autoplay="true" duration="1200" indicatorDots="true" interval="3000">
+        <swiper-item wx:for="{{list.slide}}" wx:key="{{index}}">
+            <image mode="aspectFill" src="{{item}}"></image>
+        </swiper-item>
+    </swiper>
+</view>
+<view class="title desc" style="border-left-color:{{style.tcolor}}">
+    <view>简介</view>
+</view>
+<import src="../../../wxParse/wxParse.wxml"></import>
+<view class="details_content_bg">
+    <view class="details_content">
+        <view class="wxParse">
+            <template is="wxParse" data="{{wxParseData:article1.nodes}}"></template>
+        </view>
+    </view>
+</view>
+<view class="news">
+    <view bindtap="navPersonComment" class="title title1" style="border-left-color:{{style.tcolor}}">
+        <view>评价</view>
+        <view class="titlerightimg">
+            <image src="../../resource/images/right.png"></image>
+        </view>
+    </view>
+</view>
+<view class="news">
+    <view class="title" style="border-left-color:{{style.tcolor}}">
+        <view>服务项目</view>
+    </view>
+    <view class="news-div">
+        <view class="news-item" wx:for="{{listItem}}" wx:key="{{index1}}">
+            <view class="news-item-img">
+                <navigator url="../details/details?id={{item.id}}">
+                    <image src="{{item.thumb}}"></image>
+                </navigator>
+            </view>
+            <view class="news-item-content">
+                <navigator url="../order/order?id={{item.id}}&pid={{list.id}}&&personname={{list.name}}">
+                    <view class="news-item-title">
+                        <text>{{item.title}}</text>
+                    </view>
+                    <view class="news-item-other">{{item.desc}}</view>
+                    <view class="news-item-price price" wx:if="{{hide_price==0}}">
+                        <text>¥</text>
+            {{item.price}} <view class="orderBtn">预约</view>
+                    </view>
+                </navigator>
+            </view>
+        </view>
+    </view>
+</view>

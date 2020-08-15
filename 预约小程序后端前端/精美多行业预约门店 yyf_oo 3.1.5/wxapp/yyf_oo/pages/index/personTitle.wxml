@@ -1,0 +1,31 @@
+<template name="personTitle">
+    <view class="entitle2" wx:if="{{personTitle.title_style=='2'}}">
+        <view class="title_line2" style="border-color:{{personTitle.tcolor}}"></view>
+        <view class="center_title2" style="color:{{personTitle.tcolor}}">
+            <navigator url="{{personTitle.url}}">{{personTitle.name}}</navigator>
+        </view>
+        <view class="title_line2" style="border-color:{{personTitle.tcolor}}"></view>
+    </view>
+    <view class="entitle" wx:if="{{personTitle.title_style=='1'}}">
+        <view class="title_line" style="border-color:{{personTitle.tcolor}}"></view>
+        <view class="center_title" style="color:{{personTitle.tcolor}}">
+            <navigator url="{{personTitle.url}}">{{personTitle.name}}</navigator>
+        </view>
+        <view class="title_line" style="border-color:{{personTitle.tcolor}}"></view>
+    </view>
+    <view class="title" style="border-left-color:{{personTitle.tcolor}}" wx:if="{{personTitle.title_style=='0'}}">
+        <view>{{personTitle.name}}</view>
+        <navigator url="{{personTitle.url}}">
+            <view class="more">MORE</view>
+        </navigator>
+    </view>
+    <view class="title3 mb10" wx:if="{{personTitle.title_style=='3'}}">
+        <view class="title3_left">
+            <view class="title3_left_border" style="border-left-color:{{personTitle.tcolor}}"></view>
+            <view class="title3_name">{{personTitle.name}}</view>
+        </view>
+        <navigator url="{{personTitle.url}}">
+            <view class="more">MORE</view>
+        </navigator>
+    </view>
+</template>

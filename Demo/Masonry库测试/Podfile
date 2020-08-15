@@ -1,0 +1,4 @@
+target 'MasonryAnimation' do
+    pod 'Masonry'
+end
+

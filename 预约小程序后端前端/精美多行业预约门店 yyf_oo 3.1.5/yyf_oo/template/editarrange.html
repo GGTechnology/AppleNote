@@ -1,0 +1,519 @@
+{template 'common/header'}
+
+<style>
+    #recharge input{
+        width:90px;
+    }
+    #recharge .input-group{
+        margin: 0px;
+        padding: 0px;
+    }
+    #recharge .groupSelect{
+        width: 150px;
+    }
+    .hide{
+        display: none;
+    }
+    #weeklayout{ display: flex;}
+    #weeklayout .weekdiv{
+
+        display: flex;
+        font-size: 16px;
+    }
+    #weeklayout .weekdiv input{
+        margin-top:15px;
+        width: 25px;
+    }
+
+</style>
+
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <h3 class="panel-title">
+             修过时间
+        </h3>
+    </div>
+    <div class="panel-body" id="recharge">
+
+        <form class="form-horizontal" role="form" method="post" action="" name="submit">
+            <input type="hidden" name="token" value="{$_W['token']}">
+            <div class="form-group">
+                <label  class="col-sm-2 control-label">名称</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control"  name="name" value="{$arrcat['name']}">
+                    <input type="hidden" class="form-control"  name="id" value="{$arrcat['id']}">
+                </div>
+
+            </div>
+            <div  class="alert alert-danger">技师上班时间，比如周一上午9:00-11:30  下午14:00-18:00  每天最多添加4个。时间必须整点或者半点。不要设置6:15这种 。另外每一天的最多预约人数保持一致.如果想删除某项，留空即可</div>
+            <div class="form-group">
+                <label  class="col-sm-2 control-label">星期</label>
+                <div class="col-sm-10">
+                    <div id="weeklayout">
+                        <div class="weekdiv">
+                            <span class="radio ">  周一</span>
+                            <input type="checkbox"  name="week"  value="1" checked="checked">
+                        </div>
+                        <div class="weekdiv">
+                            <span class="radio ">  周二</span>
+                            <input type="checkbox"  name="week"  value="2" checked="checked">
+                        </div>
+                        <div class="weekdiv">
+                            <span class="radio ">  周三</span>
+                            <input type="checkbox"  name="week"  value="3" checked="checked">
+                        </div>
+                        <div class="weekdiv">
+                            <span class="radio ">  周四</span>
+                            <input type="checkbox"  name="week"  value="4" checked="checked">
+                        </div>
+                        <div class="weekdiv">
+                            <span class="radio ">  周五</span>
+                            <input type="checkbox"  name="week"  value="5" checked="checked">
+                        </div>
+                        <div class="weekdiv">
+                            <span class="radio ">  周六</span>
+                            <input type="checkbox"  name="week"  value="6" checked="checked">
+                        </div>
+                        <div class="weekdiv">
+                            <span class="radio ">  周日</span>
+                            <input type="checkbox"  name="week"  value="7" checked="checked">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div id="week1" >
+                <label  class="col-sm-2 control-label">周一</label>
+                <div class="form-inline">
+                    <div class="input-group">
+                        <div class="input-group-addon">开始时间</div>
+                        <input type="text" class="form-control" name="start[]">
+                    </div>
+                    <div class="input-group">
+                        <div class="input-group-addon">结束时间</div>
+                        <input type="text" class="form-control" name="end[]">
+
+                    </div>
+                    <div class="input-group">
+                        <div class="input-group-addon">最多预约人数</div>
+                        <input type="text" class="form-control" name="people[]">
+                        <input type="hidden" class="form-control" name="week[]" value="1">
+                    </div>
+                    <div class="input-group">
+                        <span class="input-group-btn" id="addHtmlBtn">
+                            <button class="btn btn-default" type="button"><i class="fa fa-plus"></i></button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div id="copyHtml">
+
+                {loop $list $index $item}
+                    {if $item['week']=='1'}
+                    <label  class="col-sm-2 control-label">周一</label>
+                    <div class="form-inline">
+                        <div class="input-group">
+                            <div class="input-group-addon">开始时间</div>
+                            <input type="text" class="form-control" name="start[]" value="{$item['start']}">
+
+                        </div>
+                        <div class="input-group">
+                            <div class="input-group-addon">结束时间</div>
+                            <input type="text" class="form-control" name="end[]" value="{$item['end']}">
+                        </div>
+                        <div class="input-group">
+                            <div class="input-group-addon">最多预约人数</div>
+                            <input type="text" class="form-control" name="people[]" value="{$item['people']}">
+                            <input type="hidden" class="form-control" name="week[]" value="1">
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-btn hide" class="addHtmlBtn ">
+                                <button class="btn btn-default" type="button"><i class="fa fa-plus"></i></button>
+                            </span>
+                        </div>
+                    </div>
+                    {/if}
+                {/loop}
+            </div>
+
+
+            <div id="week2" >
+                <div id="weekdiv2" >
+                    <label  class="col-sm-2 control-label">周二</label>
+                    <div class="form-inline">
+                        <div class="input-group">
+                            <div class="input-group-addon">开始时间</div>
+                            <input type="text" class="form-control" name="start[]">
+                        </div>
+                        <div class="input-group">
+                            <div class="input-group-addon">结束时间</div>
+                            <input type="text" class="form-control" name="end[]">
+
+                        </div>
+                        <div class="input-group">
+                            <div class="input-group-addon">最多预约人数</div>
+                            <input type="text" class="form-control" name="people[]">
+                            <input type="hidden" class="form-control" name="week[]" value="2">
+                        </div>
+                        <div class="input-group">
+                        <span class="input-group-btn" id="addweek2">
+                            <button class="btn btn-default" type="button"><i class="fa fa-plus"></i></button>
+                        </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="weekHtml2">
+                    {loop $list $index $item}
+                    {if $item['week']=='2'}
+                    <label  class="col-sm-2 control-label">周二</label>
+                    <div class="form-inline">
+                        <div class="input-group">
+                            <div class="input-group-addon">开始时间</div>
+                            <input type="text" class="form-control" name="start[]" value="{$item['start']}">
+                        </div>
+                        <div class="input-group">
+                            <div class="input-group-addon">结束时间</div>
+                            <input type="text" class="form-control" name="end[]" value="{$item['end']}">
+                        </div>
+                        <div class="input-group">
+                            <div class="input-group-addon">最多预约人数</div>
+                            <input type="text" class="form-control" name="people[]" value="{$item['people']}">
+                            <input type="hidden" class="form-control" name="week[]" value="2">
+                        </div>
+                    </div>
+                    {/if}
+                    {/loop}
+                </div>
+            </div>
+
+            <div id="week3" >
+                <div id="weekdiv3" >
+                    <label  class="col-sm-2 control-label">周三</label>
+                    <div class="form-inline">
+                        <div class="input-group">
+                            <div class="input-group-addon">开始时间</div>
+                            <input type="text" class="form-control" name="start[]">
+                        </div>
+                        <div class="input-group">
+                            <div class="input-group-addon">结束时间</div>
+                            <input type="text" class="form-control" name="end[]">
+
+                        </div>
+                        <div class="input-group">
+                            <div class="input-group-addon">最多预约人数</div>
+                            <input type="text" class="form-control" name="people[]">
+                            <input type="hidden" class="form-control" name="week[]" value="3">
+                        </div>
+                        <div class="input-group">
+                        <span class="input-group-btn" id="addweek3">
+                            <button class="btn btn-default" type="button"><i class="fa fa-plus"></i></button>
+                        </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="weekHtml3">
+                    {loop $list $index $item}
+                    {if $item['week']=='3'}
+                    <label  class="col-sm-2 control-label">周三</label>
+                    <div class="form-inline">
+                        <div class="input-group">
+                            <div class="input-group-addon">开始时间</div>
+                            <input type="text" class="form-control" name="start[]" value="{$item['start']}">
+                        </div>
+                        <div class="input-group">
+                            <div class="input-group-addon">结束时间</div>
+                            <input type="text" class="form-control" name="end[]" value="{$item['end']}">
+                        </div>
+                        <div class="input-group">
+                            <div class="input-group-addon">最多预约人数</div>
+                            <input type="text" class="form-control" name="people[]" value="{$item['people']}">
+                            <input type="hidden" class="form-control" name="week[]" value="3">
+                        </div>
+                    </div>
+                    {/if}
+                    {/loop}
+                </div>
+            </div>
+
+            <div id="week4" >
+                <div id="weekdiv4" >
+                    <label  class="col-sm-2 control-label">周四</label>
+                    <div class="form-inline">
+                        <div class="input-group">
+                            <div class="input-group-addon">开始时间</div>
+                            <input type="text" class="form-control" name="start[]">
+                        </div>
+                        <div class="input-group">
+                            <div class="input-group-addon">结束时间</div>
+                            <input type="text" class="form-control" name="end[]">
+
+                        </div>
+                        <div class="input-group">
+                            <div class="input-group-addon">最多预约人数</div>
+                            <input type="text" class="form-control" name="people[]">
+                            <input type="hidden" class="form-control" name="week[]" value="4">
+                        </div>
+                        <div class="input-group">
+                        <span class="input-group-btn" id="addweek4">
+                            <button class="btn btn-default" type="button"><i class="fa fa-plus"></i></button>
+                        </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="weekHtml4">
+                    {loop $list $index $item}
+                    {if $item['week']=='4'}
+                    <label  class="col-sm-2 control-label">周四</label>
+                    <div class="form-inline">
+                        <div class="input-group">
+                            <div class="input-group-addon">开始时间</div>
+                            <input type="text" class="form-control" name="start[]" value="{$item['start']}">
+                        </div>
+                        <div class="input-group">
+                            <div class="input-group-addon">结束时间</div>
+                            <input type="text" class="form-control" name="end[]" value="{$item['end']}">
+                        </div>
+                        <div class="input-group">
+                            <div class="input-group-addon">最多预约人数</div>
+                            <input type="text" class="form-control" name="people[]" value="{$item['people']}">
+                            <input type="hidden" class="form-control" name="week[]" value="4">
+                        </div>
+                    </div>
+                    {/if}
+                    {/loop}
+                </div>
+            </div>
+
+            <div id="week5" >
+                <div id="weekdiv5" >
+                    <label  class="col-sm-2 control-label">周五</label>
+                    <div class="form-inline">
+                        <div class="input-group">
+                            <div class="input-group-addon">开始时间</div>
+                            <input type="text" class="form-control" name="start[]">
+                        </div>
+                        <div class="input-group">
+                            <div class="input-group-addon">结束时间</div>
+                            <input type="text" class="form-control" name="end[]">
+
+                        </div>
+                        <div class="input-group">
+                            <div class="input-group-addon">最多预约人数</div>
+                            <input type="text" class="form-control" name="people[]">
+                            <input type="hidden" class="form-control" name="week[]" value="5">
+                        </div>
+                        <div class="input-group">
+                        <span class="input-group-btn" id="addweek5">
+                            <button class="btn btn-default" type="button"><i class="fa fa-plus"></i></button>
+                        </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="weekHtml5">
+                    {loop $list $index $item}
+                    {if $item['week']=='5'}
+                    <label  class="col-sm-2 control-label">周五</label>
+                    <div class="form-inline">
+                        <div class="input-group">
+                            <div class="input-group-addon">开始时间</div>
+                            <input type="text" class="form-control" name="start[]" value="{$item['start']}">
+                        </div>
+                        <div class="input-group">
+                            <div class="input-group-addon">结束时间</div>
+                            <input type="text" class="form-control" name="end[]" value="{$item['end']}">
+                        </div>
+                        <div class="input-group">
+                            <div class="input-group-addon">最多预约人数</div>
+                            <input type="text" class="form-control" name="people[]" value="{$item['people']}">
+                            <input type="hidden" class="form-control" name="week[]" value="5">
+                        </div>
+                    </div>
+                    {/if}
+                    {/loop}
+                </div>
+            </div>
+
+            <div id="week6">
+                <div id="weekdiv6" >
+                    <label  class="col-sm-2 control-label">周六</label>
+                    <div class="form-inline">
+                        <div class="input-group">
+                            <div class="input-group-addon">开始时间</div>
+                            <input type="text" class="form-control" name="start[]">
+                        </div>
+                        <div class="input-group">
+                            <div class="input-group-addon">结束时间</div>
+                            <input type="text" class="form-control" name="end[]">
+
+                        </div>
+                        <div class="input-group">
+                            <div class="input-group-addon">最多预约人数</div>
+                            <input type="text" class="form-control" name="people[]">
+                            <input type="hidden" class="form-control" name="week[]" value="6">
+                        </div>
+                        <div class="input-group">
+                        <span class="input-group-btn" id="addweek6">
+                            <button class="btn btn-default" type="button"><i class="fa fa-plus"></i></button>
+                        </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="weekHtml6">
+                    {loop $list $index $item}
+                    {if $item['week']=='6'}
+                    <label  class="col-sm-2 control-label">周六</label>
+                    <div class="form-inline">
+                        <div class="input-group">
+                            <div class="input-group-addon">开始时间</div>
+                            <input type="text" class="form-control" name="start[]" value="{$item['start']}">
+                        </div>
+                        <div class="input-group">
+                            <div class="input-group-addon">结束时间</div>
+                            <input type="text" class="form-control" name="end[]" value="{$item['end']}">
+                        </div>
+                        <div class="input-group">
+                            <div class="input-group-addon">最多预约人数</div>
+                            <input type="text" class="form-control" name="people[]" value="{$item['people']}">
+                            <input type="hidden" class="form-control" name="week[]" value="6">
+                        </div>
+                    </div>
+                    {/if}
+                    {/loop}
+                </div>
+            </div>
+
+            <div id="week7" >
+                <div id="weekdiv7" >
+                    <label  class="col-sm-2 control-label">周日</label>
+                    <div class="form-inline">
+                        <div class="input-group">
+                            <div class="input-group-addon">开始时间</div>
+                            <input type="text" class="form-control" name="start[]">
+                        </div>
+                        <div class="input-group">
+                            <div class="input-group-addon">结束时间</div>
+                            <input type="text" class="form-control" name="end[]">
+
+                        </div>
+                        <div class="input-group">
+                            <div class="input-group-addon">最多预约人数</div>
+                            <input type="text" class="form-control" name="people[]">
+                            <input type="hidden" class="form-control" name="week[]" value="7">
+                        </div>
+                        <div class="input-group">
+                        <span class="input-group-btn" id="addweek7">
+                            <button class="btn btn-default" type="button"><i class="fa fa-plus"></i></button>
+                        </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="weekHtml7">
+                    {loop $list $index $item}
+                    {if $item['week']=='7'}
+                    <label  class="col-sm-2 control-label">周日</label>
+                    <div class="form-inline">
+                        <div class="input-group">
+                            <div class="input-group-addon">开始时间</div>
+                            <input type="text" class="form-control" name="start[]" value="{$item['start']}">
+                        </div>
+                        <div class="input-group">
+                            <div class="input-group-addon">结束时间</div>
+                            <input type="text" class="form-control" name="end[]" value="{$item['end']}">
+                        </div>
+                        <div class="input-group">
+                            <div class="input-group-addon">最多预约人数</div>
+                            <input type="text" class="form-control" name="people[]" value="{$item['people']}">
+                            <input type="hidden" class="form-control" name="week[]" value="7">
+                        </div>
+                    </div>
+                    {/if}
+                    {/loop}
+                </div>
+            </div>
+
+            <div class="form-group" style="margin-top:30px;">
+
+                <div class="col-sm-offset-2 col-sm-10">
+                    <input type="submit" name="submit" class="btn btn-default">
+
+                </div>
+            </div>
+
+
+        </form>
+    </div>
+</div>
+<script type="text/javascript">
+    $(function () {
+
+        $("#addHtmlBtn,.addHtmlBtn").click(function () {
+            var week1 = $('#week1').html();
+            var copyHtml = $('#copyHtml').html();
+            $('#copyHtml').html(copyHtml+week1);
+            return false;
+        })
+
+        $("#addweek2").click(function () {
+            var week = $('#weekdiv2').html();
+            var copyHtml = $('#weekHtml2').html();
+            $('#weekHtml2').html(copyHtml+week);
+            return false;
+        })
+
+        $("#addweek3").click(function () {
+            var week = $('#weekdiv3').html();
+            var copyHtml = $('#weekHtml3').html();
+            $('#weekHtml3').html(copyHtml+week);
+            return false;
+        })
+
+        $("#addweek4").click(function () {
+            var week = $('#weekdiv4').html();
+            var copyHtml = $('#weekHtml4').html();
+            $('#weekHtml4').html(copyHtml+week);
+            return false;
+        })
+
+        $("#addweek5").click(function () {
+            var week = $('#weekdiv5').html();
+            var copyHtml = $('#weekHtml5').html();
+            $('#weekHtml5').html(copyHtml+week);
+            return false;
+        })
+
+        $("#addweek6").click(function () {
+            var week = $('#weekdiv6').html();
+            var copyHtml = $('#weekHtml6').html();
+            $('#weekHtml6').html(copyHtml+week);
+            return false;
+        })
+
+        $("#addweek7").click(function () {
+            var week = $('#weekdiv7').html();
+            var copyHtml = $('#weekHtml7').html();
+            $('#weekHtml7').html(copyHtml+week);
+            return false;
+        })
+
+        $('input[name="week"]').click(function(){
+            var id=$(this).val();
+            if($(this).is(':checked')){
+                $('#week'+id).removeClass('hide');
+            }else{
+                $('#week'+id).addClass('hide');
+            }
+        })
+
+    })
+</script>
+
+{template 'common/footer'}

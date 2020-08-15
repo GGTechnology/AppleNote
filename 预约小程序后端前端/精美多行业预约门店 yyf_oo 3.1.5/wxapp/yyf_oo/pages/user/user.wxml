@@ -1,0 +1,139 @@
+<view class="top">
+    <view class="top_bg">
+        <image mode="widthFix" src="{{backimg}}" wx:if="{{backimg}}"></image>
+    </view>
+    <view class="top_bc" style="background-color:{{tcolor}}"></view>
+    <view class="user_center" wx:if="{{userinfo.avatarUrl!=''&&userinfo.avatarUrl!=undefined||userinfo.nickName!=undefined&&userinfo.nickName!=''}}">
+        <view class="user">
+            <view wx:if="{{userinfo.avatarUrl}}">
+                <image backgroundSize="cover" bindtap="bindViewTap" class="userinfo-avatar" src="{{userinfo.avatarUrl}}"></image>
+            </view>
+            <view bindtap="nav" class="nickname_div" data-url="userinfo/userinfo">
+                <text class="userinfo-nickname">{{userinfo.nickName}}</text>
+                <text class="userinfo-nickname level">{{levelName}}</text>
+            </view>
+        </view>
+    </view>
+    <view class="user_center" wx:else>
+        <button bindgetuserinfo="updateUserInfo" class="updateUserInfo" openType="getUserInfo" size="mini">获取昵称和头像</button>
+    </view>
+    <view bindtap="nav" class="rightico" data-url="userinfo/userinfo">
+        <image src="../../resource/images/right1.png"></image>
+    </view>
+</view>
+<view class="order">
+    <view bindtap="navOrder" class="order_item" data-status="0">
+        <view class="order_item_img">
+            <image src="../../resource/images/nopay.png"></image>
+        </view>
+        <view class="order_item_text">
+      待付款
+    </view>
+    </view>
+    <view bindtap="navOrder" class="order_item" data-status="1">
+        <view class="order_item_img">
+            <image src="../../resource/images/paying.png"></image>
+        </view>
+        <view class="order_item_text">
+      已付款
+    </view>
+    </view>
+    <view bindtap="navOrder" class="order_item" data-status="2">
+        <view class="order_item_img">
+            <image src="../../resource/images/nocomment.png"></image>
+        </view>
+        <view class="order_item_text">
+      待评价
+    </view>
+    </view>
+    <view bindtap="navOrder" class="order_item" data-status="10">
+        <view class="order_item_img">
+            <image src="../../resource/images/payed.png"></image>
+        </view>
+        <view class="order_item_text">
+      普通订单
+    </view>
+    </view>
+    <view bindtap="nav" class="order_item" data-url="../groupman/groupman">
+        <view class="order_item_img">
+            <image src="../../resource/images/order.png"></image>
+        </view>
+        <view class="order_item_text">
+      拼团订单
+    </view>
+    </view>
+    <view class="order_right_img">
+        <image src="../../resource/images/order_right.png"></image>
+    </view>
+</view>
+<view class="userdata">
+    <view bindtap="nav" class="userdata_item" data-url="recharge/recharge" wx:if="{{close_pay=='0'}}">
+        <view class="userdata_item_num">
+     {{money}}
+    </view>
+        <view class="userdata_item_text">
+      钱包<text class="chongzhi">充值</text>
+        </view>
+    </view>
+    <view bindtap="nav" class="userdata_item" data-url="mycoupon/mycoupon">
+        <view class="userdata_item_num">
+     {{coupon_num}}
+    </view>
+        <view class="userdata_item_text">
+      优惠券
+    </view>
+    </view>
+    <view bindtap="nav" class="userdata_item" data-url="myscore/myscore">
+        <view class="userdata_item_num">
+      {{score}}
+    </view>
+        <view class="userdata_item_text">
+      积分
+    </view>
+    </view>
+</view>
+<view class="orderservice">
+    <view bindtap="nav" class="orderservice_item" data-url="../coupon/coupon">
+        <view class="orderservice_item_img">
+            <image src="../../resource/images/order_coupon.png"></image>
+        </view>
+        <view class="orderservice_item_text">
+      领券中心
+    </view>
+    </view>
+    <view bindtap="driver" class="orderservice_item">
+        <view class="orderservice_item_img">
+            <image src="../../resource/images/address.png"></image>
+        </view>
+        <view class="orderservice_item_text">
+     门店导航
+    </view>
+    </view>
+    <view bindtap="tel" class="orderservice_item">
+        <view class="orderservice_item_img">
+            <image src="../../resource/images/phone.png"></image>
+        </view>
+        <view class="orderservice_item_text">
+      客服电话
+    </view>
+    </view>
+    <view class="orderservice_item customer">
+        <view class="orderservice_item_img">
+            <image src="../../resource/images/customer.png"></image>
+        </view>
+        <view class="orderservice_item_text">
+      在线客服
+    </view>
+        <button openType="contact"></button>
+    </view>
+</view>
+<view class="copyright {{blist.copyright.copyright==''?'mt0':''}}">
+    <block wx:if="{{blist.copyright.copyright!=''}}">
+        <import src="../public/copy.wxml"></import>
+        <template is="copy" data="{{blist:blist}}"></template>
+    </block>
+</view>
+<block wx:if="{{blist['show_tabbar']=='1'}}">
+    <import src="../public/foot.wxml"></import>
+    <template is="foot" data="{{blist:blist}}"></template>
+</block>

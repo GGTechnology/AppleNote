@@ -1,0 +1,50 @@
+{template 'common/header'}
+
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <h3 class="panel-title">
+            上班时间管理 <a href="{url 'site/entry/Arrange',array('m'=>'yyf_oo','op'=>'add')}"  class="btn btn-success" style="margin-left: 10px; color: white;">添加上班时间</a>
+        </h3>
+    </div>
+    <div class="panel-body">
+        <div class="alert alert-info" role="alert" >
+
+        </div>
+        <form action="" method="post" class="form-horizontal form">
+            <input type="hidden" name="storeid" value="">
+            <div class="table-responsive panel-body">
+                <table class="table table-hover">
+                    <thead class="navbar-inner">
+                    <tr>
+                        <th>id</th>
+                        <th>名称</th>
+
+
+                        <th style="text-align:right;">操作</th>
+                    </tr>
+                    </thead>
+                    <tbody id="level-list">
+                    {loop $list $index $item}
+                    <tr>
+                        <td><div class="type-parent">{$item['id']}</div></td>
+
+                        <td><div class="type-parent">{$item['name']}</div></td>
+
+
+
+                        <td style="text-align:right;">
+                            &nbsp;<a class="btn btn-default btn-sm"  href="{url 'site/entry/arrange',array('id'=>$item['id'],'m'=>'yyf_oo','op'=>'edit')}"
+                                     >改</a>&nbsp;<a class="btn btn-default btn-sm"  href="{url 'site/entry/Arrange',array('id'=>$item['id'],'m'=>'yyf_oo','op'=>'del')}"
+                                     onclick="return confirm('确认删除吗？');return false;" title="删除">删</a></td>
+                    </tr>
+                    {/loop}
+                    </tbody>
+                </table>
+                {$pager}
+            </div>
+        </form>
+    </div>
+</div>
+
+
+{template 'common/footer'}

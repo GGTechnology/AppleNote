@@ -1,0 +1,34 @@
+<block wx:if="{{isnull=='0'}}">
+    <view class="layout">
+        <view class="coupon_div" wx:for="{{list}}" wx:for-index="id" wx:key="{{index}}">
+            <view class="coupon_backimg">
+                <image mode="widthfill" src="../../../resource/images/coupon_3.png"></image>
+            </view>
+            <view bindtap="receive_btn" class="coupon_item" data-id="{{id}}" data-isuse="{{item.isuse}}">
+                <view class="coupon_top">
+                    <view class="coupon_left">
+                        <view class="coupon_money">
+            
+            {{item.title}}</view>
+                        <view class="coupon_date"> 有效期：{{item.active_starttime}} 至 {{item.active_endtime}} </view>
+                    </view>
+                    <view class="coupon_right">
+                        <view class="bus-price">
+                            <view>{{item.money}}</view>
+                            <view>
+                                <text>{{item=='1'?'折':'元'}}</text>
+                            </view>
+                        </view>
+                        <view class="coupon_condition"> {{item.info}}  </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view bindtap="receive_btn" class="price_div" data-isuse="cancel">
+    不使用优惠券
+</view>
+</block>
+<view class="nodata" wx:if="{{isnull=='1'}}">
+    <image src="../../../resource/images/nodata.png"></image>
+</view>

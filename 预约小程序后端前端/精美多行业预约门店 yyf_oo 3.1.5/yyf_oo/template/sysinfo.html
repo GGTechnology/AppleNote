@@ -1,0 +1,234 @@
+{template 'common/header'}
+<style>
+    .hide {
+        display: none;
+    }
+
+    .we7-form .control-label, form .control-label {
+        padding-top: 0px;
+    }
+
+    .form-horizontal .control-label {
+        padding-top: 0px;
+    }
+</style>
+<link rel="stylesheet" href="{MODULE_URL}images/bootstrap-switch.css">
+<script type="text/javascript" src="{MODULE_URL}images/bootstrap-switch.js"></script>
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <h3 class="panel-title">
+            门店设置
+        </h3>
+    </div>
+    <div class="panel-body">
+        <form class="form-horizontal" role="form" method="post" action="" name="submit">
+            <div class="form-group">
+                <label class="col-sm-2 control-label">名称</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" name="name" value="{$result['name']}">
+                    <input type="hidden" name="token" value="{$_W['token']}">
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label">开启多店版</label>
+                <div class="col-sm-10">
+                    <input type="checkbox" name="multi" {if $result['multi']==2}checked{/if}>
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label">开启到店付款</label>
+                <div class="col-sm-10">
+                    <input type="checkbox" name="is_arrival" {if $result['is_arrival']}checked{/if}>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">开启员工功能</label>
+                <div class="col-sm-1">
+                    <input type="checkbox" name="show_person" {if $result['show_person']}checked{/if}>
+                </div>
+                <div id="person_name" class="{if $result['show_person']==0}hide{/if}">
+                    <label class="col-sm-2 control-label">员工名称</label>
+                    <div class="col-sm-2">
+                        <input type="text" class="form-control" name="person_name" value="{$result['person_name']}">
+                    </div>
+                    <div class="col-sm-5">
+                        不同的行业，例如教师、员工、技师
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">开启员工预约时间</label>
+                <div class="col-sm-10">
+                    <input type="checkbox" name="start_arrange" {if $result['start_arrange']}checked{/if}>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">下单必须选择员工</label>
+                <div class="col-sm-10">
+                    <input type="checkbox" name="start_mustpeo" {if $result['start_mustpeo']}checked{/if}>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">关闭在线支付和余额支付</label>
+                <div class="col-sm-1">
+                    <input type="checkbox" name="close_pay" {if $result['close_pay']}checked{/if}>
+                </div>
+                <div id="hide_price" class="{if $result['close_pay']==0}hide{/if}">
+                    <label class="col-sm-2 control-label">隐藏价格</label>
+                    <div class="col-sm-2">
+                        <input type="checkbox" name="hide_price" {if $result['hide_price']}checked{/if}>
+                    </div>
+                    <div class="col-sm-5">
+                        将会隐藏全站的价格,注意隐藏价格后只能使用到店支付
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label">前台不显示员工评论</label>
+                <div class="col-sm-1">
+                    <input type="checkbox" name="close_people_comment" {if $result['close_people_comment']}checked{/if}>
+                </div>
+                <div>
+                    <label class="col-sm-2 control-label">前台不显示项目评论</label>
+                    <div class="col-sm-2">
+                        <input type="checkbox" name="close_item_comment" {if $result['close_item_comment']}checked{/if}>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label">每天下单次数</label>
+                <div class="col-sm-2">
+                    <input type="text" class="form-control" name="submitnum" value="{$result['submitnum']}">
+                </div>
+                <div class="col-sm-8">
+                    为防止恶意提交，这里可以设置每天每个人最多下单的次数
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label">当月下单次数</label>
+                <div class="col-sm-2">
+                    <input type="text" class="form-control" name="month_most_order" value="{$result['month_most_order']}">
+                </div>
+                <div class="col-sm-8">
+                    为防止恶意提交，这里可以设置当月每个人最多下单的次数
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label">首页公告栏</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" name="notice" value="{$result['notice']}">
+                </div>
+                <div class="col-sm-4">
+                    公告栏不要写太多字
+                </div><?php echo base64_decode('5piTLi7mkJwuLua6kC4u56CB'); ?>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">下单提示</label>
+                <div class="col-sm-10">
+                    <textarea style="height:60px;" name="reminder" class="form-control"
+                              cols="60">{$result['reminder']}</textarea>
+                </div>
+            </div>
+            <div style="text-align: center;">像素要求(375*200)</div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">首页幻灯片</label>
+                <div class="col-sm-10">
+                    {php echo tpl_form_field_multi_image('multi-image',$images);}
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label">会员中心上方背景图</label>
+                <div class="col-sm-10">
+                    {php echo tpl_form_field_image('backimg',$result[backimg]);}
+                </div>
+            </div>
+            <div class="alert alert-info info" role="alert">
+                团购失败会用到的退款功能配置
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">微信支付apiclient_cert.pem</label>
+                <div class="col-sm-10">
+                    <textarea style="height:100px;" name="certpem" class="form-control"
+                              cols="60">{$result['certpem']}</textarea>
+
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label">微信支付apiclient_key.pem</label>
+                <div class="col-sm-10">
+                    <textarea style="height:100px;" name="keypem" class="form-control"
+                              cols="60">{$result['keypem']}</textarea>
+                </div>
+            </div>
+
+            <div class="alert alert-info info" role="alert">
+                模板消息设置： 如不想用，留空即可
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">模板消息ID</label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" name="templet_id" value="{$result['templet_id']}">
+                </div>
+                <div class="col-sm-6">
+                    小程序官方后台，在左侧找到设置->基本设置找到服务类目添加商业服务》广告/设计,在订阅消息栏目->公共模板库里搜索[预约成功]->选用->关键词依次选择：姓名、预约项目、预约时间、预约门店
+                    配置好后，复制模板ID。
+                </div>
+            </div>
+
+            <div class="form-group">
+
+                <div class="col-sm-offset-2 col-sm-10">
+                    <input type="submit" name="submit" class="btn btn-default">
+
+                </div>
+            </div>
+
+
+        </form>
+    </div>
+</div>
+<script type="text/javascript">
+    $(function () {
+        // $("[name='is_arrival']").bootstrapSwitch();
+        // $("[name='show_person']").bootstrapSwitch();
+
+        $("[name='show_person']").click(function () {
+            if ($("[name='show_person']").is(':checked')) {
+                $('#person_name').removeClass('hide');
+            } else {
+                $('#person_name').addClass('hide');
+            }
+        })
+
+        $("[name='close_pay']").click(function () {
+            if ($("[name='close_pay']").is(':checked')) {
+                $('#hide_price').removeClass('hide');
+            } else {
+                $('#hide_price').addClass('hide');
+            }
+        })
+
+        $("#addHtmlBtn").click(function () {
+            var hardHtml = $('#hardHtml').html();
+            var copyHtml = $('#copyHtml').html();
+            $('#hardHtml').html(hardHtml + copyHtml);
+            return false;
+        })
+
+    })
+</script>
+
+{template 'common/footer'}

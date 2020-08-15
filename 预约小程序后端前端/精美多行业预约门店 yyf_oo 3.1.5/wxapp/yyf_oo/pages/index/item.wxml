@@ -1,0 +1,123 @@
+<template name="item">
+    <view wx:for="{{list}}" wx:for-index="fidx" wx:key="{{fidx}}">
+        <view class="service" wx:if="{{item.type==9}}">
+            <block wx:if="{{item.show_navbar=='1'}}">
+                <import src="title.wxml"></import>
+                <template is="title" data="{{item:item}}"></template>
+            </block>
+            <view class="service-div">
+                <scroll-view scrollX class="scroll_view">
+                    <view class="service-item service-item2" style="width:{{list[fidx].thumb_width}}px;" wx:for="{{item.list}}" wx:key="{{index2}}">
+                        <navigator url="../details/details?id={{item.id}}">
+                            <image src="{{item.thumb}}" style="height:{{list[fidx].thumb_height}}px;"></image>
+                            <view class="service-item-text">
+                  {{item.title}}
+                </view>
+                            <view class="service-item-price price" wx:if="{{item.hide_price=='0'}}">
+                                <text class="left_price" style="margin-left:3rpx;">¥ </text>{{item.price}}<block wx:if="{{item.startgroup=='1'}}">
+                                    <text style="margin-left:40rpx;">拼团</text>
+                  {{item.groupprice}}</block>
+                            </view>
+                        </navigator>
+                    </view>
+                </scroll-view>
+            </view>
+        </view>
+        <view class="service" wx:if="{{item.type==1}}">
+            <block wx:if="{{item.show_navbar=='1'}}">
+                <import src="title.wxml"></import>
+                <template is="title" data="{{item:item}}"></template>
+            </block>
+            <view class="service-div">
+                <view class="service-item" wx:for="{{item.list}}" wx:key="{{index2}}">
+                    <navigator url="../details/details?id={{item.id}}">
+                        <image src="{{item.thumb}}" style="height:{{list[fidx].thumb_height}}px"></image>
+                        <view class="service-item-text">
+                            <text>{{item.title}}</text>
+                        </view>
+                        <view class="service-item-price price" wx:if="{{item.hide_price=='0'}}">
+                            <text style="margin-right:5rpx;">¥</text>{{item.price}}
+                <block wx:if="{{item.startgroup=='1'}}">
+                                <text style="margin-left:40rpx;">拼团</text>
+                  {{item.groupprice}}
+                </block>
+                        </view>
+                    </navigator>
+                </view>
+            </view>
+        </view>
+        <view class="news" wx:if="{{item.type==2}}">
+            <block wx:if="{{item.show_navbar=='1'}}">
+                <import src="title.wxml"></import>
+                <template is="title" data="{{item:item}}"></template>
+            </block>
+            <view class="news-div">
+                <view class="news-item" wx:for="{{item.list}}" wx:key="{{index1}}">
+                    <view class="news-item-img">
+                        <navigator url="../details/details?id={{item.id}}">
+                            <image src="{{item.thumb}}"></image>
+                        </navigator>
+                    </view>
+                    <view class="news-item-content">
+                        <navigator url="../details/details?id={{item.id}}">
+                            <view class="news-item-title">
+                                <text>{{item.title}}</text>
+                            </view>
+                            <view class="news-item-other">{{item.desc}}</view>
+                            <view class="news-item-price price" wx:if="{{item.hide_price=='0'}}">
+                                <text>¥</text>
+                  {{item.price}} <block wx:if="{{item.startgroup=='1'}}">
+                                    <text style="margin-left:40rpx;">拼团</text>
+                  {{item.groupprice}}
+                  </block>
+                            </view>
+                        </navigator>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="service " wx:if="{{item.type==5}}">
+            <block wx:if="{{item.show_navbar=='1'}}">
+                <import src="title.wxml"></import>
+                <template is="title" data="{{item:item}}"></template>
+            </block>
+            <view class="image-item" wx:for="{{item.list}}" wx:key="{{index2}}">
+                <navigator url="../details/details?id={{item.id}}">
+                    <image src="{{item.thumb}}"></image>
+                    <view class="image-item-text">
+                        <view class="image-item-text-left">
+                  {{item.title}}
+                </view>
+                        <view class="price" wx:if="{{item.hide_price=='0'}}">
+                            <text>¥</text>
+                  {{item.price}} 
+                  <block wx:if="{{item.startgroup=='1'}}">
+                                <text>拼团</text>
+                  {{item.groupprice}}
+                  </block>
+                        </view>
+                    </view>
+                </navigator>
+            </view>
+        </view>
+        <view class="service video_css" wx:if="{{item.type==7}}">
+            <block wx:if="{{item.show_navbar=='1'}}">
+                <import src="title.wxml"></import>
+                <template is="title" data="{{item:item}}"></template>
+            </block>
+            <view class="image-item video-item" wx:for="{{item.list}}" wx:for-index="sidx" wx:key="{{index2}}">
+                <video autoplay="true" objectFit="fill" src="{{item.videosrc}}" wx:if="{{item.show_video}}"></video>
+                <block wx:if="{{!item.show_video}}">
+                    <image src="{{item.thumb}}"></image>
+                    <view bindtap="playVideo" class="playimg_div" data-fidx="{{fidx}}" data-sidx="{{sidx}}">
+                        <image src="../../resource/images/play.png"></image>
+                    </view>
+                    <view bindtap="playVideo" class="image-item-bg image-position" data-fidx="{{fidx}}" data-sidx="{{sidx}}"></view>
+                    <view class="image-item-text image-position">
+                        <view class="video_text">{{item.title}}</view>
+                    </view>
+                </block>
+            </view>
+        </view>
+    </view>
+</template>

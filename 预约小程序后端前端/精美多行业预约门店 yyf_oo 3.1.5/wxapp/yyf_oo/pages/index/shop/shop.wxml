@@ -1,0 +1,15 @@
+<view class="item" wx:for="{{list}}" wx:key="{{index}}">
+    <view bindtap="shopSwitch" class="item-layout" data-sid="{{item.id}}">
+        <view class="item-left">
+            <view class="item-left-img">
+                <image src="{{item.thumb}}"></image>
+            </view>
+            <view class="item-left-text">
+                <view class="title">{{item.name}}</view>
+                <view class="date">地址：{{item.address}}</view>
+                <view class="date">电话：{{item.phone}}</view>
+            </view>
+        </view>
+        <view class="item-right">{{item.distance}}KM</view>
+    </view>
+</view>

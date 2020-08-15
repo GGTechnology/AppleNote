@@ -1,0 +1,104 @@
+{template 'common/header'}
+
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <h3 class="panel-title">
+           版权设置
+        </h3>
+    </div>
+    <div class="panel-body">
+        <form class="form-horizontal" role="form" method="post" action="" name="submit">
+
+        
+		
+			<div class="form-group">
+				<label  class="col-sm-2 control-label">底部版权文字</label>
+				<div class="col-sm-5">
+					<input type="hidden" name="token" value="{$_W['token']}">
+					<input type="text" class="form-control"  name="copyright" value="{$result['copyright']}">
+				</div>
+				<div class="col-sm-5">
+					<label  class="col-sm-2 control-label">版权图标</label>
+					<div class="col-sm-8">
+
+						 {php echo tpl_form_field_image('copy_img',$result['copy_img']);}
+					</div>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label  class="col-sm-2 control-label">点击底部版权动作</label>
+				<div class="col-sm-8">
+					<label class="radio-inline">
+					  <input type="radio"  value="0" name="copy_kind" {if $result['copy_kind']=='0'}checked="checked"{/if} > 点击无效果
+					</label>
+					<label class="radio-inline">
+					  <input type="radio"  value="1" name="copy_kind" {if $result['copy_kind']=='1'}checked="checked"{/if}> 点击拨打电话
+					</label>
+					<label class="radio-inline">
+					  <input type="radio"  value="2" name="copy_kind" {if $result['copy_kind']=='2'}checked="checked"{/if}> 点击跳转小程序
+					</label>
+				</div>
+			</div>
+			<div class="form-group calling" {if $result['copy_kind']=='1'}{else}style='display:none'{/if}>
+				<label  class="col-sm-2 control-label">电话号码</label>
+				<div class="col-sm-5">
+					<input type="text" class="form-control"  name="copy_phone" value="{$result['copy_phone']}">
+				</div>
+			</div>
+			<div class="form-group navapp" id="appid" {if $result['copy_kind']=='2'}{else}style='display:none'{/if}>
+				<label for="firstname" class="col-sm-2 control-label">跳转小程序的appid</label>
+				<div class="col-sm-3">
+					<input type="text" class="form-control"  name="copy_appid" value="{$result['copy_appid']}"> 
+				</div>
+				<div class="col-sm-7">
+					<a href="{url 'site/entry/MiniInfo',array('m'=>'yyf_oo')}" style="color: red; font-size: 14px;" target="_blank">新版跳转小程序说明</a>
+				</div>	
+			</div>
+			<div class="form-group navapp" id="pageaddress" {if $result['copy_kind']=='2'}{else}style='display:none'{/if}>
+				<label for="firstname" class="col-sm-2 control-label">跳转小程序页面地址</label>
+				<div class="col-sm-5">
+					<input type="text" class="form-control"  name="copy_address" value="{$result['copy_address']}">
+				</div>
+				<div class="col-sm-5">
+					每个小程序的地址都可能不同，本款小程序的主页地址是：yyf_company/pages/index/index
+				</div>	
+			</div>
+
+			<div class="form-group">
+				
+				<div class="col-sm-offset-2 col-sm-10">
+					<input type="submit" name="submit" class="btn btn-default">
+					
+				</div>
+			</div>
+
+			
+			
+			
+			
+	</form>
+    </div>
+</div>
+
+<script type="text/javascript">
+	$(function(){
+		$('input[name="copy_kind"]').click(function(){
+			var copy_kind=$('input[type="radio"][name="copy_kind"]:checked').val();
+			if(copy_kind==0){
+				$('.calling').hide();
+				$('.navapp').hide();
+			}
+			if(copy_kind==1){
+				$('.calling').show();
+				$('.navapp').hide();
+			}
+			if(copy_kind==2){
+				$('.calling').hide();
+				$('.navapp').show();
+			}
+		})
+	})
+
+</script>
+{template 'common/footer'}

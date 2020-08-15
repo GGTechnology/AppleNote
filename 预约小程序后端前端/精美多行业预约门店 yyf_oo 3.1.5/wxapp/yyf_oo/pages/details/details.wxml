@@ -1,0 +1,98 @@
+<view class="swiper">
+    <swiper autoplay="true" duration="1200" indicatorDots="true" interval="3000">
+        <swiper-item wx:for="{{list.slide}}" wx:key="{{index}}">
+            <image mode="aspectFill" src="{{item}}"></image>
+        </swiper-item>
+    </swiper>
+</view>
+<view class="details_top_bg">
+    <view class="details_top">
+        <view class="details_title"> {{list.title}} </view>
+        <view class="details_price price" wx:if="{{hide_price==0}}">
+            <view>
+                <text>¥</text>
+      {{list.price}}</view>
+            <view class="price_other">
+                <image bindtap="tel" src="../../resource/images/phone2.png"></image>
+                <image bindtap="creatBill" src="../../resource/images/share.png"></image>
+                <image bindtap="driver" src="../../resource/images/position.png" style="width:50rpx;height:50rpx;"></image>
+            </view>
+        </view>
+        <view class="details_desc_text"> {{list.desc}} </view>
+    </view>
+</view>
+<view class="title" style="border-left-color:{{style.tcolor}}">
+    <view>内容详情</view>
+</view>
+<import src="../../../wxParse/wxParse.wxml"></import>
+<view class="details_content_bg">
+    <view class="details_content">
+        <view class="wxParse">
+            <template is="wxParse" data="{{wxParseData:article1.nodes}}"></template>
+        </view>
+    </view>
+</view>
+<view class="title" style="border-left-color:{{style.tcolor}}">
+    <view>服务评价</view>
+</view>
+<view class="details_content_bg comment_bg">
+    <view class="details_content">
+        <view class="item" wx:for="{{commentList}}" wx:key="{{index}}">
+            <view class="left">
+                <image backgroundSize="cover" bindtap="bindViewTap" class="userinfo-avatar" src="{{item.avatar}}"></image>
+            </view>
+            <view class="right">
+                <view class="right_top">
+                    <view class="title1">
+                        <view class="nickname">{{item.nickname}}</view>
+                        <view class="stars">
+                            <image class="star-image" src="{{item.key>itemStar?item.key-itemStar==0.5?halfSrc:selectedSrc:normalSrc}}" style="left: {{itemStar*100}}rpx" wx:for="{{stars}}" wx:for-item="itemStar"></image>
+                        </view>
+                    </view>
+                    <view class="date">{{item.date}}</view>
+                </view>
+                <view class="content">
+          {{item.content}}
+          </view>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="price_div" wx:if="{{list.startgroup=='0'}}">
+    <view class="price details_bootom_price" wx:if="{{hide_price==0}}">
+        <text>¥</text>
+      {{list.price}} </view>
+    <view class="price_btn">
+        <view bindtap="submitOrder" class="price_button" data-startgroup="0">
+      我要预约
+    </view>
+    </view>
+</view>
+<view class="price_div price_div1" wx:if="{{list.startgroup=='1'}}">
+    <view bindtap="navIndexAction" class="indexBtn pricebtnview">
+        <view class="indexBtn_img">
+            <image src="../../resource/images/indexbtn.png"></image>
+        </view>
+        <view class="indexBtn_text">首页</view>
+    </view>
+    <view bindtap="submitOrder" class="submitBtn pricebtnview" data-startgroup="0">
+        <view class="price_price">¥ {{list.price}}</view>
+        <view class="price_title">直接购买</view>
+    </view>
+    <view bindtap="submitOrder" class="groupBtn pricebtnview" data-startgroup="1">
+        <view class="price_price">¥ {{list.groupprice}}</view>
+        <view class="price_title">拼团需满{{list.groupnums}}人</view>
+    </view>
+</view>
+<view class="shade {{isShow?'show':'hide'}}"></view>
+<view class="room {{isShow?'show':'hide'}}">
+    <view class="room_div">
+        <view class="room_content_div">
+            <image class="orderCode" mode="widthFix" src="{{orderCode}}"></image>
+            <button bindtap="saveImgAction" class="savebutton">保存至相册</button>
+        </view>
+        <view bindtap="closeRoom" class="close">
+            <image mode="aspectFill" src="../../resource/images/close.png"></image>
+        </view>
+    </view>
+</view>

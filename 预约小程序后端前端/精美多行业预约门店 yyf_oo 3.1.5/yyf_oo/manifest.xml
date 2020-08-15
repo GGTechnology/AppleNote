@@ -1,0 +1,541 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<manifest xmlns="/" versionCode="0.8,1.0">
+
+	<application setting="false">
+		<name><![CDATA[精美多行业预约门店]]></name>
+		<identifie><![CDATA[yyf_oo]]></identifie>
+		<version><![CDATA[3.1.5]]></version>
+		<type><![CDATA[business]]></type>
+		<ability><![CDATA[用于足浴店，美容店，汽车保养等行业门店的预约服务]]></ability>
+		<description><![CDATA[程序适用于足浴店，美容店，汽车保养等行业门店的预约服务。可以实现在线付款预约，会员充值，会员等级，优惠券等功能。]]></description>
+		<author><![CDATA[hsen]]></author>
+		<url><![CDATA[/]]></url>
+	</application>
+
+	<platform>
+		<subscribes>
+		</subscribes>
+
+		<handles>
+		</handles>
+
+		<rule embed="false" />
+		<card embed="false" />
+		
+		<supports>
+			<item type="wxapp" />
+		</supports>
+        <plugins></plugins> 
+        <plugin-main name="" />
+
+	</platform>
+
+	<bindings>
+		<menu>
+			<entry title="团购订单" do="grouporder" state="a=1" direct="false"/>
+			<entry title="客服管理" do="admin" state="a=1" direct="false"/>
+			<entry title="预约订单" do="order" state="a=1" direct="false"/>
+			<entry title="会员管理" do="member" state="a=1" direct="false"/>
+			<entry title="门店管理" do="shop" state="a=1" direct="false"/>
+			<entry title="服务类别" do="category" state="a=1" direct="false"/>
+			<entry title="服务项目" do="item" state="a=1" direct="false"/>
+			<entry title="服务人员" do="person" state="a=1" direct="false"/>
+			<entry title="门店设置" do="sysinfo" state="a=1" direct="false"/>
+			<entry title="充值管理" do="recharge" state="a=1" direct="false"/>
+			<entry title="全局样式" do="style" state="a=1" direct="false"/>
+			<entry title="预约表单设置" do="form" state="a=1" direct="false"/>
+			<entry title="优惠券" do="coupon" state="a=1" direct="false"/>
+			<entry title="会员等级" do="level" state="a=1" direct="false"/>
+			<entry title="评论管理" do="comment" state="a=1" direct="false"/>
+			<entry title="底部菜单设置" do="tabbar" state="a=1" direct="false"/>
+			<entry title="底部版权" do="copy" state="a=1" direct="false"/>
+			<entry title="预约时间" do="arrange" state="a=1" direct="false"/>
+		</menu>
+
+	</bindings>
+
+	<permissions>
+	</permissions>
+
+	<install><![CDATA[
+CREATE TABLE IF NOT EXISTS `ims_yyf_oo_arrange` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `start` varchar(100) NOT NULL,
+  `end` varchar(100) NOT NULL,
+  `cid` int(11) NOT NULL,
+  `people` int(11) unsigned NOT NULL,
+  `week` int(1) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE IF NOT EXISTS `ims_yyf_oo_arrcat` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `uniacid` int(11) unsigned NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `hide` int(1) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE IF NOT EXISTS `ims_yyf_oo_category` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `fid` int(11) NOT NULL,
+  `sid` varchar(255) NOT NULL,
+  `uniacid` int(11) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `sortrank` int(11) NOT NULL,
+  `type` int(2) NOT NULL,
+  `thumb` varchar(255) NOT NULL,
+  `isshow` int(2) NOT NULL,
+  `content` text NOT NULL,
+  `show_nav` int(11) NOT NULL,
+  `show_num` int(11) NOT NULL DEFAULT '4',
+  `show_navbar` int(2) NOT NULL,
+  `thumb_height` int(5) NOT NULL DEFAULT '105',
+  `cateurl` varchar(255) NOT NULL,
+  `thumb_width` int(5) NOT NULL,
+  `list_thumb` varchar(255) NOT NULL,
+  `cid` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE IF NOT EXISTS `ims_yyf_oo_comment` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `uniacid` int(11) NOT NULL,
+  `openid` varchar(255) NOT NULL,
+  `iid` int(11) NOT NULL,
+  `score` varchar(10) NOT NULL,
+  `content` varchar(255) NOT NULL,
+  `addtime` int(10) NOT NULL,
+  `pid` int(1) NOT NULL,
+  `kind` int(1) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE IF NOT EXISTS `ims_yyf_oo_coupon` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `uniacid` int(11) NOT NULL,
+  `title` varchar(50) NOT NULL,
+  `type` int(2) NOT NULL,
+  `nums` int(11) NOT NULL,
+  `condition` decimal(10,0) NOT NULL,
+  `first` int(1) NOT NULL,
+  `money` varchar(10) NOT NULL,
+  `receive_num` int(5) NOT NULL,
+  `receive_starttime` int(10) NOT NULL,
+  `receive_endtime` int(10) NOT NULL,
+  `active_starttime` int(10) NOT NULL,
+  `active_endtime` int(10) NOT NULL,
+  `score` int(11) NOT NULL,
+  `sortrank` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE IF NOT EXISTS `ims_yyf_oo_form` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `uniacid` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE IF NOT EXISTS `ims_yyf_oo_form18` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `uniacid` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE IF NOT EXISTS `ims_yyf_oo_group` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `openid` varchar(100) NOT NULL,
+  `uniacid` int(11) NOT NULL,
+  `pid` int(11) NOT NULL,
+  `sid` int(11) NOT NULL,
+  `ptitle` varchar(100) NOT NULL,
+  `pimg` varchar(150) NOT NULL,
+  `price` decimal(10,2) NOT NULL,
+  `groupprice` decimal(10,2) NOT NULL,
+  `groupnums` int(11) NOT NULL,
+  `grouptime` int(11) NOT NULL,
+  `starttime` int(11) NOT NULL,
+  `addnums` int(11) NOT NULL,
+  `status` int(1) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE IF NOT EXISTS `ims_yyf_oo_hard` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `uniacid` int(11) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `thumb` varchar(150) NOT NULL,
+  `sid` int(11) NOT NULL COMMENT '门店id',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE IF NOT EXISTS `ims_yyf_oo_item` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `uniacid` int(11) NOT NULL,
+  `cid` int(11) NOT NULL,
+  `sid` varchar(255) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `desc` varchar(255) NOT NULL,
+  `thumb` varchar(255) NOT NULL,
+  `price` decimal(10,2) NOT NULL,
+  `sortrank` int(11) NOT NULL,
+  `score` int(11) NOT NULL,
+  `show` int(1) NOT NULL,
+  `content` text NOT NULL,
+  `videosrc` varchar(255) NOT NULL,
+  `startgroup` int(1) NOT NULL,
+  `groupnums` int(10) NOT NULL,
+  `grouptime` int(10) NOT NULL,
+  `groupprice` decimal(10,2) NOT NULL,
+  `itemtime` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE IF NOT EXISTS `ims_yyf_oo_item_img` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `iid` int(11) NOT NULL,
+  `thumb` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE IF NOT EXISTS `ims_yyf_oo_level` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `uniacid` int(11) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `thumb` varchar(255) NOT NULL,
+  `condition` decimal(10,2) NOT NULL,
+  `sale` decimal(10,1) NOT NULL,
+  `sortrank` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE IF NOT EXISTS `ims_yyf_oo_order` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `oid` varchar(100) NOT NULL,
+  `sid` int(11) NOT NULL,
+  `paysn` varchar(100) NOT NULL,
+  `weid` varchar(100) NOT NULL,
+  `uniacid` int(11) NOT NULL,
+  `pid` int(11) NOT NULL,
+  `iid` int(11) NOT NULL,
+  `cid` int(11) NOT NULL,
+  `gid` int(10) NOT NULL,
+  `startgroup` int(1) NOT NULL,
+  `ititle` varchar(100) NOT NULL,
+  `pname` varchar(100) NOT NULL,
+  `openid` varchar(150) NOT NULL,
+  `username` varchar(100) NOT NULL,
+  `cometime` int(11) NOT NULL,
+  `addtime` int(11) NOT NULL,
+  `paytime` int(11) NOT NULL,
+  `mode` int(2) NOT NULL,
+  `phone` varchar(100) NOT NULL,
+  `status` int(11) NOT NULL,
+  `groupstatus` int(1) NOT NULL,
+  `price` decimal(10,2) NOT NULL,
+  `mprice` decimal(10,2) NOT NULL,
+  `total` decimal(10,2) NOT NULL,
+  `couponmoney` decimal(10,2) NOT NULL,
+  `arrival` int(11) NOT NULL,
+  `score` int(11) NOT NULL,
+  `comment_status` int(1) NOT NULL,
+  `sale` decimal(10,1) NOT NULL,
+  `diyform` varchar(255) NOT NULL,
+  `orderdate` int(11) NOT NULL,
+  `itemtime` int(11) NOT NULL,
+  `item_status` int(1) NOT NULL,
+  `person_status` int(1) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE IF NOT EXISTS `ims_yyf_oo_person` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `sid` varchar(255) NOT NULL,
+  `uniacid` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `thumb` varchar(255) NOT NULL,
+  `skills` varchar(255) NOT NULL,
+  `desc` text NOT NULL,
+  `sortrank` int(11) NOT NULL,
+  `start` varchar(255) NOT NULL,
+  `end` varchar(255) NOT NULL,
+  `show` int(1) NOT NULL,
+  `aid` int(11) NOT NULL,
+  `job_title` varchar(100) NOT NULL,
+  `message_email` varchar(255) NOT NULL,
+  `smtp_email` varchar(255) NOT NULL,
+  `smtp_key` varchar(255) NOT NULL,
+  `message_title` varchar(255) NOT NULL,
+  `sms_id` varchar(255) NOT NULL,
+  `sms_key` varchar(255) NOT NULL,
+  `sms_phone` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE IF NOT EXISTS `ims_yyf_oo_person_img` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `pid` int(11) NOT NULL,
+  `thumb` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE IF NOT EXISTS `ims_yyf_oo_person_item` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `pid` int(11) NOT NULL,
+  `iid` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE IF NOT EXISTS `ims_yyf_oo_recharge` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `uniacid` int(11) NOT NULL,
+  `money` decimal(10,2) NOT NULL,
+  `givemoney` decimal(10,2) NOT NULL,
+  `gid` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE IF NOT EXISTS `ims_yyf_oo_recharge_log` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `openid` varchar(255) NOT NULL,
+  `oid` varchar(50) NOT NULL,
+  `uniacid` int(11) NOT NULL,
+  `status` int(1) NOT NULL,
+  `gid` int(10) NOT NULL,
+  `addtime` int(11) NOT NULL,
+  `money` decimal(10,2) NOT NULL,
+  `givemoney` decimal(10,2) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE IF NOT EXISTS `ims_yyf_oo_score_log` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `oid` varchar(255) NOT NULL,
+  `openid` varchar(255) NOT NULL,
+  `uniacid` int(11) NOT NULL,
+  `addtime` int(11) NOT NULL,
+  `score` int(255) NOT NULL,
+  `exchange` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE IF NOT EXISTS `ims_yyf_oo_shop` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `uniacid` int(11) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `phone` varchar(100) NOT NULL,
+  `address` varchar(255) NOT NULL,
+  `sortrank` int(11) NOT NULL,
+  `switch` int(1) NOT NULL,
+  `jing` varchar(100) NOT NULL,
+  `wei` varchar(100) NOT NULL,
+  `desc` text NOT NULL,
+  `thumb` varchar(255) NOT NULL,
+  `message_email` varchar(255) NOT NULL,
+  `smtp_email` varchar(255) NOT NULL,
+  `smtp_key` varchar(255) NOT NULL,
+  `message_title` varchar(255) NOT NULL,
+  `sms_id` varchar(255) NOT NULL,
+  `sms_key` varchar(255) NOT NULL,
+  `sms_phone` varchar(255) NOT NULL,
+  `printer_id` varchar(255) NOT NULL,
+  `printer_key` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE IF NOT EXISTS `ims_yyf_oo_style` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `uniacid` int(11) NOT NULL,
+  `tcolor` varchar(100) NOT NULL,
+  `show_slide` int(1) NOT NULL,
+  `show_nav` int(1) NOT NULL,
+  `show_notice` int(1) NOT NULL,
+  `slide_height` varchar(50) NOT NULL,
+  `nav_style` int(11) NOT NULL,
+  `title_style` int(11) NOT NULL,
+  `show_tabbar` int(1) NOT NULL,
+  `nav_height` varchar(255) NOT NULL,
+  `head_color` varchar(255) NOT NULL,
+  `font_color` varchar(255) NOT NULL,
+  `person_show` int(1) NOT NULL,
+  `person_num` int(11) NOT NULL,
+  `person_sortrank` int(11) NOT NULL,
+  `item_show` int(1) NOT NULL,
+  `item_sortrank` int(11) NOT NULL,
+  `coupon_show` int(1) NOT NULL,
+  `coupon_num` int(11) NOT NULL,
+  `coupon_sortrank` int(11) NOT NULL,
+  `horn` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE IF NOT EXISTS `ims_yyf_oo_sysinfo` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `uniacid` int(11) NOT NULL,
+  `multi` int(11) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `phone` varchar(100) NOT NULL,
+  `address` varchar(200) NOT NULL,
+  `jing` varchar(150) NOT NULL,
+  `wei` varchar(150) NOT NULL,
+  `notice` varchar(255) NOT NULL,
+  `desc` text NOT NULL,
+  `reminder` varchar(255) NOT NULL,
+  `message_email` varchar(255) NOT NULL,
+  `submitnum` int(11) NOT NULL,
+  `backimg` varchar(255) NOT NULL,
+  `smtp_email` varchar(255) NOT NULL,
+  `smtp_key` varchar(255) NOT NULL,
+  `message_title` varchar(255) NOT NULL,
+  `copyright` varchar(255) NOT NULL,
+  `copy_appid` varchar(255) NOT NULL,
+  `copy_address` varchar(255) NOT NULL,
+  `copy_img` varchar(255) NOT NULL,
+  `copy_phone` varchar(255) NOT NULL,
+  `copy_kind` int(11) NOT NULL,
+  `is_arrival` int(11) NOT NULL DEFAULT '1',
+  `sms_id` varchar(255) NOT NULL,
+  `sms_key` varchar(255) NOT NULL,
+  `printer_id` varchar(255) NOT NULL,
+  `printer_key` varchar(255) NOT NULL,
+  `sms_phone` varchar(255) NOT NULL,
+  `templet_id` varchar(255) NOT NULL,
+  `show_person` int(1) NOT NULL DEFAULT '1',
+  `person_name` varchar(50) NOT NULL,
+  `close_pay` int(1) NOT NULL,
+  `hide_price` int(1) NOT NULL,
+  `certpem` text NOT NULL,
+  `keypem` text NOT NULL,
+  `start_arrange` int(1) NOT NULL,
+  `start_mustpeo` int(1) NOT NULL,
+  `close_people_comment` tinyint(1) NOT NULL,
+  `close_item_comment` tinyint(1) NOT NULL,
+  `month_most_order` int(11) NOT NULL DEFAULT '20' COMMENT '当月个人最大下单数',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE IF NOT EXISTS `ims_yyf_oo_tabbar` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `uniacid` int(11) NOT NULL,
+  `m1_name` varchar(255) NOT NULL,
+  `m2_name` varchar(255) NOT NULL,
+  `m3_name` varchar(255) NOT NULL,
+  `m4_name` varchar(255) NOT NULL,
+  `m1_path` varchar(255) NOT NULL,
+  `m2_path` varchar(255) NOT NULL,
+  `m3_path` varchar(255) NOT NULL,
+  `m4_path` varchar(255) NOT NULL,
+  `m1_img` varchar(255) NOT NULL,
+  `m2_img` varchar(255) NOT NULL,
+  `m3_img` varchar(255) NOT NULL,
+  `m4_img` varchar(255) NOT NULL,
+  `m1_selimg` varchar(255) NOT NULL,
+  `m2_selimg` varchar(255) NOT NULL,
+  `m3_selimg` varchar(255) NOT NULL,
+  `m4_selimg` varchar(255) NOT NULL,
+  `border_color` varchar(255) NOT NULL,
+  `background_color` varchar(255) NOT NULL,
+  `color` varchar(255) NOT NULL,
+  `sel_color` varchar(255) NOT NULL,
+  `uptime` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE IF NOT EXISTS `ims_yyf_oo_thumb` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `kid` int(11) NOT NULL,
+  `uniacid` int(11) NOT NULL,
+  `thumb` varchar(255) NOT NULL,
+  `sid` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE IF NOT EXISTS `ims_yyf_oo_user` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `uniacid` int(11) NOT NULL,
+  `openid` varchar(100) NOT NULL,
+  `gid` int(10) NOT NULL,
+  `nickname` varchar(100) NOT NULL,
+  `avatar` varchar(255) NOT NULL,
+  `city` varchar(50) NOT NULL,
+  `province` varchar(100) NOT NULL,
+  `country` varchar(100) NOT NULL,
+  `gender` varchar(10) NOT NULL,
+  `addtime` int(11) NOT NULL,
+  `score` int(11) NOT NULL,
+  `isadmin` int(2) NOT NULL,
+  `username` varchar(50) NOT NULL,
+  `phone` varchar(50) NOT NULL,
+  `confirm_userinfo` int(1) NOT NULL,
+  `total` decimal(10,2) NOT NULL,
+  `money` decimal(10,2) NOT NULL,
+  `sid` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=75 DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE IF NOT EXISTS `ims_yyf_oo_user_coupon` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `uniacid` int(11) NOT NULL,
+  `cid` int(11) NOT NULL,
+  `openid` varchar(255) NOT NULL,
+  `status` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+]]></install>
+	<uninstall><![CDATA[DROP TABLE IF EXISTS `ims_yyf_oo_arrange`;
+DROP TABLE IF EXISTS `ims_yyf_oo_arrcat`;
+DROP TABLE IF EXISTS `ims_yyf_oo_category`;
+DROP TABLE IF EXISTS `ims_yyf_oo_comment`;
+DROP TABLE IF EXISTS `ims_yyf_oo_coupon`;
+DROP TABLE IF EXISTS `ims_yyf_oo_form`;
+DROP TABLE IF EXISTS `ims_yyf_oo_form18`;
+DROP TABLE IF EXISTS `ims_yyf_oo_group`;
+DROP TABLE IF EXISTS `ims_yyf_oo_hard`;
+DROP TABLE IF EXISTS `ims_yyf_oo_item`;
+DROP TABLE IF EXISTS `ims_yyf_oo_item_img`;
+DROP TABLE IF EXISTS `ims_yyf_oo_level`;
+DROP TABLE IF EXISTS `ims_yyf_oo_order`;
+DROP TABLE IF EXISTS `ims_yyf_oo_person`;
+DROP TABLE IF EXISTS `ims_yyf_oo_person_img`;
+DROP TABLE IF EXISTS `ims_yyf_oo_person_item`;
+DROP TABLE IF EXISTS `ims_yyf_oo_recharge`;
+DROP TABLE IF EXISTS `ims_yyf_oo_recharge_log`;
+DROP TABLE IF EXISTS `ims_yyf_oo_score_log`;
+DROP TABLE IF EXISTS `ims_yyf_oo_shop`;
+DROP TABLE IF EXISTS `ims_yyf_oo_style`;
+DROP TABLE IF EXISTS `ims_yyf_oo_sysinfo`;
+DROP TABLE IF EXISTS `ims_yyf_oo_tabbar`;
+DROP TABLE IF EXISTS `ims_yyf_oo_thumb`;
+DROP TABLE IF EXISTS `ims_yyf_oo_user`;
+DROP TABLE IF EXISTS `ims_yyf_oo_user_coupon`;
+]]></uninstall>
+	<upgrade><![CDATA[upgrade.php]]></upgrade>
+
+</manifest>

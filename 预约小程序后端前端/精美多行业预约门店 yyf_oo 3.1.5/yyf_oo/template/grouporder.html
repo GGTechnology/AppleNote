@@ -1,0 +1,64 @@
+{template 'common/header'}
+<div class="alert alert-info"  role="alert">团购超时的订单，客户只需要在前端，进入会员中心-》拼团订单页面，系统会自动退款。小提示：可以点击右上角【宽屏】，让订单数据更好的展示 </div>
+<div style="margin:10px;">
+    <form class="form-inline" role="form" method="get" action="" name="submit">
+        <div class="form-group">
+            <input type="hidden" name="token" value="{$_W['token']}">
+            <input type="hidden" name="c" value="site">
+            <input type="hidden" name="a" value="entry">
+            <input type="hidden" name="m" value="yyf_oo">
+            <input type="hidden" name="do" value="grouporder">
+
+
+            <input type="text" class="form-control" name="keywords" placeholder="按团购单号">
+
+        </div>
+
+        <input type="submit" name="submit" class="btn btn-default" value="查询">
+    </form>
+</div>
+
+
+<div class="panel panel-default">
+    <div class="panel-body">
+        <table class="table table-hover">
+            <thead class="navbar-inner">
+            <tr>
+                <th>团购单号</th>
+                <th >产品名称</th>
+                <th >团购状态</th>
+                <th >成团人数</th>
+
+                <th >团购价格</th>
+                <th >开团时间</th>
+                <th >结束时间</th>
+                <th style="text-align:right;">操作</th>
+            </tr>
+            </thead>
+            <tbody id="level-list">
+            {loop $list $index $item}
+            <tr>
+                <td><div class="type-parent">{$item['id']}</div></td>
+
+                <td><div class="type-parent">{$item['ptitle']}</div></td>
+                <td><div class="type-parent">{$item['group_str']}</div></td>
+                <td><div class="type-parent">{$item['groupnums']}/{$item['addnums']}</div></td>
+
+
+                <td><div class="type-parent">{$item['groupprice']}</div></td>
+                <td><div class="type-parent">{php echo date('Y-m-d H:i', $item['starttime'])}</div></td>
+                <td><div class="type-parent">{php echo date('Y-m-d H:i', $item['endtime'])}</div></td>
+
+                <td style="text-align:right;"><a class="btn btn-default btn-sm" href="{url 'site/entry/GroupOrder',array('id'=>$item['id'],'m'=>'yyf_oo','op'=>'info')}" >查看参团</a>&nbsp;&nbsp;
+                    <a class="btn btn-default btn-sm" href="{url 'site/entry/GroupOrder',array('id'=>$item['id'],'m'=>'yyf_oo','op'=>'del')}"
+                       onclick="return confirm('确认删除此订单吗？');return false;" title="删除">删</a></td>
+            </tr>
+            {/loop}
+            </tbody>
+        </table>
+        {$pager}
+    </div>
+</div>
+
+
+{template 'common/footer'}

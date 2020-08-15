@@ -1,0 +1,43 @@
+{template 'common/header'}
+<div class="alert alert-info"  role="alert"> 小提示：可以点击右上角【宽屏】，让订单数据更好的展示 </div>
+
+<div class="panel panel-default">
+    <div class="panel-body">
+        <table class="table table-hover">
+            <thead class="navbar-inner">
+            <tr>
+                <th>订单号</th>
+
+                <th>下单姓名</th>
+                <th>联系方式</th>
+                <th>实付金额</th>
+                {if $show_person==1}<th>人员</th> {/if}
+                {if $multi==2}<th>门店</th> {/if}
+                <th >下单时间</th>
+                <th style="text-align:right;">操作</th>
+            </tr>
+            </thead>
+            <tbody id="level-list">
+            {loop $list $index $item}
+            <tr>
+                <td><div class="type-parent">{$item['oid']}</div></td>
+
+                <td><div class="type-parent">{$item['username']}</div></td>
+                <td><div class="type-parent">{$item['phone']}</div></td>
+                <td style="width:100px"><div class="type-parent">{$item['total']}</div></td>
+                {if $show_person==1} <td><div class="type-parent">{$item['pname']}</div></td>  {/if}
+                {if $multi==2} <td><div class="type-parent">{$item['shopname']}</div></td>  {/if}
+                <td><div class="type-parent">{$item['status_str']}</div></td>
+
+                <td style="text-align:right;"><a class="btn btn-default btn-sm" href="{url 'site/entry/OrderInfo',array('id'=>$item['id'],'m'=>'yyf_oo','group'=>'1')}" title="编辑">详情</a>&nbsp;&nbsp;
+                  </td>
+            </tr>
+            {/loop}
+            </tbody>
+        </table>
+        {$pager}
+    </div>
+</div>
+
+
+{template 'common/footer'}

@@ -1,0 +1,15 @@
+<view class="layout">
+    <view class="blank_div"></view>
+    <view class="star_div">
+        <image class="star-image" src="{{key>item?key-item==0.5?halfSrc:selectedSrc:normalSrc}}" style="left: {{item*100}}rpx" wx:for="{{stars}}">
+            <view bindtap="selectLeft" class="item" data-key="{{item+0.5}}" style="left:0rpx"></view>
+            <view bindtap="selectRight" class="item" data-key="{{item+1}}" style="left:50rpx"></view>
+        </image>
+    </view>
+    <view class="content_div">
+        <textarea bindinput="textareaBlur" class="content" placeholder="{{commentInfo}}" placeholderClass="pfont"></textarea>
+    </view>
+    <view class="submit_btn">
+        <button bindtap="startRating">提交</button>
+    </view>
+</view>

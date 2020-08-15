@@ -1,0 +1,44 @@
+{
+  "pages": [
+    "yyf_oo/pages/index/index",
+    "yyf_oo/pages/scro/scro",
+    "yyf_oo/pages/imglist/imglist",
+    "yyf_oo/pages/case/case",
+    "yyf_oo/pages/about/about",
+    "yyf_oo/pages/news/news",
+    "yyf_oo/pages/webview/webview",
+    "yyf_oo/pages/coupon/coupon",
+    "yyf_oo/pages/person/person",
+    "yyf_oo/pages/details/details",
+    "yyf_oo/pages/order/order",
+    "yyf_oo/pages/order/ordercoupon/ordercoupon",
+    "yyf_oo/pages/order/orderperson/orderperson",
+    "yyf_oo/pages/user/user",
+    "yyf_oo/pages/user/userinfo/userinfo",
+    "yyf_oo/pages/user/myscore/myscore",
+    "yyf_oo/pages/user/recharge/recharge",
+    "yyf_oo/pages/user/mycoupon/mycoupon",
+    "yyf_oo/pages/man/man",
+    "yyf_oo/pages/persondetails/persondetails",
+    "yyf_oo/pages/comment/comment",
+    "yyf_oo/pages/index/shop/shop",
+    "yyf_oo/pages/order/shopswitch/shopswitch",
+    "yyf_oo/pages/group/group",
+    "yyf_oo/pages/groupman/groupman",
+    "yyf_oo/pages/order/ordertime/index",
+    "yyf_oo/pages/persondetails/personcomment"
+  ],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  },
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#55c8c9",
+    "navigationBarTitleText": "",
+    "navigationBarTextStyle": "white"
+  },
+  "navigateToMiniProgramAppIdList": [],
+  "sitemapLocation": "sitemap.json"
+}

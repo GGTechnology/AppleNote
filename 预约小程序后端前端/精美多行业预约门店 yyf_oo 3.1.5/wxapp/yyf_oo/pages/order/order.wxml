@@ -1,0 +1,188 @@
+<view class="top_text" style="background:{{style['tcolor']}}">
+    <view class="top_div">
+        <view class="news-div">
+            <view class="news-item">
+                <view class="news-item-img">
+                    <image src="{{list.thumb}}"></image>
+                </view>
+                <view class="news-item-content">
+                    <view class="news-item-title">
+                  {{list.title}}
+                </view>
+                    <view class="news-item-other">{{list.desc}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="order_input">
+    <view bindtap="navShopSwitch" class="order_item" wx:if="{{multi=='2'}}">
+        <view class="order_title">
+            <view class="title">门店选择</view>
+            <view class="info">
+        {{shopname}}
+      </view>
+        </view>
+        <view class="right_img">
+            <image src="../../resource/images/right.png"></image>
+        </view>
+    </view>
+    <view class="order_item">
+        <view class="order_title">
+            <view class="title">姓名</view>
+            <view class="info">
+                <input bindblur="usernameChange" placeholder="请填写姓名" type="text" value="{{username}}"></input>
+            </view>
+        </view>
+    </view>
+    <view class="order_item">
+        <view class="order_title">
+            <view class="title">手机号</view>
+            <view class="info">
+                <input bindblur="phoneChange" type="text" value="{{phone}}"></input>
+            </view>
+        </view>
+    </view>
+    <view class="order_item" wx:if="{{start_arrange=='0'}}">
+        <view class="order_title">
+            <view class="title">预约时间</view>
+            <view class="select_date">
+                <picker bindchange="changeDateTime1" bindcolumnchange="changeDateTimeColumn1" mode="multiSelector" range="{{dateTimeArray1}}" value="{{dateTime1}}">
+                    <view class="picker">{{dateTimeArray1[0][ dateTime1[0] ]}}-{{dateTimeArray1[1][ dateTime1[1] ]}}-{{dateTimeArray1[2][ dateTime1[2] ]}} {{dateTimeArray1[3][ dateTime1[3] ]}}:{{dateTimeArray1[4][ dateTime1[4] ]}}          </view>
+                </picker>
+            </view>
+        </view>
+        <view class="right_img">
+            <image src="../../resource/images/right.png"></image>
+        </view>
+    </view>
+    <block wx:for="{{formList}}" wx:for-index="fidx" wx:key="{{formindex}}">
+        <view class="order_item" wx:if="{{item.type=='text'}}">
+            <view class="order_title">
+                <view class="title">{{item.name}}</view>
+                <view class="info">
+                    <input bindblur="checkboxChange" data-key="{{item.name}}" data-unia="test1" placeholder="{{item.value}}" type="text" value="{{n1v}}"></input>
+                </view>
+            </view>
+        </view>
+        <view class="order_item" wx:if="{{item.type=='select'}}">
+            <view class="order_title">
+                <view class="title">{{item.name}}</view>
+                <view class="info select_date">
+                    <picker bindchange="checkboxChange" data-fidx="{{fidx}}" data-key="{{item.name}}" data-kind="select" range="{{item.value}}" value="{{item.selectIndex}}">
+                        <view class="picker">{{item.value[item.selectIndex]}}</view>
+                    </picker>
+                </view>
+                <view class="right_img">
+                    <image src="../../resource/images/right.png"></image>
+                </view>
+            </view>
+        </view>
+        <view class="order_item" wx:if="{{item.type=='checkbox'}}">
+            <view class="order_title_checkbox">
+                <view class="title_checkbox">{{item.name}}</view>
+                <checkbox-group bindchange="checkboxChange" data-key="{{item.name}}">
+                    <view class="info_checkbox">
+                        <view class="checkbox1" wx:for="{{item.value}}" wx:key="{{index}}">
+                            <checkbox value="{{item}}"></checkbox>{{item}}
+            </view>
+                    </view>
+                </checkbox-group>
+            </view>
+        </view>
+        <view class="order_item" wx:if="{{item.type=='radio'}}">
+            <view class="order_title_checkbox">
+                <view class="title_checkbox">{{item.name}}</view>
+                <radio-group bindchange="checkboxChange" class="radio-group" data-key="{{item.name}}">
+                    <view class="info_checkbox">
+                        <view class="checkbox1" wx:for="{{item.value}}" wx:key="{{index}}">
+                            <radio value="{{item}}"></radio>{{item}}
+            </view>
+                    </view>
+                </radio-group>
+            </view>
+        </view>
+        <view class="order_item" wx:if="{{item.type=='textarea'}}">
+            <view class="order_title_checkbox">
+                <view class="title_checkbox">{{item.name}}</view>
+                <view class="fb-body-content">
+                    <textarea bindblur="checkboxChange" class="content" data-key="{{item.name}}" placeholder="{{item.value}}"></textarea>
+                </view>
+            </view>
+        </view>
+    </block>
+    <view bindtap="navCoupon" class="order_item" wx:if="{{hide_price==0}}">
+        <view class="order_title">
+            <view class="title">优惠券</view>
+            <view class="info">
+        {{startgroup=='1'?'拼团不支持叠加优惠':coupon.title}}
+      </view>
+        </view>
+        <view class="right_img">
+            <image src="../../resource/images/right.png"></image>
+        </view>
+    </view>
+    <view bindtap="navPerson" class="order_item" wx:if="{{show_person=='1'}}">
+        <view class="order_title">
+            <view class="title">选择{{person_name}}</view>
+            <view class="info">
+        {{personName}}
+      </view>
+        </view>
+        <view class="right_img">
+            <image src="../../resource/images/right.png"></image>
+        </view>
+    </view>
+    <view class="order_item" wx:if="{{show_person=='1'&&start_arrange=='1'}}">
+        <view class="order_title">
+            <view class="title">预约时间</view>
+            <view class="info">
+                <block wx:if="{{orderdate&&orderstart}}">
+            {{orderdate}} {{orderstart}}
+          </block>
+            </view>
+        </view>
+    </view>
+    <block wx:if="{{close_pay=='0'}}">
+        <view class="order_item arrival" wx:if="{{is_arrival=='1'&&startgroup=='0'}}">
+            <view class="order_title">
+                <view class="title">到店付款</view>
+            </view>
+            <view class="right_img">
+                <switch bindchange="arrivalChange" color="{{style.tcolor}}"></switch>
+            </view>
+        </view>
+        <view class="order_item arrival" wx:if="{{hide_balance=='0'}}">
+            <view class="order_title">
+                <view class="title">余额支付</view>
+                <view class="info balance">
+          余额({{balance}})元
+      </view>
+            </view>
+            <view class="right_img">
+                <switch bindchange="balanceChange" checked="{{check_balance}}" color="{{style.tcolor}}"></switch>
+            </view>
+        </view>
+    </block>
+</view>
+<view class="notice">
+    <view class="notice_div">
+        <image src="../../resource/images/notice.png"></image>
+    </view>
+ {{reminder}}
+ </view>
+<view class="price_div">
+    <view bindtap="checkPrice" class="price">
+        <block wx:if="{{hide_price==0}}">
+            <text class="price_logo">¥</text>
+            <text class="price_text">{{total}}</text>
+            <text class="price_logo" wx:if="{{sale!='0.0'&&sale!=null}}">({{sale}}折)</text>
+        </block>
+    </view>
+    <view class="price_btn">
+        <view bindtap="submitOrder" class="price_button">
+       {{close_pay=='0'?'在线支付':'申请预约'}}
+    
+    </view>
+    </view>
+</view>

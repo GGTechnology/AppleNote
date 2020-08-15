@@ -1,0 +1,46 @@
+<view class="person_layout">
+    <view class="person_item" wx:for="{{list}}" wx:for-index="id" wx:key="{{fidx1}}">
+        <view class="person_top">
+            <view class="person_top_left">
+                <view class="pname">{{item.name}}</view>
+                <view class="job_title">{{item.job_title}}</view>
+            </view>
+            <view class="person_top_right">
+                <view bindtap="clickOrder" data-id="{{id}}" data-statu="open">点击预约</view>
+            </view>
+        </view>
+        <view class="person_img">
+            <image mode="aspectFill" src="{{item.thumb}}"></image>
+        </view>
+        <view class="person_bottom">
+            <view class="person_bottom_left">
+                <view wx:for="{{item.skills}}" wx:key="{{fidx1}}">{{item}}</view>
+            </view>
+            <view class="person_bottom_right"></view>
+        </view>
+    </view>
+</view>
+<view bindtap="powerDrawer" class="drawer_screen" data-statu="close" wx:if="{{showModalStatus}}"></view>
+<view animation="{{animationData}}" class="drawer_attr_box" wx:if="{{showModalStatus}}">
+    <view class="drawer_content">
+        <view class="containt">
+            <scroll-view scrollX class="scroll-view_H">
+                <view class="list" style="width:{{width}}rpx">
+                    <view bindtap="select" class="listItem {{index==currentIndex?'current':''}}" data-index="{{index}}" wx:for="{{calendar}}" wx:key="{{fidx1}}">
+                        <text class="name">{{item.week}}</text>
+                        <text class="date">{{item.date}}</text>
+                    </view>
+                </view>
+            </scroll-view>
+            <view class="time">
+                <view bindtap="selectTime" class="listItem {{currentTime==timeIndex?'current':''}}" data-Tindex="{{timeIndex}}" wx:for="{{timeArr}}" wx:for-index="timeIndex" wx:for-item="timeItem" wx:key="{{fidx1}}">
+                    <text>{{timeItem.time}}</text>
+                    <text>{{timeItem.status}}</text>
+                </view>
+            </view>
+            <view class="operate">
+                <button bindtap="submitTimeAction" class="save">确认开始时间</button>
+            </view>
+        </view>
+    </view>
+</view>

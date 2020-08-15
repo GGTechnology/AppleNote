@@ -1,0 +1,70 @@
+{template 'common/header'}
+<div class="panel panel-default">
+    <div class="panel-heading">筛选</div>
+    <div class="table-responsive panel-body">
+        <form action="" method="post" class="navbar-form" role="form" id="searchForm">
+            <div class="form-group">
+                <input type="hidden" name="token" value="{$_W['token']}">
+                <input type="text" class="form-control" placeholder="请输入微信昵称搜索" name="keyword" style="width: 190px;">
+            </div>
+
+            <input type="submit" name="submit" class="btn btn-default" value="搜索">
+        </form>
+    </div>
+</div>
+<div class="panel panel-default">
+    <div class="alert alert-info" role="alert">
+        使用方法：客服首次访问小程序-》进入会员中心-》点击允许获取头像和昵称,然后在后台搜索昵称，设为员工后。该员工就可以用微信扫一扫，扫描客户出示的订单二维码。进行核销
+    </div>
+    <div class="panel-heading">
+        <h3 class="panel-title">
+            客服管理
+        </h3>
+    </div>
+
+
+    <div class="panel-body">
+
+        <input type="hidden" name="storeid" value="">
+        <div class="table-responsive panel-body">
+            <table class="table table-hover">
+                <thead class="navbar-inner">
+                <tr>
+                    <th>头像</th>
+                    <th>昵称</th>
+
+
+                    <th style="text-align:right;">操作</th>
+                </tr>
+                </thead>
+                <tbody id="level-list">
+                {loop $list $index $item}
+                <tr>
+                    <td><div class="type-parent"><img src="{$item['avatar']}"  style="width:50px; height: 50px;" /></div></td>
+                    <td><div class="type-parent">{$item['nickname']}</div></td>
+
+                    <td style="text-align:right;">&nbsp;&nbsp;<a class="btn btn-default btn-sm" href="{url 'site/entry/Admin',array('uid'=>$item['id'],'m'=>'yyf_oo','op'=>'set')}" >进入设置</a>
+                    </td>
+
+
+
+
+                </tr>
+                {/loop}
+                </tbody>
+            </table>
+            {$pager}
+        </div>
+
+    </div>
+</div>
+
+<script type="text/javascript">
+    // $(function(){
+    //     $('#searchBtn').click(function(){
+    //         $('#searchForm').submit();
+    //     })
+    // })
+
+</script>
+{template 'common/footer'}

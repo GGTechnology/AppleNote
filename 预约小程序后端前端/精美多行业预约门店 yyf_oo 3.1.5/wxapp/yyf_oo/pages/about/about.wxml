@@ -1,0 +1,40 @@
+<view class="pic_div" style="padding-bottom:15rpx;">
+    <view class="info">
+        <view class="thumb">
+            <image bindtap="previewImage" data-index="0" src="{{currentImage}}" wx:if="{{currentImage}}"></image>
+        </view>
+        <view class="thumb_notice">相册{{imageCount}}张</view>
+    </view>
+    <view class="bo_div">
+        <view class="bus-position">
+            <view class="address_text">地址：{{list.address}}</view>
+        </view>
+    </view>
+</view>
+<view class="info_bg" style="margin-top:60rpx;">
+    <view class="info">
+        <view class="title"> 简介 </view>
+        <view class="item"> {{list.desc}} </view>
+    </view>
+</view>
+<view class="info_bg">
+    <view class="info">
+        <view class="title"> 硬件设施 </view>
+        <view class="bus ">
+            <view class="bus-item" wx:for="{{list.hards}}" wx:key="{{index}}">
+                <image src="{{item.thumb}}"></image>
+                <text>{{item.name}}</text>
+            </view>
+        </view>
+    </view>
+</view>
+<view class="copyright {{blist.copyright.copyright==''?'mt0':''}}">
+    <block wx:if="{{blist.copyright.copyright!=''}}">
+        <import src="../public/copy.wxml"></import>
+        <template is="copy" data="{{blist:blist}}"></template>
+    </block>
+</view>
+<block wx:if="{{blist['show_tabbar']=='1'}}">
+    <import src="../public/foot.wxml"></import>
+    <template is="foot" data="{{blist:blist}}"></template>
+</block>

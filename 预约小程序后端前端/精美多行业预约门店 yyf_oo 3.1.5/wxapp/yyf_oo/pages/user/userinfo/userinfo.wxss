@@ -1,0 +1,160 @@
+page {
+    position: relative;
+    background: #eee;
+}
+
+.top {
+    position: relative;
+    width: 100%;
+    height: 350rpx;
+    text-align: center;
+    margin-bottom: 20rpx;
+}
+
+.top_bg {
+    width: 100%;
+    height: 350rpx;
+    top: 0;
+    left: 0;
+    position: absolute;
+}
+
+.top_bg image {
+    width: 100%;
+    height: 350rpx;
+}
+
+.top_bc {
+    position: absolute;
+    width: 100%;
+    height: 350rpx;
+    top: 0;
+    left: 0;
+    opacity: 0.7;
+}
+
+.user_div {
+    position: absolute;
+    top: 300rpx;
+    z-index: 3;
+    width: 100%;
+}
+
+.user_item {
+    width: 92%;
+    background: white;
+    margin: 0 auto;
+    height: 330rpx;
+    font-size: 14px;
+    border-radius: 5rpx;
+    z-index: 0;
+}
+
+.title {
+    width: 100%;
+    text-align: center;
+    font-size: 16px;
+    padding-top: 20rpx;
+    font-weight: bold;
+    color: #444050;
+    padding-bottom: 20rpx;
+}
+
+.input_div {
+    width: 90%;
+    margin: 0 auto;
+    height: 80rpx;
+    border: 1px solid #e5e5e5;
+    border-radius: 10rpx;
+    display: flex;
+    margin-bottom: 20rpx;
+}
+
+.left_ico {
+    width: 20%;
+}
+
+.left_ico image {
+    width: 60rpx;
+    height: 60rpx;
+    margin: 10rpx 0 0 25rpx;
+}
+
+.right_input {
+    width: 80%;
+}
+
+.right_input input {
+    width: 100%;
+    height: 80rpx;
+    line-height: 80rpx;
+    color: #9b9a9b;
+}
+
+.submit_btn {
+    position: absolute;
+    top: 590rpx;
+    width: 100%;
+    z-index: 99;
+}
+
+.submit_btn view {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.submit_btn button {
+    background: white;
+    border: 0px;
+    color: white;
+    border-radius: 70rpx;
+}
+
+.title1 {
+    height: 85rpx;
+    line-height: 85rpx;
+    background: white;
+    border-left: 5px solid white;
+    font-size: 16px;
+    text-indent: 10px;
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    top: 720rpx;
+    width: 100%;
+    border-bottom: 1px dotted #eeeeee;
+}
+
+.level_div {
+    position: absolute;
+    top: 806rpx;
+    width: 100%;
+    background: white;
+    padding-top: 15rpx;
+    padding-bottom: 10rpx;
+}
+
+.level_item {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    font-size: 16px;
+    padding-bottom: 10rpx;
+    color: #666666;
+}
+
+.left_div {
+    display: flex;
+    justify-content: space-between;
+    width: 70%;
+}
+
+.level_middle_condition {
+    text-align: left;
+    width: 55%;
+}
+
+.blue {
+    color: #099fde;
+}

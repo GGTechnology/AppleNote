@@ -1,0 +1,21 @@
+<template name="person">
+    <view class="person_item" wx:for="{{personList}}" wx:key="{{fidx}}">
+        <view class="person_top">
+            <view class="person_top_left">
+                <view class="pname">{{item.name}}</view>
+                <view class="job_title">{{item.job_title}}</view>
+            </view>
+            <view bindtap="navPerson" class="person_top_right" data-pid="{{item.id}}">
+                <view>点击预约</view>
+            </view>
+        </view>
+        <view class="person_img">
+            <image mode="aspectFill" src="{{item.thumb}}"></image>
+        </view>
+        <view class="person_bottom">
+            <view class="person_bottom_left">
+                <view wx:for="{{item.skills}}" wx:key="{{index}}">{{item}}</view>
+            </view>
+        </view>
+    </view>
+</template>
