@@ -1,7 +1,0 @@
-
-
-target 'pod' do
-
-pod 'Masonry'
-
-end

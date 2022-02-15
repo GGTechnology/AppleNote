@@ -1,5 +1,0 @@
-target '图片无损存储' do
-
-    pod 'SDWebImage'
-
-end
