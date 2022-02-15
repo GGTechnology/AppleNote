@@ -1,8 +1,0 @@
-var foo = "😀 我在 comm.wxs 文件";
-var bar = function (d) {
-  return d;
-}
-module.exports = {
-  foo: foo,
-  bar: bar
-};
